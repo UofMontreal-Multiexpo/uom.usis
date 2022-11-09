@@ -1,0 +1,9 @@
+# Files and folders relating to R and RStudio environment
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Folders relating to package development and building
+/doc/
+/Meta/
