@@ -1,0 +1,25 @@
+Package: uom.imis
+Type: Package
+Title: Integrated Management Information System
+Version: 0.0.0.9000-0
+Date: 2022-11-09
+Authors@R: c(
+    person("Gauthier", "Magnin", email = "gauthier.magnin@gmail.com", role = c("aut", "ctr", "cre")),
+    person("Isabelle", "Valois", email = "isabelle.valois.2@umontreal.ca", role = "aut"),
+    person("CHUM - Centre Hospitalier de l'Université de Montréal", role = c("cph", "fnd"))
+  )
+Description: Data about occupational exposure to chemicals from the IMIS and OIS
+    databases. Raw data used from these databases and CSV format of final
+    datasets are available in this
+    \href{https://www.dropbox.com/sh/09ygmyw7ds5myz3/AADtdE2LMbDphVwjPzbWNDbRa?dl=0}{Dropbox folder}.
+    The \href{https://www.osha.gov/}{OSHA} (USA's Occupational Safety and Health
+    Administration) hosts the original IMIS and OIS data. The University of
+    Montreal is not the owner of IMIS and OIS data.
+License: Undefined
+URL: https://github.com/UofMontreal-Multiexpo/uom.imis
+BugReports: https://github.com/UofMontreal-Multiexpo/uom.imis/issues
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)

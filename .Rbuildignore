@@ -1,0 +1,9 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.md$
+^\.RData$
+^\.Rhistory$
+^doc$
+^Meta$
+^man-roxygen$
+^data-raw$
