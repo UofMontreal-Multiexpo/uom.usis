@@ -7,3 +7,11 @@
 # Folders relating to package development and building
 /doc/
 /Meta/
+
+# Files and folders relating to raw databases and CSV final datasets
+/data-raw/IMIS_data*
+/data-raw/OIS_data*
+/data/csv/*
+
+# Exceptions to keep folder structure (empty folders)
+!/data/csv/.gitkeep
