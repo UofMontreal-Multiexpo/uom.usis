@@ -2,6 +2,22 @@
 
 # Input:  ./data-raw/IMIS_data.RDS
 # Output: ./tmp/IMIS_data.RDS
+#
+# Processing:
+# 1. Cleaning of establishment names (and to a lesser extent, of cities and
+#    states):
+#    * Set `establishment`, `city` and `state` in upper case.
+#    * Remove punctuation marks in `establishment`.
+#    * Remove legal forms in `establishment` (LLC, INC, CO., etc.).
+#    * Remove space between letters "U" and "S" in this order.
+#    * Remove extra spaces and ending spaces
+# 2. Assignment of identifiers to cities. An identifier is created by pasting
+#    the state name with the city name and the US postal code.
+#    This new variable is named "STATE_CITY_ZIP".
+# 3. Assignment of identifiers to establishments. The same identifier is
+#    assigned to establishments located in the same city/state and having very
+#    similar names.
+#    This new variable is named "COMPANY_INDEX".
 
 
 ##################################### DATA IMPORT #########################################
