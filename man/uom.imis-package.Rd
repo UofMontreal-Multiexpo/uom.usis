@@ -34,7 +34,7 @@ Useful links:
 
 }
 \author{
-Gauthier Magnin, Isabelle Valois
+Gauthier Magnin, Isabelle Valois, Delphine Bosson-Rieutort.
 
 Maintainer: Gauthier Magnin \email{gauthier.magnin@gmail.com}
 }

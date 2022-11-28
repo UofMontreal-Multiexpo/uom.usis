@@ -52,7 +52,6 @@ remotes::install_github("UofMontreal-Multiexpo/uom.imis",
 In addition to the manuals of the package, data and functions (accessible by the `help` function), the **inst/doc** directory contains:
 
 * An organized list of the datasets and functions, in the file `list_of_help_pages.html`.
-
 * A description of the IMIS and OIS data, in the file `IMIS_database.pdf`.
 
 These files can be accessed using `help(package = "uom.imis")` then clicking on "User guides, package vignettes and other documentation".
@@ -62,8 +61,12 @@ These files can be accessed using `help(package = "uom.imis")` then clicking on 
 
 * [**Gauthier Magnin**](https://fr.linkedin.com/in/gauthier-magnin) - R programmer analyst.
 * [**Isabelle Valois**](https://espum.umontreal.ca/lespum/departement-de-sante-environnementale-et-sante-au-travail/lequipe-du-departement/agents-et-professionnels-de-recherche/) - Research officer at University of Montreal.
+* [**Delphine Bosson-Rieutort**](https://espum.umontreal.ca/lespum/departement-de-gestion-devaluation-et-de-politique-de-sante/lequipe-du-departement/personnel-enseignant/professeur/in/in30464/sg/Delphine%20Bosson-Rieutort/) - Assistant professor at University of Montreal School of Public Health.
 
 
 ## Collaboration
 
 * [OSHA](https://www.osha.gov/): Occupational Safety and Health Administration, agency of the United States Department of Labor.
+
+
+---
