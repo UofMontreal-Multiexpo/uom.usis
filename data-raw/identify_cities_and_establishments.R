@@ -1,8 +1,7 @@
 ##################################### IMIS CLEANING #######################################
 
-# Input:   IMIS.RDS
-# Outputs: - IMIS_clean.RDS
-#          - IMIS_clean.csv
+# Input:  ./data-raw/IMIS_data.RDS
+# Output: ./tmp/IMIS_data.RDS
 
 
 ##################################### DATA IMPORT #########################################
@@ -12,7 +11,13 @@ library(qdap)
 library(stringdist)
 
 # Data to clean
-IMIS <- readRDS("IMIS.RDS")
+IMIS <- readRDS("./data-raw/IMIS_data.RDS")
+
+# Change variable names for this script
+var_initial_names   <- c("establishment", "state.1", "city", "zip")
+var_temporary_names <- toupper(var_initial_names)
+var_indices <- match(var_initial_names, colnames(IMIS))
+colnames(IMIS)[var_indices] <- var_temporary_names
 
 
 ########################## CLEANING ON COMPANIES - PART 1 #################################
@@ -255,5 +260,10 @@ IMIS$COMPANY_INDEX <- CORRESP_INDEX[ID_for_match, 'INDEX']
 
 ##################################### DATA EXPORT #########################################
 
-saveRDS(IMIS, 'IMIS_clean.RDS')
-write.table(IMIS, 'IMIS_clean.csv', row.names = FALSE, sep = ";")
+# Change variable names back
+colnames(IMIS)[var_indices] <- var_initial_names
+
+# Save the data frame in a specific folder
+tmp_dir = "./tmp/"
+dir.create(tmp_dir, showWarnings = FALSE)
+saveRDS(IMIS, paste0(tmp_dir, "IMIS_data.RDS"))
