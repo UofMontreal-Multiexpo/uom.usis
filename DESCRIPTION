@@ -1,6 +1,6 @@
-Package: uom.imis
+Package: uom.usis
 Type: Package
-Title: Integrated Management Information System
+Title: United States Information Systems
 Version: 0.0.0.9000-0
 Date: 2022-11-09
 Authors@R: c(
@@ -17,8 +17,8 @@ Description: Data about occupational exposure to chemicals from the IMIS and OIS
     Administration) hosts the original IMIS and OIS data. The University of
     Montreal is not the owner of IMIS and OIS data.
 License: Undefined
-URL: https://github.com/UofMontreal-Multiexpo/uom.imis
-BugReports: https://github.com/UofMontreal-Multiexpo/uom.imis/issues
+URL: https://github.com/UofMontreal-Multiexpo/uom.usis
+BugReports: https://github.com/UofMontreal-Multiexpo/uom.usis/issues
 Suggests:
     qdap,
     stringdist

@@ -1,5 +1,5 @@
 
-title  <- paste("uom.imis:", meta$Title)
+title  <- paste("uom.usis:", meta$Title)
 author <- substr(meta$Author, 1, rev(gregexpr("],\n ", meta$Author)[[1]])[1])
 year   <- sub("-.*", "", meta$Date)
 note   <- sprintf("R package version %s", meta$Version)
@@ -11,4 +11,4 @@ bibentry(bibtype = "Manual",
          year    = year,
          note    = note,
          url     = url,
-         header  = "To cite uom.imis in publications, please use:")
+         header  = "To cite uom.usis in publications, please use:")

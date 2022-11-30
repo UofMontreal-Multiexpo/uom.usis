@@ -1,4 +1,4 @@
-# Integrated Management Information System
+# United States Information Systems
 
 
 ## Purpose
@@ -28,20 +28,20 @@ A personal access token provides access to the GitHub API. To get one if you don
 
 To install the latest version, run the following instruction using your token as the `auth_token` argument.
 ```r
-remotes::install_github("UofMontreal-Multiexpo/uom.imis",
+remotes::install_github("UofMontreal-Multiexpo/uom.usis",
                         auth_token = "my_personal_access_token")
 ```
 
 To install the development version, use:
 ```r
-remotes::install_github("UofMontreal-Multiexpo/uom.imis",
+remotes::install_github("UofMontreal-Multiexpo/uom.usis",
                         auth_token = "my_personal_access_token",
                         ref = "develop")
 ```
 
 To install a previous version, run the following instruction replacing `X.X.X-X` with the desired version number.
 ```r
-remotes::install_github("UofMontreal-Multiexpo/uom.imis",
+remotes::install_github("UofMontreal-Multiexpo/uom.usis",
                         auth_token = "my_personal_access_token",
                         ref = "vX.X.X-X")
 ```
@@ -52,9 +52,9 @@ remotes::install_github("UofMontreal-Multiexpo/uom.imis",
 In addition to the manuals of the package, data and functions (accessible by the `help` function), the **inst/doc** directory contains:
 
 * An organized list of the datasets and functions, in the file `list_of_help_pages.html`.
-* A description of the IMIS and OIS data, in the file `IMIS_database.pdf`.
+* A description of the IMIS and OIS data, in the file `USIS_database.pdf`.
 
-These files can be accessed using `help(package = "uom.imis")` then clicking on "User guides, package vignettes and other documentation".
+These files can be accessed using `help(package = "uom.usis")` then clicking on "User guides, package vignettes and other documentation".
 
 
 ## Authors
