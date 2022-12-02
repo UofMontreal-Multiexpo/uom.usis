@@ -255,6 +255,7 @@ for(i in 1:length(list_state_city_zip2)){
 
 merged_company <- data.frame(merged_company[1:m, ], stringsAsFactors = FALSE)
 colnames(merged_company) <- c("ESTABLISHMENT", "STATE_CITY_ZIP", "INDEX")
+merged_company$INDEX <- as.numeric(merged_company$INDEX)
 
 
 ########################### 2.5. CREATION OF THE FINAL INDEX ##############################
