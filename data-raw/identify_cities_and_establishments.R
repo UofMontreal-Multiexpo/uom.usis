@@ -6,13 +6,18 @@
 # Processing:
 # 1. Cleaning of establishment names (and to a lesser extent, of cities and
 #    states):
-#    * Set `establishment`, `city` and `state` in upper case.
-#    * Remove punctuation marks in `establishment`.
-#    * Remove legal forms in `establishment` (LLC, INC, CO., etc.).
-#    * Remove space between letters "U" and "S" in this order.
-#    * Remove extra spaces and ending spaces
+#    * Set `ESTABLISHMENT`, `CITY` and `STATE.1` in upper case.
+#    * In `CITY`:
+#      * replace "AIR FORCE BASE" by its acronym "AFB";
+#      * replace names of cities having several forms;
+#      * replace names of districts or specific areas with the actual city name.
+#    * Remove in `ESTABLISHMENT`:
+#      * punctuation marks;
+#      * legal forms (LLC, INC, CO., etc.);
+#      * spaces between letters "U" and "S" in this order;
+#      * extra spaces and ending spaces.
 # 2. Assignment of identifiers to cities. An identifier is created by pasting
-#    the state name with the city name and the US postal code.
+#    the state name with the CITY name and the US postal code.
 #    This new variable is named "STATE_CITY_ZIP".
 # 3. Assignment of identifiers to establishments. The same identifier is
 #    assigned to establishments located in the same city/state and having very
@@ -36,16 +41,31 @@ var_indices <- match(var_initial_names, colnames(IMIS))
 colnames(IMIS)[var_indices] <- var_temporary_names
 
 
-########################## CLEANING ON COMPANIES - PART 1 #################################
-## Clean establishment names
+################################ CLEANING ON CITIES #######################################
 
 # Standardize the letter case of the variables identifying an establishment
 IMIS[, c("ESTABLISHMENT", "CITY", "STATE.1")] <- data.frame(apply(IMIS[, c("ESTABLISHMENT", "CITY", "STATE.1")],
                                                                   2, toupper))
 
+# Replace a group of words by its acronym (which is more often used)
+IMIS$CITY <- gsub('AIR FORCE BASE', 'AFB', IMIS$CITY)
+
+# Replace city names having several forms
+IMIS$CITY <- gsub("FT WALTON BEACH", "FORT WALTON BEACH", IMIS$CITY)
+IMIS$CITY <- gsub("OPA LOCKA",       "OPA-LOCKA",         IMIS$CITY)
+IMIS$CITY <- gsub("OCEAN SPGS",      "OCEAN SPRINGS",     IMIS$CITY)
+IMIS$CITY <- gsub("DE BARY",         "DEBARY",            IMIS$CITY)
+
+# Replace names of districts or specific areas used instead of city names
+IMIS$CITY <- gsub("APPLIANCE PARK", "LOUISVILLE", IMIS$CITY)
+IMIS$CITY <- gsub("DELAIR",         "PENNSAUKEN", IMIS$CITY)
+
 # Create an identifier for each city : STATE_CITY_ZIP
 IMIS$STATE_CITY_ZIP <- paste0(IMIS$STATE.1, '-', IMIS$CITY,'-', IMIS$ZIP)
 
+
+########################## CLEANING ON COMPANIES - PART 1 #################################
+## Clean establishment names
 
 # Exclusion of punctuation
 IMIS$ESTABLISHMENT <- gsub('[[:punct:]]+', ' ', IMIS$ESTABLISHMENT)
