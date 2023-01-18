@@ -16,12 +16,11 @@
 #      * legal forms (LLC, INC, CO., etc.);
 #      * spaces between letters "U" and "S" in this order;
 #      * extra spaces and ending spaces.
-# 2. Assignment of identifiers to cities. An identifier is created by pasting
-#    the state name with the CITY name and the US postal code.
+# 2. Assignment of identifiers to locations. An identifier is created by pasting
+#    the state name with the city name and the US postal code.
 #    This new variable is named "STATE_CITY_ZIP".
 # 3. Assignment of identifiers to establishments. The same identifier is
-#    assigned to establishments located in the same city/state and having very
-#    similar names.
+#    assigned to establishments having the same location and very similar names.
 #    This new variable is named "COMPANY_INDEX".
 
 
