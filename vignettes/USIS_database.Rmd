@@ -1,0 +1,276 @@
+---
+title: "USIS database"
+author: "Isabelle Valois, Gauthier Magnin"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+    # xelatex has better Unicode support than the default latex engine.
+    # Unicode support is needed to display substance names.
+    includes:
+      in_header:
+        - ./USIS_database/columns.tex
+        - ./USIS_database/landscape.tex
+        - ./USIS_database/fontsize.tex
+        # columns.tex   allows to divide part of a page into several columns.
+        # landscape.tex allows to create pages in landscape mode.
+        # fontsize.tex  allows to define specific fontsize.
+linkcolor: red
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      ft.tabcolsep = 4)
+
+flextable::set_flextable_defaults(theme_fun = "theme_vanilla",
+                                  fonts_ignore = TRUE)
+```
+
+```{r loading, include=FALSE}
+# Loading packages
+library(flextable)
+library(kableExtra)
+library(magrittr)
+library(uom.usis)
+
+# Loading data
+variable_description = read.csv("./USIS_database/variable_description.csv",
+                                encoding = "UTF-8")
+
+#' Substrings using a regular expression
+#' 
+#' Extract substrings in a character vector using a regular expression.
+#' 
+#' @details
+#' Only the first match of `regex` in each element of `x` is extracted.
+#' 
+#' @param x Character vector.
+#' @param regex Regular expression to use.
+#' @return Character vector containing the matched substrings. At most one
+#'  for each element of `x`.
+#' 
+substr_using_regex = function(x, regex) {
+  regmatches(x, regexpr(regex, x))
+}
+
+#' Embed SVG images in knitr documents
+#' 
+#' Turn an SVG image into a PDF file and import this new file as an external
+#'  image using [`knitr::include_graphics`].
+#' 
+#' @param file Filepath of the SVG image to include, without extension.
+#' @param ... Further arguments to [`knitr::include_graphics`].
+#' @return Value from `file` marked with special internal S3 classes.
+#' 
+include_svg <- function(file, ...) {
+  output = xfun::with_ext(file, "pdf")
+  rsvg::rsvg_pdf(xfun::with_ext(file, "svg"), file = output)
+  return(knitr::include_graphics(output, ...))
+}
+```
+
+
+
+United States Information Systems (USIS) consist of the aggregation of data from two databases: the legacy Integrated Management Information System (IMIS) and its next generation replacement, the OSHA Information System (OIS). These are U.S. databases of industrial hygiene measurements managed by the OSHA (Occupational Safety and Health Administration), a regulatory agency of the United States Department of Labor, as part of its compliance monitoring program. These databases contain information about inspections conducted by both federal and state agencies. Data in IMIS is restricted to enforcement, consultation, and whistleblower information. OIS is a single comprehensive system for all program and regulatory practice. It includes enforcement, consultation, voluntary protection program evaluations, homeland security response and recovery activity, compliance assistance, partnerships, and whistleblower information. The data available relates to the period 1971-2015 in IMIS and to the period 2011-2021 in OIS.
+
+
+<!-- Plot the image on a new landscape page -->
+\blandscape
+```{r fig.cap="USIS database relational schema.", out.width="100%"}
+# The caption does not appear if option out.width is not given
+include_svg("USIS_database/USIS_relational_schema")
+```
+\elandscape
+
+<!-- Previous commands (\blandscape and \elandscape) rotate the figure without
+     rotating the page if no call to kableExtra::landscape is done anywhere.
+```{r}
+landscape(kable(data.frame(A = 1:5, B = 1:5), "latex"))
+```
+-->
+
+```{r}
+# Regular expressions defining hyperlinks
+regex_text = "\\[.*\\]"
+regex_link = "\\(.*\\)"
+regex = paste0(regex_text, regex_link)
+
+# Find substrings to interpret as hyperlinks in the variable description table
+has_link = which(grepl(regex, variable_description$Comments))
+surroundings = strsplit(variable_description$Comments[has_link], regex)
+text = substr_using_regex(variable_description$Comments, regex_text)
+text = substr(text, 2, nchar(text) - 1)
+links = substr_using_regex(variable_description$Comments, regex_link)
+links = substr(links, 2, nchar(links) - 1)
+
+flextable(variable_description) %>%
+  set_caption(caption = "Description of USIS main variables.") %>%
+  # Use width() because set_table_properties(layout = "autofit") results in overflow
+  width(1, unit = "cm", width = 3.36) %>%
+  width(2, unit = "cm", width = 5.4 ) %>%
+  width(3, unit = "cm", width = 2.15) %>%
+  width(4, unit = "cm", width = 4.49) %>%
+  # Interpret hyperlinks
+  compose(i = has_link, j = 4,
+          value = as_paragraph(
+            sapply(surroundings, "[[", 1),
+            hyperlink_text(x = text, url = links),
+            sapply(surroundings, "[[", 2)
+          ))
+```
+
+
+
+# Appendices
+
+## Appendix A: Inspection type reference table {#appendix-a}
+
+```{r}
+flextable(data.frame(ID       = rownames(USIS_inspection_types),
+                     Name     = USIS_inspection_types[, "name"],
+                     Schedule = USIS_inspection_types[, "schedule"])) %>%
+  set_caption(caption = "Identifiers, names and schedules of the types of inspections.") %>%
+  set_table_properties(layout = "autofit")
+```
+
+Inspection types C1, L1 and L2 are sub-categories of types C and L only used in OIS data. Such inspections may exist in IMIS data but are labeled C and L. Inspection types A and M may have been confused in some data.
+
+
+## Appendix B: Inspection scope reference table {#appendix-b}
+
+```{r}
+flextable(data.frame(ID   = names(USIS_scopes),
+                     Name = USIS_scopes)) %>%
+  set_caption(caption = "Identifiers and names of the scopes of inspections.") %>%
+  set_table_properties(layout = "autofit")
+```
+
+
+## Appendix C: Agency type and establishment type reference tables {#appendix-c}
+
+<!-- In columns, long table captions overflow the margins and off the page.
+     Therefore, table names have to be simple text instead of captions.
+     But in that case, a linebreak and a change of the fontsize is needed to
+     get the original style back. -->
+
+:::::: {.cols data-latex=""}
+::: {.col data-latex="{0.46\textwidth}"}
+\ \linebreak
+
+Table 4: \standardfontsize Types of the agencies conducting inspections.
+```{r}
+flextable(data.frame(Type = levels(USIS_agencies))) %>%
+  set_table_properties(layout = "autofit")
+```
+:::
+
+::: {.col data-latex="{0.08\textwidth}"}
+<!-- Empty div (containing a white space) used as column separator -->
+\ 
+:::
+
+::: {.col data-latex="{0.46\textwidth}"}
+\ \linebreak
+
+Table 5: \standardfontsize Types of the establishments inspected.
+```{r}
+flextable(data.frame(Type = levels(USIS_establishments$type))) %>%
+  set_table_properties(layout = "autofit")
+```
+:::
+::::::
+
+
+<!-- Page break to prevent the appendix title from being at the bottom of a page -->
+\newpage
+
+## Appendix D: U.S. territory reference table {#appendix-d}
+
+```{r}
+flextable(data.frame(ID   = rownames(US_territories),
+                     Name = US_territories[, "name"],
+                     Type = US_territories[, "type"])) %>%
+  set_caption(caption = "Identifiers, names and types of the inhabited U.S. territories.") %>%
+  set_table_properties(layout = "autofit")
+```
+
+
+<!-- Page break to prevent the link to appendix E from redirecting to the bottom
+     of the previous page whereas the title is in the next one -->
+\newpage
+
+## Appendix E: Unit reference tables {#appendix-e}
+
+:::::: {.cols data-latex=""}
+::: {.col data-latex="{0.36\textwidth}"}
+\ \linebreak
+
+Table 7: \standardfontsize Units of the exposure durations.
+```{r}
+flextable(data.frame(Unit = levels(USIS_sheets$duration_unit))) %>%
+  set_table_properties(layout = "autofit")
+```
+:::
+
+::: {.col data-latex="{0.08\textwidth}"}
+<!-- Empty div (containing a white space) used as column separator -->
+\ 
+:::
+
+::: {.col data-latex="{0.56\textwidth}"}
+\ \linebreak
+
+Table 8: \standardfontsize Identifiers and names of the units of measured exposure levels.
+```{r}
+flextable(data.frame(ID   = names(USIS_measure_units),
+                     Name = USIS_measure_units)) %>%
+  set_table_properties(layout = "autofit")
+```
+:::
+::::::
+
+
+## Appendix F: Sample type and exposure type reference tables {#appendix-f}
+
+:::::: {.cols data-latex=""}
+::: {.col data-latex="{0.36\textwidth}"}
+\ \linebreak
+
+Table 9: \standardfontsize Identifiers and names of the types of samples taken.
+```{r}
+flextable(data.frame(ID   = names(USIS_sample_types),
+                     Name = USIS_sample_types)) %>%
+  set_table_properties(layout = "autofit")
+```
+:::
+
+::: {.col data-latex="{0.08\textwidth}"}
+<!-- Empty div (containing a white space) used as column separator -->
+\ 
+:::
+
+::: {.col data-latex="{0.56\textwidth}"}
+\ \linebreak
+
+Table 10: \standardfontsize Identifiers and names of the types of reported exposures.
+```{r}
+flextable(data.frame(ID   = names(USIS_exposure_types),
+                     Name = USIS_exposure_types)) %>%
+  set_table_properties(layout = "autofit")
+```
+:::
+::::::
+
+
+<!-- Page break to prevent the appendix title from being at the bottom of a page -->
+\newpage
+
+## Appendix G: Substance reference table {#appendix-g}
+
+```{r}
+flextable(data.frame(ID = names(USIS_substances),
+                     Name = USIS_substances)) %>%
+  set_caption(caption = "Identifiers and names of the sampled substances.") %>%
+  set_table_properties(layout = "autofit")
+```

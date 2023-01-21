@@ -15,6 +15,9 @@
 /data/csv/*
 /tests/res/*
 
+# Intermediate files to create documentation
+/vignettes/USIS_database/USIS_relational_schema.pdf
+
 # Exceptions to keep folder structure (empty folders)
 !/data/csv/.gitkeep
 !/tests/res/.gitkeep

@@ -1,0 +1,43 @@
+"Variable","Definition","Type","Comments"
+"measure_id","Identifier of the measure.","Integer",
+"inspection_id","Identifier of the inspection.","Integer",
+"original_db","Original database of the data.","Enumeration","Can be either ""IMIS"" or ""OIS""."
+"inspection_type_id","Identifier of the inspection type.","Enumeration","See [appendix A](#appendix-a)."
+"scope_id","Identifier of the inspection scope.","Enumeration","See [appendix B](#appendix-b)."
+"was_notified","Indicates whether advance notice of the inspection was given to the establishment inspected.","Boolean","Only in IMIS data."
+"is_unionized","Indicates whether employees covered by inspection are affiliated with a union.","Boolean",
+"number_of_covered","Number of employees covered by the inspection.","Integer","Only in OIS data."
+"agency_id","Identifier of the agency responsible for the inspection.","String",
+"agency_type","Type of the agency responsible for the inspection.","Enumeration","See [appendix C](#appendix-c)."
+"workplace_id","Identifier of the workplace where the inspection was conducted.","Integer",
+"establishment_id","Identifier of the establishment inspected.","String",
+"establishment_type","Type of the establishment inspected.","Enumeration","See [appendix C](#appendix-c)."
+"location_id","Identifier of the location of the establishment inspected.","String",
+"territory_id","Identifier of the U.S. territory corresponding to the location.","Enumeration","See [appendix D](#appendix-d)."
+"city","City corresponding to the location.","String",
+"zip","Postal code corresponding to the location.","String",
+"sic_id","Identifier of the industry, according to the U.S. Standard Industrial Classification of 1987.","String","• Only in IMIS data.
+• See the related [industry classification reference document](https://www.dropbox.com/s/qjheehrqfav3g9r/United%20States%20Standard%20Industrial%20Classification%20-%20Reference%20document.pdf?dl=0)."
+"naics_id","Identifier of the industry, according to the North American Industry Classification System of 2002.","String","See [this extract](https://www.dropbox.com/s/8iej5en4u7k8ins/North%20American%20Industry%20Classification%20System%2C%202002%20-%20U.S.%20reference%20document%20%28extract%29.pdf?dl=0) of the related industry classification reference document."
+"sheet_id","Identifier of the sample sheet to which the measure is attached.","Integer",
+"sheet_number","Number of the sample sheet.","Integer",
+"exposure_duration","Duration of time the hazard has existed.","Real","Only in OIS data."
+"duration_unit","Unit of the exposure duration.","Enumeration","• Only in OIS data.
+• See [appendix E](#appendix-e)."
+"record_id","Identifier of the related exposure record, identifying the area or employee sampled.","Integer","Only in OIS data."
+"number_of_exposed","Number of employees exposed to the hazard.","Integer","Only in IMIS data."
+"occ_id","Identifier of the occupation of the employee sampled, or of the employee the most at risk from exposure, according to the U.S. census occupational classification system of 1980.","String","• Only in IMIS data.
+• See [this appendix](https://www.dropbox.com/s/loz3kkl7oi9goxw/Census%20of%20Population%20and%20Housing%2C%201980%2C%20Summary%20Tape%20File%203%20-%20Technical%20Documentation%20%28appendix%20B6%29.pdf?dl=0) of a related documentation about census data."
+"occ_title","Occupation title of the employee sampled, or of the employee the most at risk from exposure, according to the U.S. census occupational classification system.","String","Only in OIS data."
+"job_title","Descriptive job title of the employee being sampled, or of the employee the most at risk from exposure.","String",
+"exposure_frequency","Frequency of exposure for all exposed employees.","String",
+"sample_date","Sampling date.","Date","Format: YYYY-MM-DD."
+"sample_type_id","Identifier of the type of sample taken.","Enumeration","See [appendix F](#appendix-f)."
+"exposure_assessment","Identifier of an exposure assessment.","Integer","Only in OIS data."
+"substance_id","Identifier of the sampled substance.","String","See [appendix G](#appendix-g)."
+"is_detected","Indicates whether the sampled substance has been detected.","Boolean",
+"exposure_level","Concentration, level of exposure.","Real",
+"measure_unit_id","Identifier of the unit of the measure in which the exposure level and the OEL are expressed.","Enumeration","See [appendix E](#appendix-e)."
+"exposure_type_id","Identifier of the type of exposure reported.","Enumeration","See [appendix F](#appendix-f)."
+"oel","Occupational Exposure Limit corresponding to the type of exposure and to the sampled substance.","Real",
+"severity","The severity of exposure. It corresponds to the exposure level with regard to the exposure limit.","Real",

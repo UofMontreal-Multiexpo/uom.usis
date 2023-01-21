@@ -21,10 +21,16 @@ URL: https://github.com/UofMontreal-Multiexpo/uom.usis
 BugReports: https://github.com/UofMontreal-Multiexpo/uom.usis/issues
 Depends: R (>= 2.10)
 Suggests:
+    flextable,
+    kableExtra,
+    knitr,
+    magrittr,
     qdap,
+    rsvg,
     stringdist,
     tools,
     usethis,
+    xfun,
     xlsx
 Encoding: UTF-8
 LazyData: true
