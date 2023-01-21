@@ -8,10 +8,13 @@
 /doc/
 /Meta/
 
-# Files and folders relating to raw databases and CSV final datasets
+# Files and folders relating to raw databases, CSV final datasets and testing
+# resources
 /data-raw/IMIS_data*
 /data-raw/OIS_data*
 /data/csv/*
+/tests/res/*
 
 # Exceptions to keep folder structure (empty folders)
 !/data/csv/.gitkeep
+!/tests/res/.gitkeep
