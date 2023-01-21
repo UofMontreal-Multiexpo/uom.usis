@@ -1,0 +1,507 @@
+"OCC","Occupation","Occupation Category (1st Level)","Occupation Category (2nd Level)","Occupation Category (3rd Level)","Occupation Category (4th Level)"
+"000","N/A (not applicable)","Not Applicable",,,
+"003","Legislators","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"004","Chief executives and general administrators, public administration","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"005","Administrators and officials, public administration","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"006","Administrators, protective service","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"007","Financial managers","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"008","Personnel and labor relations managers","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"009","Purchasing managers","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"013","Managers, marketing, advertising, and public relations","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"014","Administrators, education and related fields","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"015","Managers, medicine and health","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"016","Managers, properties and real estate","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"017","Postmasters and mail superintendents","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"018","Funeral directors","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"019","Managers and administrators, n.e.c.","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations",,
+"023","Accountants and auditors","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"024","Underwriters","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"025","Other financial officers","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"026","Management analysts","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"027","Personnel, training, and labor relations specialists","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"028","Purchasing agents and buyers, farm products","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"029","Buyers, wholesale and retail trade, except farm products","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"033","Purchasing agents and buyers, n.e.c.","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"034","Business and promotion agents","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"035","Construction inspectors","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"036","Inspection and compliance officers, except construction","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"037","Management related occupations, n.e.c.","Managerial and Professional Specialty Occupations","Executive, Administrative, and Managerial Occupations","Management Related Occupations",
+"043","Architects","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors",
+"044","Aerospace","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"045","Metallurgical and materials","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"046","Mining","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"047","Petroleum","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"048","Chemical","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"049","Nuclear","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"053","Civil","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"054","Agricultural","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"055","Electrical and electronic","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"056","Industrial","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"057","Mechanical","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"058","Marine and naval architects","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"059","Engineers, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors","Engineers"
+"063","Surveyors and mapping scientists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Engineers, Architects, and Surveyors",
+"064","Computer systems analysts and scientists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Mathematical and Computer Scientists",
+"065","Operations and systems researchers and analysts","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Mathematical and Computer Scientists",
+"066","Actuaries","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Mathematical and Computer Scientists",
+"067","Statisticians","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Mathematical and Computer Scientists",
+"068","Mathematical scientists, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Mathematical and Computer Scientists",
+"069","Physicists and astronomers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"073","Chemists, except biochemists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"074","Atmospheric and space scientists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"075","Geologists and geodesists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"076","Physical scientists, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"077","Agricultural and food scientists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"078","Biological and life scientists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"079","Forestry and conservation scientists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"083","Medical scientists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Natural Scientists",
+"084","Physicians","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Diagnosing Occupations",
+"085","Dentists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Diagnosing Occupations",
+"086","Veterinarians","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Diagnosing Occupations",
+"087","Optometrists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Diagnosing Occupations",
+"088","Podiatrists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Diagnosing Occupations",
+"089","Health diagnosing practitioners, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Diagnosing Occupations",
+"095","Registered nurses","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations",
+"096","Pharmacists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations",
+"097","Dietitians","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations",
+"098","Inhalation therapists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations","Therapists"
+"099","Occupational therapists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations","Therapists"
+"103","Physical therapists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations","Therapists"
+"104","Speech therapists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations","Therapists"
+"105","Therapists, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations","Therapists"
+"106","Physicians' assistants","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Health Assessment and Treating Occupations",
+"113","Earth, environmental, and marine science teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"114","Biological science teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"115","Chemistry teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"116","Physics teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"117","Natural science teachers, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"118","Psychology teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"119","Economics teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"123","History teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"124","Political science teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"125","Sociology teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"126","Social science teachers, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"127","Engineering teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"128","Mathematical science teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"129","Computer science teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"133","Medical science teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"134","Health specialties teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"135","Business, commerce, and marketing teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"136","Agriculture and forestry teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"137","Art, drama, and music teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"138","Physical education teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"139","Education teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"143","English teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"144","Foreign language teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"145","Law teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"146","Social work teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"147","Theology teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"148","Trade and industrial teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"149","Home economics teachers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"153","Teachers, postsecondary, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"154","Postsecondary teachers, subject n.s.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Postsecondary",
+"155","Teachers, prekindergarten and kindergarten","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Except Postsecondary",
+"156","Teachers, elementary school","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Except Postsecondary",
+"157","Teachers, secondary school","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Except Postsecondary",
+"158","Teachers, special education","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Except Postsecondary",
+"159","Teachers, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Teachers, Except Postsecondary",
+"163","Counselors, educational and vocational","Managerial and Professional Specialty Occupations","Professional Specialty Occupations",,
+"164","Librarians","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Librarians, Archivists, and Curators",
+"165","Archivists and curators","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Librarians, Archivists, and Curators",
+"166","Economists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social Scientists and Urban Planners",
+"167","Psychologists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social Scientists and Urban Planners",
+"168","Sociologists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social Scientists and Urban Planners",
+"169","Social scientists, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social Scientists and Urban Planners",
+"173","Urban planners","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social Scientists and Urban Planners",
+"174","Social workers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social, Recreation, and Religious Workers",
+"175","Recreation workers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social, Recreation, and Religious Workers",
+"176","Clergy","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social, Recreation, and Religious Workers",
+"177","Religious workers, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Social, Recreation, and Religious Workers",
+"178","Lawyers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Lawyers and Judges",
+"179","Judges","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Lawyers and Judges",
+"183","Authors","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"184","Technical writers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"185","Designers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"186","Musicians and composers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"187","Actors and directors","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"188","Painters, sculptors, craft-artists, and artist printmakers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"189","Photographers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"193","Dancers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"194","Artists, performers, and related workers, n.e.c.","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"195","Editors and reporters","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"197","Public relations specialists","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"198","Announcers","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"199","Athletes","Managerial and Professional Specialty Occupations","Professional Specialty Occupations","Writers, Artists, Entertainers, and Athletes",
+"203","Clinical laboratory technologists and technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Health Technologists and Technicians",
+"204","Dental hygienists","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Health Technologists and Technicians",
+"205","Health record technologists and technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Health Technologists and Technicians",
+"206","Radiologic technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Health Technologists and Technicians",
+"207","Licensed practical nurses","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Health Technologists and Technicians",
+"208","Health technologists and technicians, n.e.c.","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Health Technologists and Technicians",
+"213","Electrical and electronic technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Engineering and Related Technologists and Technicians"
+"214","Industrial engineering technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Engineering and Related Technologists and Technicians"
+"215","Mechanical engineering technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Engineering and Related Technologists and Technicians"
+"216","Engineering technicians, n.e.c.","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Engineering and Related Technologists and Technicians"
+"217","Drafting occupations","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Engineering and Related Technologists and Technicians"
+"218","Surveying and mapping technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Engineering and Related Technologists and Technicians"
+"223","Biological technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Science Technicians"
+"224","Chemical technicians","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Science Technicians"
+"225","Science technicians, n.e.c.","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Science Technicians"
+"226","Airplane pilots and navigators","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Technicians, Except Health, Engineering and Science"
+"227","Air traffic controllers","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Technicians, Except Health, Engineering and Science"
+"228","Broadcast equipment operators","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Technicians, Except Health, Engineering and Science"
+"229","Computer programmers","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Technicians, Except Health, Engineering and Science"
+"233","Tool programmers, numerical control","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Technicians, Except Health, Engineering and Science"
+"234","Legal assistants","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Technicians, Except Health, Engineering and Science"
+"235","Technicians, n.e.c.","Technical, Sales, and Administrative Support Occupations","Technicians and Related Support Occupations","Technologists and Technicians, Except Health","Technicians, Except Health, Engineering and Science"
+"243","Supervisors and proprietors, sales occupations","Technical, Sales, and Administrative Support Occupations","Sales Occupations",,
+"253","Insurance sales occupations","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Representatives, Finance and Business Services",
+"254","Real estate sales occupations","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Representatives, Finance and Business Services",
+"255","Securities and financial services sales occupations","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Representatives, Finance and Business Services",
+"256","Advertising and related sales occupations","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Representatives, Finance and Business Services",
+"257","Sales occupations, other business services","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Representatives, Finance and Business Services",
+"258","Sales engineers","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Representatives, Commodities, Except Retail",
+"259","Sales representatives, mining, manufacturing, and wholesale","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Representatives, Commodities, Except Retail",
+"263","Sales workers, motor vehicles and boats","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"264","Sales workers, apparel","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"265","Sales workers, shoes","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"266","Sales workers, furniture and home furnishings","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"267","Sales workers, radio, TV, hi-fi, and appliances","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"268","Sales workers, hardware and building supplies","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"269","Sales workers, parts","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"274","Sales workers, other commodities","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"275","Sales counter clerks","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"276","Cashiers","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"277","Street and door-to-door sales workers","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"278","News vendors","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales Workers, Retail and Personal Services",
+"283","Demonstrators, promoters and models, sales","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales-Related Occupations",
+"284","Auctioneers","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales-Related Occupations",
+"285","Sales support occupations, n.e.c.","Technical, Sales, and Administrative Support Occupations","Sales Occupations","Sales-Related Occupations",
+"303","Supervisors, general office","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Supervisors, Administrative Support Occupations",
+"304","Supervisors, computer equipment operators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Supervisors, Administrative Support Occupations",
+"305","Supervisors, financial records processing","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Supervisors, Administrative Support Occupations",
+"306","Chief communications operators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Supervisors, Administrative Support Occupations",
+"307","Supervisors, distribution, scheduling, and adjusting clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Supervisors, Administrative Support Occupations",
+"308","Computer operators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Computer Equipment Operators",
+"309","Peripheral equipment operators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Computer Equipment Operators",
+"313","Secretaries","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Secretaries, Stenographers and Typists",
+"314","Stenographers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Secretaries, Stenographers and Typists",
+"315","Typists","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Secretaries, Stenographers and Typists",
+"316","Interviewers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Information Clerks",
+"317","Hotel clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Information Clerks",
+"318","Transportation ticket and reservation agents","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Information Clerks",
+"319","Receptionists","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Information Clerks",
+"323","Information clerks, n.e.c.","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Information Clerks",
+"325","Classified-ad clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Records Processing Occupations, Except Financial",
+"326","Correspondence clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Records Processing Occupations, Except Financial",
+"327","Order clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Records Processing Occupations, Except Financial",
+"328","Personnel clerks, except payroll and timekeeping","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Records Processing Occupations, Except Financial",
+"329","Library clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Records Processing Occupations, Except Financial",
+"335","File clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Records Processing Occupations, Except Financial",
+"336","Records clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Records Processing Occupations, Except Financial",
+"337","Bookkeeping, accounting, and auditing clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Financial Records Processing Occupations",
+"338","Payroll and timekeeping clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Financial Records Processing Occupations",
+"339","Billing clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Financial Records Processing Occupations",
+"343","Cost and rate clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Financial Records Processing Occupations",
+"344","Billing, posting, and calculating machine operators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Financial Records Processing Occupations",
+"345","Duplicating machine operators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Duplicating, Mail, and Other Office Machine Operators",
+"346","Mail preparing and paper handling machine operators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Duplicating, Mail, and Other Office Machine Operators",
+"347","Office machine operators, n.e.c.","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Duplicating, Mail, and Other Office Machine Operators",
+"348","Telephone operators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Communications Equipment Operators",
+"349","Telegraphers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Communications Equipment Operators",
+"353","Communications equipment operators, n.e.c.","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Communications Equipment Operators",
+"354","Postal clerks, except mail carriers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Mail and Message Distributing Occupations",
+"355","Mail carriers, postal service","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Mail and Message Distributing Occupations",
+"356","Mail clerks, except postal service","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Mail and Message Distributing Occupations",
+"357","Messengers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Mail and Message Distributing Occupations",
+"359","Dispatchers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"363","Production coordinators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"364","Traffic, shipping, and receiving clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"365","Stock and inventory clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"366","Meter readers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"368","Weighers, measurers, and checkers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"369","Samplers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"373","Expediters","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"374","Material recording, scheduling, and distributing clerks, n.e.c.","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Material Recording, Scheduling, and Distributing Clerks",
+"375","Insurance adjusters, examiners, and investigators","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Adjusters and Investigators",
+"376","Investigators and adjusters, except insurance","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Adjusters and Investigators",
+"377","Eligibility clerks, social welfare","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Adjusters and Investigators",
+"378","Bill and account collectors","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Adjusters and Investigators",
+"379","General office clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Miscellaneous Administrative Support Occupations",
+"383","Bank tellers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Miscellaneous Administrative Support Occupations",
+"384","Proofreaders","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Miscellaneous Administrative Support Occupations",
+"385","Data-entry keyers","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Miscellaneous Administrative Support Occupations",
+"386","Statistical clerks","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Miscellaneous Administrative Support Occupations",
+"387","Teachers' aides","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Miscellaneous Administrative Support Occupations",
+"389","Administrative support occupations, n.e.c.","Technical, Sales, and Administrative Support Occupations","Administrative Support Occupations, Including Clerical","Miscellaneous Administrative Support Occupations",
+"403","Launderers and Ironers","Service Occupations","Private Households Occupations",,
+"404","Cooks, private household","Service Occupations","Private Households Occupations",,
+"405","Housekeepers and butlers","Service Occupations","Private Households Occupations",,
+"406","Child care workers, private household","Service Occupations","Private Households Occupations",,
+"407","Private household cleaners and servants","Service Occupations","Private Households Occupations",,
+"413","Supervisors, firefighting and fire prevention occupations","Service Occupations","Protective Service Occupations","Supervisors, Protective Service Occupations",
+"414","Supervisors, police and detectives","Service Occupations","Protective Service Occupations","Supervisors, Protective Service Occupations",
+"415","Supervisors, guards","Service Occupations","Protective Service Occupations","Supervisors, Protective Service Occupations",
+"416","Fire inspection and fire prevention occupations","Service Occupations","Protective Service Occupations","Firefighting and Fire Prevention Occupations",
+"417","Firefighting occupations","Service Occupations","Protective Service Occupations","Firefighting and Fire Prevention Occupations",
+"418","Police and detectives, public service","Service Occupations","Protective Service Occupations","Police and Detectives",
+"423","Sheriffs, bailiffs, and other law enforcement officers","Service Occupations","Protective Service Occupations","Police and Detectives",
+"424","Correctional institution officers","Service Occupations","Protective Service Occupations","Police and Detectives",
+"425","Crossing guards","Service Occupations","Protective Service Occupations","Guards",
+"426","Guards and police, except public service","Service Occupations","Protective Service Occupations","Guards",
+"427","Protective service occupations, n.e.c.","Service Occupations","Protective Service Occupations","Guards",
+"433","Supervisors, food preparation and service occupations","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"434","Bartenders","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"435","Waiters and waitresses","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"436","Cooks, except short order","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"437","Short-order cooks","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"438","Food counter, fountain, and related occupations","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"439","Kitchen workers, food preparation","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"443","Waiters'/waitresses' assistants","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"444","Miscellaneous food preparation occupations","Service Occupations","Service Occupations, Except Protective and Household","Food Preparation and Service Occupations",
+"445","Dental assistants","Service Occupations","Service Occupations, Except Protective and Household","Health Service Occupations",
+"446","Health aides, except nursing","Service Occupations","Service Occupations, Except Protective and Household","Health Service Occupations",
+"447","Nursing aides, orderlies, and attendants","Service Occupations","Service Occupations, Except Protective and Household","Health Service Occupations",
+"448","Supervisors, cleaning and building service workers","Service Occupations","Service Occupations, Except Protective and Household","Cleaning and Building Service Occupations, except Household",
+"449","Maids and housemen","Service Occupations","Service Occupations, Except Protective and Household","Cleaning and Building Service Occupations, except Household",
+"453","Janitors and cleaners","Service Occupations","Service Occupations, Except Protective and Household","Cleaning and Building Service Occupations, except Household",
+"454","Elevator operators","Service Occupations","Service Occupations, Except Protective and Household","Cleaning and Building Service Occupations, except Household",
+"455","Pest control occupations","Service Occupations","Service Occupations, Except Protective and Household","Cleaning and Building Service Occupations, except Household",
+"456","Supervisors, personal service occupations","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"457","Barbers","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"458","Hairdressers and cosmetologists","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"459","Attendants, amusement and recreation facilities","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"463","Guides","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"464","Ushers","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"465","Public transportation attendants","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"466","Baggage porters and bellhops","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"467","Welfare service aides","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"468","Child care workers, except private household","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"469","Personal service occupations, n.e.c.","Service Occupations","Service Occupations, Except Protective and Household","Personal Service Occupations",
+"473","Farmers, except horticultural","Farming, Forestry, and Fishing Occupations","Farm Operators and Managers",,
+"474","Horticultural specialty farmers","Farming, Forestry, and Fishing Occupations","Farm Operators and Managers",,
+"475","Managers, farms, except horticultural","Farming, Forestry, and Fishing Occupations","Farm Operators and Managers",,
+"476","Managers, horticultural specialty farms","Farming, Forestry, and Fishing Occupations","Farm Operators and Managers",,
+"477","Supervisors, farm workers","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Farm Occupations, Except Managerial",
+"479","Farm workers","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Farm Occupations, Except Managerial",
+"483","Marine life cultivation workers","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Farm Occupations, Except Managerial",
+"484","Nursery workers","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Farm Occupations, Except Managerial",
+"485","Supervisors, related agricultural occupations","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Related Agricultural Occupations",
+"486","Groundskeepers and gardeners, except farm","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Related Agricultural Occupations",
+"487","Animal caretakers, except farm","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Related Agricultural Occupations",
+"488","Graders and sorters, agricultural products","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Related Agricultural Occupations",
+"489","Inspectors, agricultural products","Farming, Forestry, and Fishing Occupations","Other Agricultural and Related Occupations","Related Agricultural Occupations",
+"494","Supervisors, forestry and logging workers","Farming, Forestry, and Fishing Occupations","Forestry and Logging Occupations",,
+"495","Forestry workers, except logging","Farming, Forestry, and Fishing Occupations","Forestry and Logging Occupations",,
+"496","Timber cutting and logging occupations","Farming, Forestry, and Fishing Occupations","Forestry and Logging Occupations",,
+"497","Captains and other officers, fishing vessels","Farming, Forestry, and Fishing Occupations","Fishers, Hunters, and Trappers",,
+"498","Fishers","Farming, Forestry, and Fishing Occupations","Fishers, Hunters, and Trappers",,
+"499","Hunters and trappers","Farming, Forestry, and Fishing Occupations","Fishers, Hunters, and Trappers",,
+"503","Supervisors, mechanics and repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers",,
+"505","Automobile mechanics, except apprentices","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"506","Automobile mechanic apprentices","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"507","Bus, truck, and stationary engine mechanics","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"508","Aircraft engine mechanics","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"509","Small engine repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"514","Automobile body and related repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"515","Aircraft mechanics, except engine","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"516","Heavy equipment mechanics","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"517","Farm equipment mechanics","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Vehicle and Mobile Equipment Mechanics and Repairers"
+"518","Industrial machinery repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors",
+"519","Machinery maintenance occupations","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors",
+"523","Electronic repairers, communications and industrial equipment","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Electrical and Electronic Equipment Repairers"
+"525","Data processing equipment repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Electrical and Electronic Equipment Repairers"
+"526","Household appliance and power tool repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Electrical and Electronic Equipment Repairers"
+"527","Telephone line installers and repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Electrical and Electronic Equipment Repairers"
+"529","Telephone installers and repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Electrical and Electronic Equipment Repairers"
+"533","Miscellaneous electrical and electronic equipment repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Electrical and Electronic Equipment Repairers"
+"534","Heating, air conditioning, and refrigeration mechanics","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors",
+"535","Camera, watch, and musical instrument repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Miscellaneous Mechanics and Repairers"
+"536","Locksmiths and safe repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Miscellaneous Mechanics and Repairers"
+"538","Office machine repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Miscellaneous Mechanics and Repairers"
+"539","Mechanical controls and valve repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Miscellaneous Mechanics and Repairers"
+"543","Elevator installers and repairers","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Miscellaneous Mechanics and Repairers"
+"544","Millwrights","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Miscellaneous Mechanics and Repairers"
+"547","Mechanics and repairers, n.e.c.","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Miscellaneous Mechanics and Repairers"
+"549","Mechanics and repairers, n.s.","Precision Production, Craft, and Repair Occupations","Mechanics and Repairers","Mechanics and Repairers, Except Supervisors","Miscellaneous Mechanics and Repairers"
+"553","Supervisors, brickmasons, stonemasons, and tile setters","Precision Production, Craft, and Repair Occupations","Construction Trades","Supervisors, Construction Occupations",
+"554","Supervisors, carpenters and related workers","Precision Production, Craft, and Repair Occupations","Construction Trades","Supervisors, Construction Occupations",
+"555","Supervisors, electricians and power transmission installers","Precision Production, Craft, and Repair Occupations","Construction Trades","Supervisors, Construction Occupations",
+"556","Supervisors, painters, paperhangers, and plasterers","Precision Production, Craft, and Repair Occupations","Construction Trades","Supervisors, Construction Occupations",
+"557","Supervisors, plumbers, pipefitters, and steamfitters","Precision Production, Craft, and Repair Occupations","Construction Trades","Supervisors, Construction Occupations",
+"558","Supervisors, n.e.c.","Precision Production, Craft, and Repair Occupations","Construction Trades","Supervisors, Construction Occupations",
+"563","Brickmasons and stonemasons, except apprentices","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"564","Brickmason and stonemason apprentices","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"565","Tile setters, hard and soft","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"566","Carpet installers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"567","Carpenters, except apprentices","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"569","Carpenter apprentices","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"573","Drywall installers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"575","Electricians, except apprentices","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"576","Electrician apprentices","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"577","Electrical power installers and repairers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"579","Painters, construction and maintenance","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"583","Paperhangers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"584","Plasterers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"585","Plumbers, pipefitters, and steamfitters, except apprentices","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"587","Plumber, pipefitter, and steamfitter apprentices","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"588","Concrete and terrazzo finishers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"589","Glaziers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"593","Insulation workers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"594","Paving, surfacing, and tamping equipment operators","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"595","Roofers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"596","Sheetmetal duct installers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"597","Structural metal workers","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"598","Drillers, earth","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"599","Construction trades, n.e.c.","Precision Production, Craft, and Repair Occupations","Construction Trades","Construction Trades, Except Supervisors",
+"613","Supervisors, extractive occupations","Precision Production, Craft, and Repair Occupations","Extractive Occupations",,
+"614","Drillers, oil well","Precision Production, Craft, and Repair Occupations","Extractive Occupations",,
+"615","Explosives workers","Precision Production, Craft, and Repair Occupations","Extractive Occupations",,
+"616","Mining machine operators","Precision Production, Craft, and Repair Occupations","Extractive Occupations",,
+"617","Mining occupations, n.e.c.","Precision Production, Craft, and Repair Occupations","Extractive Occupations",,
+"633","Supervisors production occupations","Precision Production, Craft, and Repair Occupations","Precision Production Occupations",,
+"634","Tool and die makers, except apprentices","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"635","Tool and die maker apprentices","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"636","Precision assemblers, metal","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"637","Machinists, except apprentices","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"639","Machinist apprentices","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"643","Boilermakers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"644","Precision grinders, fitters, and tool sharpeners","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"645","Patternmakers and model makers, metal","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"646","Lay-out workers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"647","Precious stones and metals workers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"649","Engravers, metal","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"653","Sheet metal workers, except apprentices","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"654","Sheet metal worker apprentices","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"655","Miscellaneous precision metal workers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Metal Working Occupations",
+"656","Patternmakers and model makers, wood","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Woodworking Occupations",
+"657","Cabinet makers and bench carpenters","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Woodworking Occupations",
+"658","Furniture and wood finishers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Woodworking Occupations",
+"659","Miscellaneous precision woodworkers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Woodworking Occupations",
+"666","Dressmakers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Textile, Apparel, and Furnishings Machine Workers",
+"667","Tailors","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Textile, Apparel, and Furnishings Machine Workers",
+"668","Upholsterers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Textile, Apparel, and Furnishings Machine Workers",
+"669","Shoe repairers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Textile, Apparel, and Furnishings Machine Workers",
+"673","Apparel and fabric patternmakers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Textile, Apparel, and Furnishings Machine Workers",
+"674","Misc. precision apparel and fabric workers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Textile, Apparel, and Furnishings Machine Workers",
+"675","Hand molders and shapers, except jewelers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Workers, Assorted Materials",
+"676","Patternmakers, lay-out workers, and cutters","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Workers, Assorted Materials",
+"677","Optical goods workers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Workers, Assorted Materials",
+"678","Dental laboratory and medical appliance technicians","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Workers, Assorted Materials",
+"679","Bookbinders","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Workers, Assorted Materials",
+"683","Electrical and electronic equipment assemblers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Workers, Assorted Materials",
+"684","Miscellaneous precision workers, n.e.c.","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Workers, Assorted Materials",
+"686","Butchers and meat cutters","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Food Production Occupations",
+"687","Bakers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Food Production Occupations",
+"688","Food batchmakers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Food Production Occupations",
+"689","Inspectors, testers, and graders","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Inspectors, Testers, and Related Workers",
+"693","Adjusters and calibrators","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Precision Inspectors, Testers, and Related Workers",
+"694","Water and sewage treatment plant operators","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Plant and System Operators",
+"695","Power plant operators","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Plant and System Operators",
+"696","Stationary engineers","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Plant and System Operators",
+"699","Miscellaneous plant and system operators","Precision Production, Craft, and Repair Occupations","Precision Production Occupations","Plant and System Operators",
+"703","Lathe and turning machine set-up operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"704","Lathe and turning machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"705","Milling and planing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"706","Punching and stamping press machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"707","Rolling machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"708","Drilling and boring machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"709","Grinding, abrading, buffing, and polishing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"713","Forging machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"714","Numerical control machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"715","Miscellaneous metal, plastic, stone, and glass working machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metalworking and Plastic Working Machine Operators"
+"717","Fabricating machine operators, n.e.c.","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision",
+"719","Molding and casting machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metal and Plastic Processing Machine Operators"
+"723","Metal plating machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metal and Plastic Processing Machine Operators"
+"724","Heat treating equipment operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metal and Plastic Processing Machine Operators"
+"725","Miscellaneous metal and plastic processing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Metal and Plastic Processing Machine Operators"
+"726","Wood lathe, routing, and planing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Woodworking Machine Operators"
+"727","Sawing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Woodworking Machine Operators"
+"728","Shaping and joining machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Woodworking Machine Operators"
+"729","Nailing and tacking machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Woodworking Machine Operators"
+"733","Misc. woodworking machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Woodworking Machine Operators"
+"734","Printing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Printing Machine Operators"
+"735","Photoengravers and lithographers","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Printing Machine Operators"
+"736","Typesetters and compositors","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Printing Machine Operators"
+"737","Miscellaneous printing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Printing Machine Operators"
+"738","Winding and twisting machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Textile, Apparel, and Furnishings Machine Operators"
+"739","Knitting, looping, taping, and weaving machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Textile, Apparel, and Furnishings Machine Operators"
+"743","Textile cutting machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Textile, Apparel, and Furnishings Machine Operators"
+"744","Textile sewing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Textile, Apparel, and Furnishings Machine Operators"
+"745","Shoe machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Textile, Apparel, and Furnishings Machine Operators"
+"747","Pressing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Textile, Apparel, and Furnishings Machine Operators"
+"748","Laundering and dry cleaning machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Textile, Apparel, and Furnishings Machine Operators"
+"749","Miscellaneous textile machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Textile, Apparel, and Furnishings Machine Operators"
+"753","Cementing and gluing machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"754","Packaging and filling machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"755","Extruding and forming machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"756","Mixing and blending machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"757","Separating, filtering, and clarifying machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"758","Compressing and compacting machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"759","Painting and paint spraying machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"763","Roasting and baking machine operators, food","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"764","Washing, cleaning, and pickling machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"765","Folding machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"766","Furnace, kiln, and oven operators, except food","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"768","Crushing and grinding machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"769","Slicing and cutting machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"773","Motion picture projectionists","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"774","Photographic process machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"777","Miscellaneous machine operators","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"779","Machine operators, n.s.","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Machine Operators and Tenders, except Precision","Machine Operators, Assorted Materials"
+"783","Welders and cutters","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"784","Solderers and blazers","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"785","Assemblers","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"786","Hand cutting and trimming occupations","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"787","Hand molding, casting, and forming occupations","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"789","Hand painting, coating, and decorating occupations","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"793","Hand engraving and printing occupations","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"794","Hand grinding and polishing occupations","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"795","Miscellaneous hand working occupations","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Fabricators, Assemblers, and Hand Working Occupations",
+"796","Production inspectors, checkers, and examiners","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Production Inspectors, Testers, Samplers, and Weighers",
+"797","Production testers","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Production Inspectors, Testers, Samplers, and Weighers",
+"798","Production samplers and weighers","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Production Inspectors, Testers, Samplers, and Weighers",
+"799","Graders and sorters, except agricultural","Operators, Fabricators, and Laborers","Machine Operators, Assemblers and Inspectors","Production Inspectors, Testers, Samplers, and Weighers",
+"803","Supervisors, motor vehicle operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Motor Vehicle Operators",
+"804","Truck drivers, heavy","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Motor Vehicle Operators",
+"805","Truck drivers, light","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Motor Vehicle Operators",
+"806","Driver-sales workers","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Motor Vehicle Operators",
+"808","Bus drivers","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Motor Vehicle Operators",
+"809","Taxicab drivers and chauffeurs","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Motor Vehicle Operators",
+"813","Parking lot attendants","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Motor Vehicle Operators",
+"814","Motor transportation occupations, n.e.c.","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Motor Vehicle Operators",
+"823","Railroad conductors and yardmasters","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Transportation Occupations, Except Motor Vehicles","Rail Transportation Occupations"
+"824","Locomotive operating occupations","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Transportation Occupations, Except Motor Vehicles","Rail Transportation Occupations"
+"825","Railroad brake, signal, and switch operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Transportation Occupations, Except Motor Vehicles","Rail Transportation Occupations"
+"826","Rail vehicle operators, n.e.c.","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Transportation Occupations, Except Motor Vehicles","Rail Transportation Occupations"
+"828","Ship captains and mates, except fishing boats","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Transportation Occupations, Except Motor Vehicles","Water Transportation Occupations"
+"829","Sailors and deckhands","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Transportation Occupations, Except Motor Vehicles","Water Transportation Occupations"
+"833","Marine engineers","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Transportation Occupations, Except Motor Vehicles","Water Transportation Occupations"
+"834","Bridge, lock, and lighthouse tenders","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Transportation Occupations, Except Motor Vehicles","Water Transportation Occupations"
+"843","Supervisors, material moving equipment operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"844","Operating engineers","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"845","Longshore equipment operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"848","Hoist and winch operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"849","Crane and tower operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"853","Excavating and loading machine operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"855","Grader, dozer, and scraper operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"856","Industrial truck and tractor equipment operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"859","Misc. material moving equipment operators","Operators, Fabricators, and Laborers","Transportation and Material Moving Occupations","Material Moving Equipment Operators",
+"863","Supervisors, handlers, equipment cleaners, and laborers, n.e.c.","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"864","Helpers, mechanics and repairers","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"865","Helpers, construction trades","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers","Helpers, Construction and Extractive Occupations",
+"866","Helpers, surveyor","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers","Helpers, Construction and Extractive Occupations",
+"867","Helpers, extractive occupations","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers","Helpers, Construction and Extractive Occupations",
+"869","Construction laborers","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"873","Production helpers","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"875","Garbage collectors","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers","Freight, Stock, and Material Handlers",
+"876","Stevedores","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers","Freight, Stock, and Material Handlers",
+"877","Stock handlers and baggers","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers","Freight, Stock, and Material Handlers",
+"878","Machine feeders and offbearers","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers","Freight, Stock, and Material Handlers",
+"883","Freight, stock, and material handlers, n.e.c.","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"885","Garage and service station related occupations","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"887","Vehicle washers and equipment cleaners","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"888","Hand packers and packagers","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"889","Laborers, except construction","Operators, Fabricators, and Laborers","Handlers, Equipment Cleaners, Helpers, and Laborers",,
+"905","Unemployed, last worked in Armed Forces (within past 5 years)","Workers not Classified by Occupation",,,
+"909","Unemployed, no work within past 5 years","Workers not Classified by Occupation",,,
