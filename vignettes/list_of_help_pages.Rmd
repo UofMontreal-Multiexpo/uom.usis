@@ -1,0 +1,74 @@
+---
+title: "List of datasets and functions"
+author: "Gauthier Magnin"
+date: "Last update: `r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{List of datasets and functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{css, echo=FALSE}
+h1:not(.title) {
+  margin-top: 1.4rem;
+}
+```
+
+
+
+The package help page: [uom.usis](../html/uom.usis-package.html)
+
+
+# Datasets
+
+The main USIS datasets:
+
+* [USIS_inspections](../html/USIS_inspections.html)
+* [USIS_sheets](../html/USIS_sheets.html)
+* [USIS_measures](../html/USIS_measures.html)
+
+Other USIS datasets:
+
+* [USIS_agencies](../html/USIS_agencies.html)
+* [USIS_establishment_names](../html/USIS_establishment_names.html)
+* [USIS_establishments](../html/USIS_establishments.html)
+* [USIS_exposure_types](../html/USIS_exposure_types.html)
+* [USIS_inspection_types](../html/USIS_inspection_types.html)
+* [USIS_locations](../html/USIS_locations.html)
+* [USIS_measure_units](../html/USIS_measure_units.html)
+* [USIS_sample_types](../html/USIS_sample_types.html)
+* [USIS_scopes](../html/USIS_scopes.html)
+* [USIS_substances](../html/USIS_substances.html)
+* [USIS_workplaces](../html/USIS_workplaces.html)
+
+The official version of 2002 of the North American Industry Classification System (considering only classes used in the United States): [NAICS](../html/NAICS.html)
+
+The official version of 1980 of the U.S. census occupational classification system: [OCC](../html/OCC.html)
+
+The official version of 1987 of the U.S. Standard Industrial Classification: [SIC](../html/SIC.html)
+
+The states and other inhabited territories of the United States: [US_territories](../html/US_territories.html)
+
+
+
+# Functions
+
+Join all datasets into a single data frame:
+
+* [join_USIS](../html/join_USIS.html)
+* [join_IMIS](../html/join_USIS.html)
+* [join_OIS](../html/join_USIS.html)
+
+Extract measures:
+
+* [get_IMIS_measures](../html/get_USIS_measures.html)
+* [get_OIS_measures](../html/get_USIS_measures.html)
+
+Extract specific data:
+
+* [get_original_db](../html/get_original_db.html)
+* [get_establishment_names](../html/get_establishment_names.html)
+
+
+---

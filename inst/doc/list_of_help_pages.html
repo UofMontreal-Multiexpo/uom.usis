@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Gauthier Magnin" />
+
+
+<title>List of datasets and functions</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">List of datasets and functions</h1>
+<h4 class="author">Gauthier Magnin</h4>
+<h4 class="date">Last update: 2023-01-20</h4>
+
+
+
+<style type="text/css">
+h1:not(.title) {
+margin-top: 1.4rem;
+}
+</style>
+<p>The package help page: <a href="../html/uom.usis-package.html">uom.usis</a></p>
+<div id="datasets" class="section level1">
+<h1>Datasets</h1>
+<p>The main USIS datasets:</p>
+<ul>
+<li><a href="../html/USIS_inspections.html">USIS_inspections</a></li>
+<li><a href="../html/USIS_sheets.html">USIS_sheets</a></li>
+<li><a href="../html/USIS_measures.html">USIS_measures</a></li>
+</ul>
+<p>Other USIS datasets:</p>
+<ul>
+<li><a href="../html/USIS_agencies.html">USIS_agencies</a></li>
+<li><a href="../html/USIS_establishment_names.html">USIS_establishment_names</a></li>
+<li><a href="../html/USIS_establishments.html">USIS_establishments</a></li>
+<li><a href="../html/USIS_exposure_types.html">USIS_exposure_types</a></li>
+<li><a href="../html/USIS_inspection_types.html">USIS_inspection_types</a></li>
+<li><a href="../html/USIS_locations.html">USIS_locations</a></li>
+<li><a href="../html/USIS_measure_units.html">USIS_measure_units</a></li>
+<li><a href="../html/USIS_sample_types.html">USIS_sample_types</a></li>
+<li><a href="../html/USIS_scopes.html">USIS_scopes</a></li>
+<li><a href="../html/USIS_substances.html">USIS_substances</a></li>
+<li><a href="../html/USIS_workplaces.html">USIS_workplaces</a></li>
+</ul>
+<p>The official version of 2002 of the North American Industry
+Classification System (considering only classes used in the United
+States): <a href="../html/NAICS.html">NAICS</a></p>
+<p>The official version of 1980 of the U.S. census occupational
+classification system: <a href="../html/OCC.html">OCC</a></p>
+<p>The official version of 1987 of the U.S. Standard Industrial
+Classification: <a href="../html/SIC.html">SIC</a></p>
+<p>The states and other inhabited territories of the United States: <a href="../html/US_territories.html">US_territories</a></p>
+</div>
+<div id="functions" class="section level1">
+<h1>Functions</h1>
+<p>Join all datasets into a single data frame:</p>
+<ul>
+<li><a href="../html/join_USIS.html">join_USIS</a></li>
+<li><a href="../html/join_USIS.html">join_IMIS</a></li>
+<li><a href="../html/join_USIS.html">join_OIS</a></li>
+</ul>
+<p>Extract measures:</p>
+<ul>
+<li><a href="../html/get_USIS_measures.html">get_IMIS_measures</a></li>
+<li><a href="../html/get_USIS_measures.html">get_OIS_measures</a></li>
+</ul>
+<p>Extract specific data:</p>
+<ul>
+<li><a href="../html/get_original_db.html">get_original_db</a></li>
+<li><a href="../html/get_establishment_names.html">get_establishment_names</a></li>
+</ul>
+<hr />
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
