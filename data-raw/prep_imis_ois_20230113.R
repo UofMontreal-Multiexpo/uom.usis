@@ -1,9 +1,4 @@
-## ----setup, include=FALSE---------------------------------------------------------
-knitr::opts_chunk$set(echo = FALSE)
-
-
-## ---- label=infoR, warning=FALSE, message = FALSE---------------------------------
-
+## ---- warning=FALSE, message = FALSE----------------------------------------------
 ## Package
 
 library(tidyverse)
@@ -23,27 +18,6 @@ library(lubridate) # manipuler les dates
 library(readxl)
 
 library(officer) # formatage flextable
-
-## Flextable
-
-set_flextable_defaults(
-  text.align = 'center',
-  decimal.mark = ",",
-  big.mark = " ",
-  digits = 1)
-
-
-small_border = fp_border(color="gray", width = 1)
-big_border = fp_border(color="black", width = 2)
-
-## Information sur la session
-
-knitr::opts_chunk$set(options("scipen"=100, "digits"=1, "big.mark"=" "))
-
-
-xfun::session_info()
-
-help(set_caption)
 
 
 
@@ -408,16 +382,9 @@ label.subs.usData <- readRDS("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/u
 
 
 
-## ---- include=FALSE---------------------------------------------------------------
-# Lors de la fusion d'oischem et avec les données d'inspection, il s'est avéré que tout les éléments d'inspection n'avait pas de correspondance malgré qu'un échantillonnage a été réalisé. S'agit-il de pertes du au nettoyage ?
-
-insp.select$el <- is.element(insp.select$insp, oischem$insp)
-
-table(insp.select$el) # FALSE 70594  TRUE 52890. Seulement 40 % de correspondance
 
 
-
-## ---- label=chemclean1,  include=FALSE--------------------------------------------
+## ---- label=chemclean1a,  include=FALSE-------------------------------------------
 # 228 684
 
 # identifier les substances NA
@@ -429,15 +396,10 @@ table(oischem$subs.na ) # 16 075 TRUE
 
 oischem$autre <- str_detect(oischem$substance,"T110|2587|8110|8111|8120|8130|8280|8310|8320|8330|8350|8360|8390|8400|8430|8470|8650|8880|8891|8893|8895|8920|9591|9613|9614|9838|B418|C730|E100|E101|F006|G301|G302|I100|L130|L131|L294|M102|M103|M104|M110|M124|M125|M340|P100|P200|Q100|Q115|Q116|Q118|R100|R252|R274|R278|S102|S108|S325|S777|V219|WFBW|BWPB|I200|L295")
 
-oischem_subs <- filter(oischem, autre == TRUE)
 
-oischem_subs <- as.data.frame(table(oischem_subs$substance))
 
-oischem_subs <- rename(oischem_subs, Substance = Var1)
 
-## Nbr retiré
-
-sum(oischem_subs$Freq) # 15 547
+## ---- label=chemclean1c,  include=FALSE-------------------------------------------
 
 # conserver seulement les agents chimiques d'OIS
 
@@ -449,22 +411,11 @@ oischem <- filter(oischem, subs.na == FALSE)
 
 
 
-## ---- label=chemclean2------------------------------------------------------------
-
-flextable(oischem_subs)%>%
-  set_caption(caption = "Tableau 1 : Agents retirés d'OIS et leur fréquence dans les données brutes", autonum = )%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
 
-## ---- label=chemclean3, include=FALSE---------------------------------------------
-# OIS = 197 062
-
-describe(oischem$exposure.units)
-
+## ---- label=chemclean3b, include=FALSE--------------------------------------------
 # Retrait des units non désiré
 
 oischem$unit.v <- oischem$exposure.units == "Bar Meters per Second" |
@@ -488,14 +439,9 @@ oischem$exposure.units == "Unknown" |
 oischem$exposure.units == "year"
 
 
-unit.remove <- filter(oischem, unit.v == TRUE | is.na(unit.v))
 
-unit.remove <- as.data.frame(table(unit.remove$exposure.units, useNA = "always"))
 
-unit.remove <- rename(unit.remove, exposure.units = Var1)
-
-sum(unit.remove$Freq) # 2330
-
+## ---- label=chemclean3d, include=FALSE--------------------------------------------
 # retirer les unités non désirées
 
 oischem <- filter(oischem, unit.v == FALSE)
@@ -503,502 +449,33 @@ oischem <- filter(oischem, unit.v == FALSE)
 # 197 062 - 2 330 = 194 732
 
 
-## ---- label=chemclean4------------------------------------------------------------
-flextable(unit.remove)%>%
-  theme_booktabs()%>%
-  colformat_char(j = 1, na_str = "NA")%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)%>%
-  set_caption(caption = "Tableau 2 : Unités retirées d'OIS et leur fréquence")
 
 
-
-## ---- label=n3, include = FALSE---------------------------------------------------
+## ---- label=n3a, include = FALSE--------------------------------------------------
 oischem$subs.na <- NULL
 oischem$autre <- NULL
 oischem$unit.v <- NULL
 
-remove(oischem_subs)
-remove(unit.remove)
-
-
-
-## ---- label=chemclean5, include=FALSE---------------------------------------------
-
-# Création d'une variable composée du contenu de chaque variable d'origine de l'enregistrement 
-
-oischem$combi <- paste(oischem$rid, oischem$insp,  oischem$estab.name,  oischem$open.conf.date,  oischem$site.naics,  oischem$csho.id,  oischem$supv.id,  oischem$insp.type,  oischem$sampling.date,  oischem$exposure.record,  oischem$sample.sheet,  oischem$sample.type,  oischem$sheet.type,  oischem$sheet.status,  oischem$substance,   oischem$exposure.type,   oischem$exposure.units,  oischem$oel.value,  oischem$severity,  oischem$job.title,  oischem$occupation.title,  oischem$exposure.duration,  oischem$expo.duration.units,  oischem$exposure.frequency,   oischem$strategic.program,  oischem$emphasis.program,  oischem$additional.code, oischem$analyst.comments, oischem$exposure.assessment, oischem$updated.by)
-
-length(unique(oischem$combi)) / length(oischem$combi)*100
-
-
-
-## ---- label=n4, include=FALSE-----------------------------------------------------
-## distribution des doublons parmi les DF d'origine
-
-unique_iddf <- as.data.frame(table(oischem$iddf, oischem$combi))
-
-unique_iddf <- filter(unique_iddf, Freq > 0)
-
-max(unique_iddf$Freq)
-
-remove(unique_iddf)
-
-# 194 732
-
-
-## ---- label=chemclean6------------------------------------------------------------
-# Identifier les enregistrements en double
-# Créer une liste des éléments de la variable combi qui sont en double
-
-double <- as.data.frame(table(oischem$combi))
-
-double <- filter(double, Freq > 1)
-
-#identifier les enregistrements en double
-
-oischem$test2 <- oischem$combi %in% double$Var1 # Test si la valeur de combi se retrouve dans la liste des valeurs en doubles.
-
-#d'où viennent les doublons
-
-dfdouble <- filter(oischem, test2 == "TRUE")
-
-dfdouble <- as.data.frame(table(dfdouble$iddf))
-
-dfdouble <- dfdouble %>% rename (Fichier = Var1)
-
-
-flextable(dfdouble)%>%
-  set_caption(caption = "Tableau 3 : Fréquences des doublons selon le jeu d'origine")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
 
-## ---- label=chemclean, include=FALSE----------------------------------------------
-oischem$t <- oischem$test2 == "FALSE" & oischem$iddf == "oischem1014"
-
-table(oischem$t) # 94 184
-
-sum(dfdouble$Freq) # 94 184
 
 
-## ---- label=n5, include=FALSE-----------------------------------------------------
 
+
+
+
+
+## ---- label=n5a, include=FALSE----------------------------------------------------
 # oischem 194 732
 
 oischem <- filter(oischem, iddf != "oischem1014")
 
-remove(dfdouble)
-remove(double)
-
-
-oischem$test2 <- NULL
-oischem$t <- NULL
-
-# 194 732 - 47 092 = 147 640
 
 
 
-## ---- label=inspclean1,  include=FALSE--------------------------------------------
-# 123 484
 
-# Présence de doublon dans le jeu inspection ?
-
-insp$d <- paste(
-insp$insp, 
-insp$case.status, 
-insp$rid, 
-insp$estab.name, 
-insp$business.address, 
-insp$mailing.address, 
-insp$site.address, 
-insp$ownership.type, 
-insp$primary.naics, 
-insp$site.naics, 
-insp$emp.in.estab, 
-insp$emp.cvrd, 
-insp$emp.cntrld, 
-insp$entry.date, 
-insp$open.conf.date, 
-insp$closing.conf.1.date, 
-insp$exit.date, 
-insp$isa.event.date, 
-insp$contest.date, 
-insp$referred.to.dcat.date, 
-insp$closed.date, 
-insp$insp.scope, 
-insp$insp.category, 
-insp$insp.type, 
-insp$reason.no.insp, 
-insp$primary.emphasis.program, 
-insp$emphasis.program, 
-insp$strategic.program, 
-insp$additional.code, 
-insp$union, 
-insp$sampling.performed, 
-insp$svep, 
-insp$denial.of.entry, 
-insp$citn.item.no, 
-insp$current.vio.type, 
-insp$standard, 
-insp$initial.penalty, 
-insp$current.penalty, 
-insp$issuance.date, 
-insp$final.order.date, 
-insp$citn.status, 
-insp$vio.desc, 
-insp$abatement.note, 
-insp$abatement.date, 
-insp$contest, 
-insp$abatement.status, 
-insp$abatement.due.date, 
-insp$assessed.penalty, 
-insp$assessed.other, 
-insp$interest.and.fees, 
-insp$assessed.total, 
-insp$total.paid, 
-insp$waived, 
-insp$refund, 
-insp$balance.due, 
-insp$amount.referred.to.dcat, 
-insp$preparation, 
-insp$travel, 
-insp$onsite, 
-insp$denial.warrant, 
-insp$informal.conference, 
-insp$settlement.agreement, 
-insp$report.preparation, 
-insp$abate, 
-insp$litigate, 
-insp$other.conference, 
-insp$total.hours, 
-insp$invest.rid, 
-insp$invest.no, 
-insp$upa.no, 
-insp$invest.event.date, 
-insp$invest.event.time, 
-insp$construction.related)
-
-length(unique(insp$d)) / length(insp$d)*100 # le nombre de valeur unique équivaut au nombre d'enregistrement.
-
-
-# Présence de doublon dans le jeu réduit
-
-insp.select$d <- paste(insp.select$insp, 
-insp.select$rid, 
-insp.select$open.conf.date, 
-insp.select$estab.name, 
-insp.select$mailing.address, 
-insp.select$site.address, 
-insp.select$ownership.type, 
-insp.select$primary.naics, 
-insp.select$site.naics, 
-insp.select$nr.in.estab, 
-insp.select$insp.scope, 
-insp.select$insp.category, 
-insp.select$insp.type, 
-insp.select$union, 
-insp.select$strategic.program, 
-insp.select$additional.code, 
-insp.select$emphasis.program)
-
-
-length(unique(insp.select$d)) / length(insp.select$d)*100
-
-## Le jeu réduit compte seule 27 % de valeurs uniques. Est-ce que cette différence pourrait entraîner une mauvaise association avec oischem
-
-# Voyons quels sont les variables qui en leur absence entraîne la création de doublon
-
-insp$d2 <- paste(insp.select$insp, 
-insp$rid, 
-insp$open.conf.date, 
-insp$estab.name, 
-insp$mailing.address, 
-insp$site.address, 
-insp$ownership.type, 
-insp$primary.naics, 
-insp$site.naics, 
-insp$nr.in.estab, 
-insp$insp.scope, 
-insp$insp.category, 
-insp$insp.type, 
-insp$union, 
-insp$strategic.program, 
-insp$additional.code, 
-insp$emphasis.program)
-
-## recherche d'un insp$d2 avec une fréquence élevée
-
-d_insp <- as.data.frame(table(insp$d2)) # les fréquences font de 1 à 94
-
-### isolons les deux éléments avec les plus grandes fréquences  
-
-t <- d_insp[11227, 1] # id l'un des éléments
-insp$d3 <- insp$d2 == t # tester les valeurs de d2 qui corresponds à l'élément identifié 
-d_ex <- filter(insp, d3 == TRUE) # isoler les valeurs vrais
-
-t2 <- d_insp[6785, 1]
-insp$d4 <- insp$d2 == t2
-d_ex2 <- filter(insp, d4 == TRUE)
-
-### Nombre de valeurs uniques par variables
-
-doubon.exp <- c(length(unique(d_ex$insp)), 
-length(unique(d_ex$case.status)), 
-length(unique(d_ex$rid)), 
-length(unique(d_ex$estab.name)), 
-length(unique(d_ex$business.address)), 
-length(unique(d_ex$mailing.address)), 
-length(unique(d_ex$site.address)), 
-length(unique(d_ex$ownership.type)), 
-length(unique(d_ex$primary.naics)), 
-length(unique(d_ex$site.naics)), 
-length(unique(d_ex$emp.in.estab)), 
-length(unique(d_ex$emp.cvrd)), 
-length(unique(d_ex$emp.cntrld)), 
-length(unique(d_ex$entry.date)), 
-length(unique(d_ex$open.conf.date)), 
-length(unique(d_ex$closing.conf.1.date)), 
-length(unique(d_ex$exit.date)), 
-length(unique(d_ex$isa.event.date)), 
-length(unique(d_ex$contest.date)), 
-length(unique(d_ex$referred.to.dcat.date)), 
-length(unique(d_ex$closed.date)), 
-length(unique(d_ex$insp.scope)), 
-length(unique(d_ex$insp.category)), 
-length(unique(d_ex$insp.type)), 
-length(unique(d_ex$reason.no.insp)), 
-length(unique(d_ex$primary.emphasis.program)), 
-length(unique(d_ex$emphasis.program)), 
-length(unique(d_ex$strategic.program)), 
-length(unique(d_ex$additional.code)), 
-length(unique(d_ex$union)), 
-length(unique(d_ex$sampling.performed)), 
-length(unique(d_ex$svep)), 
-length(unique(d_ex$denial.of.entry)), 
-length(unique(d_ex$citn.item.no)), 
-length(unique(d_ex$current.vio.type)), 
-length(unique(d_ex$standard)), 
-length(unique(d_ex$initial.penalty)), 
-length(unique(d_ex$current.penalty)), 
-length(unique(d_ex$issuance.date)), 
-length(unique(d_ex$final.order.date)), 
-length(unique(d_ex$citn.status)), 
-length(unique(d_ex$vio.desc)), 
-length(unique(d_ex$abatement.note)), 
-length(unique(d_ex$abatement.date)), 
-length(unique(d_ex$contest)), 
-length(unique(d_ex$abatement.status)), 
-length(unique(d_ex$abatement.due.date)), 
-length(unique(d_ex$assessed.penalty)), 
-length(unique(d_ex$assessed.other)), 
-length(unique(d_ex$interest.and.fees)), 
-length(unique(d_ex$assessed.total)), 
-length(unique(d_ex$total.paid)), 
-length(unique(d_ex$waived)), 
-length(unique(d_ex$refund)), 
-length(unique(d_ex$balance.due)), 
-length(unique(d_ex$amount.referred.to.dcat)), 
-length(unique(d_ex$preparation)), 
-length(unique(d_ex$travel)), 
-length(unique(d_ex$onsite)), 
-length(unique(d_ex$denial.warrant)), 
-length(unique(d_ex$informal.conference)), 
-length(unique(d_ex$settlement.agreement)), 
-length(unique(d_ex$report.preparation)), 
-length(unique(d_ex$abate)), 
-length(unique(d_ex$litigate)), 
-length(unique(d_ex$other.conference)), 
-length(unique(d_ex$total.hours)), 
-length(unique(d_ex$invest.rid)), 
-length(unique(d_ex$invest.no)), 
-length(unique(d_ex$upa.no)), 
-length(unique(d_ex$invest.event.date)), 
-length(unique(d_ex$invest.event.time)), 
-length(unique(d_ex$construction.related)) 
-)
-
-doubon.exp2 <- c(length(unique(d_ex2$insp)), 
-length(unique(d_ex2$case.status)), 
-length(unique(d_ex2$rid)), 
-length(unique(d_ex2$estab.name)), 
-length(unique(d_ex2$business.address)), 
-length(unique(d_ex2$mailing.address)), 
-length(unique(d_ex2$site.address)), 
-length(unique(d_ex2$ownership.type)), 
-length(unique(d_ex2$primary.naics)), 
-length(unique(d_ex2$site.naics)), 
-length(unique(d_ex2$emp.in.estab)), 
-length(unique(d_ex2$emp.cvrd)), 
-length(unique(d_ex2$emp.cntrld)), 
-length(unique(d_ex2$entry.date)), 
-length(unique(d_ex2$open.conf.date)), 
-length(unique(d_ex2$closing.conf.1.date)), 
-length(unique(d_ex2$exit.date)), 
-length(unique(d_ex2$isa.event.date)), 
-length(unique(d_ex2$contest.date)), 
-length(unique(d_ex2$referred.to.dcat.date)), 
-length(unique(d_ex2$closed.date)), 
-length(unique(d_ex2$insp.scope)), 
-length(unique(d_ex2$insp.category)), 
-length(unique(d_ex2$insp.type)), 
-length(unique(d_ex2$reason.no.insp)), 
-length(unique(d_ex2$primary.emphasis.program)), 
-length(unique(d_ex2$emphasis.program)), 
-length(unique(d_ex2$strategic.program)), 
-length(unique(d_ex2$additional.code)), 
-length(unique(d_ex2$union)), 
-length(unique(d_ex2$sampling.performed)), 
-length(unique(d_ex2$svep)), 
-length(unique(d_ex2$denial.of.entry)), 
-length(unique(d_ex2$citn.item.no)), 
-length(unique(d_ex2$current.vio.type)), 
-length(unique(d_ex2$standard)), 
-length(unique(d_ex2$initial.penalty)), 
-length(unique(d_ex2$current.penalty)), 
-length(unique(d_ex2$issuance.date)), 
-length(unique(d_ex2$final.order.date)), 
-length(unique(d_ex2$citn.status)), 
-length(unique(d_ex2$vio.desc)), 
-length(unique(d_ex2$abatement.note)), 
-length(unique(d_ex2$abatement.date)), 
-length(unique(d_ex2$contest)), 
-length(unique(d_ex2$abatement.status)), 
-length(unique(d_ex2$abatement.due.date)), 
-length(unique(d_ex2$assessed.penalty)), 
-length(unique(d_ex2$assessed.other)), 
-length(unique(d_ex2$interest.and.fees)), 
-length(unique(d_ex2$assessed.total)), 
-length(unique(d_ex2$total.paid)), 
-length(unique(d_ex2$waived)), 
-length(unique(d_ex2$refund)), 
-length(unique(d_ex2$balance.due)), 
-length(unique(d_ex2$amount.referred.to.dcat)), 
-length(unique(d_ex2$preparation)), 
-length(unique(d_ex2$travel)), 
-length(unique(d_ex2$onsite)), 
-length(unique(d_ex2$denial.warrant)), 
-length(unique(d_ex2$informal.conference)), 
-length(unique(d_ex2$settlement.agreement)), 
-length(unique(d_ex2$report.preparation)), 
-length(unique(d_ex2$abate)), 
-length(unique(d_ex2$litigate)), 
-length(unique(d_ex2$other.conference)), 
-length(unique(d_ex2$total.hours)), 
-length(unique(d_ex2$invest.rid)), 
-length(unique(d_ex2$invest.no)), 
-length(unique(d_ex2$upa.no)), 
-length(unique(d_ex2$invest.event.date)), 
-length(unique(d_ex2$invest.event.time)), 
-length(unique(d_ex2$construction.related)) 
-)
-
-
-variables <- c("insp", 
-"case.status", 
-"rid", 
-"estab.name", 
-"business.address", 
-"mailing.address", 
-"site.address", 
-"ownership.type", 
-"primary.naics", 
-"site.naics", 
-"emp.in.estab", 
-"emp.cvrd", 
-"emp.cntrld", 
-"entry.date", 
-"open.conf.date", 
-"closing.conf.1.date", 
-"exit.date", 
-"isa.event.date", 
-"contest.date", 
-"referred.to.dcat.date", 
-"closed.date", 
-"insp.scope", 
-"insp.category", 
-"insp.type", 
-"reason.no.insp", 
-"primary.emphasis.program", 
-"emphasis.program", 
-"strategic.program", 
-"additional.code", 
-"union", 
-"sampling.performed", 
-"svep", 
-"denial.of.entry", 
-"citn.item.no", 
-"current.vio.type", 
-"standard", 
-"initial.penalty", 
-"current.penalty", 
-"issuance.date", 
-"final.order.date", 
-"citn.status", 
-"vio.desc", 
-"abatement.note", 
-"abatement.date", 
-"contest", 
-"abatement.status", 
-"abatement.due.date", 
-"assessed.penalty", 
-"assessed.other", 
-"interest.and.fees", 
-"assessed.total", 
-"total.paid", 
-"waived", 
-"refund", 
-"balance.due", 
-"amount.referred.to.dcat", 
-"preparation", 
-"travel", 
-"onsite", 
-"denial.warrant", 
-"informal.conference", 
-"settlement.agreement", 
-"report.preparation", 
-"abate", 
-"litigate", 
-"other.conference", 
-"total.hours", 
-"invest.rid", 
-"invest.no", 
-"upa.no", 
-"invest.event.date", 
-"invest.event.time", 
-"construction.related"
-)
-
-source_d <- as.data.frame(cbind(variables, doubon.exp, doubon.exp2))
-
-source_d <- source_d %>% rename(Exemple.1 = doubon.exp, Exemple.2 = doubon.exp2)
-
-
-flextable(source_d)%>%
-  set_caption(caption = "Nombre de valeur unique par variables pour deux exemples de variable combi avec doublon")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
-
-
-
-## ---- label=inspclean3, include=FALSE---------------------------------------------
-remove(d_ex)
-remove(d_ex2)
-remove(d_insp)
-remove(source_d)
-remove(doubon.exp)
-remove(doubon.exp2)
-remove(t)
-remove(t2)
-remove(variables)
-
-insp$d2 <- NULL
-insp.select$d <- NULL
-insp$d <- NULL
 
 
 
@@ -1041,9 +518,11 @@ insp.web$idno <- NULL
 
 oischem$t <- str_detect(oischem$insp, "1417182")
 
-table(oischem$t)
 
+## ---- include=FALSE---------------------------------------------------------------
 oischem <- filter(oischem, t == FALSE)
+
+oischem$t <- NULL
 
 ## retirer l'enregistrement avec une différence de temps
 
@@ -1084,18 +563,8 @@ insp.web <- insp.web %>% rename(site.address = location, insp.scope = scope, ins
 
 
 
-## ---- label=inspclean8, include=FALSE---------------------------------------------
 
-# State.1 
-
-## insp.select
-
-### 1er motif pour extraire l'état
-
-insp.select$t1 <- str_count(insp.select$site.address, ",[:alpha:]{2},[:digit:]") # compte le nombre de fois où il y a le motif
-
-table(insp.select$t1) # pas de double occurrence avec ce motif. N'est pas présent dans 138 cas. D'autres motifs ont été testé, mais aucun ne donnait résultats plus satisfaisant.
-
+## ---- label=inspclean8b, include=FALSE--------------------------------------------
 #### Extraire le 1er motif
 
 insp.select$state.2  <- str_extract(insp.select$site.address, ",[:alpha:]{2},[:digit:]") 
@@ -1104,14 +573,8 @@ insp.select$state.2  <- str_remove_all(insp.select$state.2, ",")
 
 insp.select$state.2  <- str_remove_all(insp.select$state.2, "[:digit:]")
 
-describe(insp.select$state.2)
 
-### Second motif (cas où l'état n'est pas suivi par le code postal)
-
-insp.select$t1 <- str_count(insp.select$site.address, ",[:alpha:]{2},.UNITED") # compte le nombre de fois où il y a le motif
-
-table(insp.select$t1) # pas de double occurrence avec ce motif. Motif présent dans 129 cas
-
+## ---- label=inspclean8d, include=FALSE--------------------------------------------
 #### extraire le motif
 
 insp.select$state.3  <- str_extract(insp.select$site.address, ",[:alpha:]{2},.UNITED") 
@@ -1120,96 +583,44 @@ insp.select$state.3  <- str_remove_all(insp.select$state.3, ",")
 
 insp.select$state.3  <- str_remove_all(insp.select$state.3, ".UNITED")
 
-describe(insp.select$state.3)
 
+## ---- label=inspclean8f, include=FALSE--------------------------------------------
 ### combiner résultat 1 et 2
 
 insp.select$state.1 <- if_else(is.na(insp.select$state.2), insp.select$state.3, insp.select$state.2)
 
-describe(insp.select$state.1)
 
+## ---- label=inspclean8h, include=FALSE--------------------------------------------
 ### éliminer les résultats intermédiaires
 
 insp.select$state.2 <- NULL
 
 insp.select$state.3 <- NULL
 
-### voir les résultats 
 
-state <- as.data.frame(table(insp.select$state.1)) # inclus des territoires 
-
-sum(is.na(insp.select$state.1))-sum(is.na(insp.select$site.address))  # 9 nouveaux NA. Après une vérification visuelle,  les 9 résultats NA n'ont pas vraiment d'adresse. Nous pourrions utiliser le mailing adresse
-
-
+## ---- label=inspclean8j, include=FALSE--------------------------------------------
 ## insp.web
 
 insp.web$state.1 <- str_count(insp.web$site.address, ", [:upper:][:upper:]") # compte le motif
 
-table(insp.web$state.1) # pas de doublon, motif non présent dans 2 cas. Pas moyen des récupérer 
 
+## ---- label=inspclean8l, include=FALSE--------------------------------------------
 insp.web$state.1 <- str_extract(insp.web$site.address, ", [:upper:][:upper:]") # Isole le motif
 
 insp.web$state.1 <- str_remove(insp.web$state.1, ", ") # retire la virgule et l'espace
 
-sum(is.na(insp.web$state.1))-sum(is.na(insp.web$site.address)) # 2 nouveaux NA
 
-
-# Code postal
-
-## insp.select 
-
-insp.select$t1 <- str_count(insp.select$site.address, "[:digit:]{5} UNITED") # compte le nombre de fois où il y a cinq chiffre et UNITED
-
-table(insp.select$t1) # pas de double occurrence avec ce motif. N'est pas présent dans 138 cas
-
+## ---- label=inspclean8n, include=FALSE--------------------------------------------
 insp.select$zip <- str_extract(insp.select$site.address,  "[:digit:]{5} UNITED") # conserve uniquement le code postal
 
 insp.select$zip <- str_remove(insp.select$zip,  " UNITED") # retirer ce qui n'est pas le code postal
 
-sum(is.na(insp.select$site.address))-sum(is.na(insp.select$zip)) # 138 nouveaux NA
 
-### récupérer les zip manquants
-
-zip <- filter(insp.select, is.na(zip)& !is.na(site.address))
-
-zip <- as.data.frame(table(zip$site.address)) # il y a 93 valeurs uniques. Aucune ne contient zip code
-
-### validation que zip à 5 digits
-
-insp.select$validzip <- str_detect(insp.select$zip, "[:digit:]{5}")
-table(insp.select$validzip ) # 100 % true
-
-insp.select$validzip <- NULL
-
-
-## inps.web
-
-insp.web$t1 <- str_count(insp.web$site.address, "[:digit:]{5}$") # compte le nombre de fois où il y a cinq chiffre à la fin
-
-table(insp.web$t1) # pas de double occurrence avec ce motif. N'est pas présent dans 34 cas. Une inspection visuelle a permis de constaté qu'ils ne sont pas ailleurs
-
+## ---- label=inspclean8p, include=FALSE--------------------------------------------
 insp.web$zip <- str_extract(insp.web$site.address,  "[:digit:]{5}$") # conserve uniquement le code postal
 
-### récupérer les zip manquants
 
-zip <- filter(insp.web, is.na(zip)& !is.na(site.address))
-
-zip <- as.data.frame(table(zip$site.address)) # il y a 31 valeurs uniques. Aucune ne contient de zip code
-
-
-sum(is.na(insp.web$site.address))-sum(is.na(insp.web$zip)) # 34 nouveaux NA
-
-
-
-# Ville
-
-## insp.select
-
-### le nom de la ville se trouve devant l'état et à un nombre de caractère variable. 
-
-insp.select$t1 <- str_count(insp.select$site.address, ".{20,}[:alpha:]{2},[:digit:]{5}") # compte le nombre de motif
-table(insp.select$t1) # pas de double occurrence avec ce motif. N'est pas présent dans 445 cas
-
+## ---- label=inspclean8r, include=FALSE--------------------------------------------
 ### isoler le nom de la ville 
 
 insp.select$city <- str_extract(insp.select$site.address,".{20,}[:alpha:]{2},[:digit:]{5}")
@@ -1227,9 +638,7 @@ insp.select<- insp.select %>% relocate(city2, .after = site.address)
 insp.select$city2  <- str_remove(insp.select$city2, ",, ")
 
 
-sum(is.na(insp.select$city2))-sum(is.na(insp.select$site.address)) ## bilan création de 465 NA
-
-
+## ---- label=inspclean8t, include=FALSE--------------------------------------------
 ### nouveau NA
 
 city <- filter(insp.select, is.na(insp.select$city2))
@@ -1260,36 +669,16 @@ insp.select$city <- if_else(insp.select$city.t =="FALSE", insp.select$city3, ins
 
 insp.select<- insp.select %>% relocate(city, .after = site.address)
 
-### bilan création de 76 NA
 
-sum(is.na(insp.select$city))-sum(is.na(insp.select$site.address)) # nouveau NA 76
-
-### valider qu'il ne reste plus de virgule ou de chiffre
-
-insp.select$t1 <- str_detect(insp.select$city, ",|[:digit:]")
-
-table(insp.select$t1)
-
-### isoler les noms problématiques
-
-city <- filter(insp.select, t1 == TRUE)
-
-city2 <- as.data.frame(table(city$site.address, city$city))
-
-city2 <- filter(city2, Freq != 0) # 203 cas
-
+## ---- label=inspclean8v, include=FALSE--------------------------------------------
 ### Corriger 
 
 insp.select$city2 <- str_remove(insp.select$city, ".{2,}(?=, )") # permet de retirer ce qui se trouve devant la virgule
 
 insp.select$city2 <- str_remove(insp.select$city2, ", ") # retire le motif
 
-### valider qu'il ne reste plus de chiffre ou de virgule
 
-insp.select$t2 <- str_detect(insp.select$city2, "[:digit:]|,")
-
-table(insp.select$t2) # aucune ville avec une virgule ou un chiffre
-
+## ---- label=inspclean8x, include=FALSE--------------------------------------------
 ### nettoyer les variables
 
 insp.select$city <- NULL
@@ -1299,43 +688,24 @@ insp.select$city <- str_to_upper(insp.select$city) # tout mettre en majuscule
 
 insp.select$city <- str_squish(insp.select$city)
 
-### voir la liste des villes
 
-city <- as.data.frame(table(insp.select$city))
-
-### NA
-
-sum(is.na(insp.select$city)) # 76
-
-
-## insp.web
-
-### Il ne semble pas avoir un motif uniforme. Le nom de la ville est collée sur le nom de la rue.
-
-insp.web$t1 <- str_count(insp.web$site.address, "[:graph:][:upper:][:graph:]+,") # compte le motif
-
-table(insp.web$t1) # pas de double occurrence avec ce motif. N'est pas présent dans 929 cas. 
-
+## ---- label=inspclean8z, include=FALSE--------------------------------------------
 insp.web$city1 <- str_extract(insp.web$site.address, "[:graph:][:upper:][:graph:]+,") # Isole le motif
 
 insp.web$city1 <- str_remove(insp.web$city1, "^[:graph:]") # retire le premier élément
 
 insp.web$city1 <- str_remove(insp.web$city1, ",") # retire la virgule
 
-insp.web$t1 <- str_count(insp.web$site.address, "[:graph:][:upper:].+,") # compte le motif
 
-table(insp.web$t1) # pas de double occurrence avec ce motif. N'est pas présent dans 10 cas. 
-
+## ---- label=inspclean8b2, include=FALSE-------------------------------------------
 insp.web$city2 <- str_extract(insp.web$site.address, "[:graph:][:upper:].+,") # Isole le motif
 
 insp.web$city2 <- str_remove(insp.web$city2, "^[:graph:]") # retire le premier élément
 
 insp.web$city2 <- str_remove(insp.web$city2, ",") # retire la virgule
 
-insp.web$t2 <- is.na(insp.web$city1)&is.na(insp.web$city2)
 
-table(insp.web$t2) # 16 cas où un nom de ville n'a pas été détection et visuellement cela semble correcte.
-
+## ---- label=inspclean8d2, include=FALSE-------------------------------------------
 insp.web$city <- if_else(!is.na(insp.web$city1), insp.web$city1, insp.web$city2)
 
 city.web <- as.data.frame(table(insp.web$city))
@@ -1409,13 +779,8 @@ insp.web$idno <- NULL
 insp.web <- rename(insp.web, city = city3)
 
 
-### NA
 
-sum(is.na(insp.web$city)) # 16
-
-
-
-## ---- label=inspclean6, include=FALSE---------------------------------------------
+## ---- label=inspclean6a, include=FALSE--------------------------------------------
 # select : 123484
 # web : 5154
 
@@ -1453,15 +818,11 @@ insp.select$insp.type <- if_else(insp.select$insp.type == "Accident", "A",
                        if_else(insp.select$insp.type == "Other--Data Initiative Non-Responder", "L1",
                        if_else(insp.select$insp.type == "Other--ATARs", "L2",                                
                        if_else(insp.select$insp.type == "Fatality/Catastrophe", "M",
-                       "!!!")))))))))))))))) 
-
-#### validation
-insp.select$t <- str_detect(insp.select$insp.type, "!!!")
-table(insp.select$t) # aucun nouveau NA
-
-insp.select$t <- NULL
+                       "!!!"))))))))))))))))
 
 
+
+## ---- label=inspclean6c, include=FALSE--------------------------------------------
 ### insp.web
 
 insp.web$insp.type <-  if_else(insp.web$insp.type == "Accident", "A",
@@ -1479,13 +840,9 @@ insp.web$insp.type <-  if_else(insp.web$insp.type == "Accident", "A",
                        if_else(insp.web$insp.type == "No Insp/Other", "X",
                        "!!!")))))))))))))
 
-#### validation
-insp.web$t <- str_detect(insp.web$insp.type, "!!!")
-table(insp.web$t) # aucun nouveau NA
-
-insp.web$t <- NULL
 
 
+## ---- label=inspclean6e, include=FALSE--------------------------------------------
 ## insp.scope
 
 ### insp.select
@@ -1497,13 +854,9 @@ insp.select$insp.scope <- if_else(insp.select$insp.scope == "Comprehensive", "A"
                        if_else(insp.select$insp.scope == "No Inspection", "D",
                                        "!!!"))))
 
-#### validation
-insp.select$t <- str_detect(insp.select$insp.scope, "!!!")
-table(insp.select$t) # aucun nouveau NA
-
-insp.select$t <- NULL
 
 
+## ---- label=inspclean6g, include=FALSE--------------------------------------------
 ### insp.web
 
 insp.web$insp.scope <- if_else(insp.web$insp.scope == "Complete", "A",
@@ -1516,14 +869,8 @@ insp.web$insp.scope <- if_else(insp.web$insp.scope == "Complete", "A",
                        "!!!")))))))
 
 
-#### validation
-insp.web$t <- str_detect(insp.web$insp.type, "!!!")
-table(insp.web$t) # aucun nouveau NA
 
-insp.web$t <- NULL
-
-
-
+## ---- label=inspclean6i, include=FALSE--------------------------------------------
 ## Union
 
 ### insp.select est sous la forme de Y ou N
@@ -1534,11 +881,9 @@ insp.web$union <- if_else(insp.web$union == "Union Status: NonUnion", "N",
                   if_else(insp.web$union == "Union Status: Union", "Y",
                   "X"))
 
-### validation
-
-table(insp.web$union) # pas de x
 
 
+## ---- label=inspclean6k, include=FALSE--------------------------------------------
 # Retirer les variables qui ne sont plus utile
 
 insp.select$t1 <- NULL
@@ -1551,12 +896,10 @@ insp.select$mailing.address <- NULL
 remove(city)
 remove(city.modif)
 remove(city2)
-remove(state)
-remove(zip)
 
 
 
-## ---- label=inspclean12, include=FALSE--------------------------------------------
+## ---- label=inspclean12a, include=FALSE-------------------------------------------
 # select : 123484
 # web : 5154
 
@@ -1564,8 +907,8 @@ remove(zip)
 
 insp.select$d <- duplicated(insp.select$insp) # marquer l'ensemble des valeurs en double sauf la première occurrence (contrairement à duplicated2()).
 
-table(insp.select$d, useNA = "ifany")
 
+## ---- label=inspclean12c, include=FALSE-------------------------------------------
 insp.unique <- filter(insp.select, d == FALSE)
 
 
@@ -1573,9 +916,8 @@ insp.unique <- filter(insp.select, d == FALSE)
 
 insp.web$web <- is.element(insp.web$insp, insp.unique$insp)
 
-table(insp.web$web) # il y a 49 enregistrements qui sont présent dans les deux banques. Pourquoi s'ont-il sortie comme manquant ?
 
-
+## ---- label=inspclean12e, include=FALSE-------------------------------------------
 ## retirer les doublons de insp.web car insp.unique est plus complet
 
 insp.web <- filter(insp.web, web == FALSE)
@@ -1601,100 +943,16 @@ remove(insp.unique)
 remove(insp.web)
 
 
-## ---- label=fcheminsp3, include=FALSE---------------------------------------------
-
-# Est-ce oischem = insp.complet ?
-
-oischem$el <- is.element(oischem$insp, insp.complet$insp)
-
-table(oischem$el)
-
-insp.complet$el <- is.element(insp.complet$insp, oischem$insp)
-
-table(insp.complet$el)
-
-## Qu'est-ce qui se trouve dans insp.complet mais pas oischem
-
-insp.no.oischem <- filter(insp.complet, el == FALSE)
 
 
-table(insp.no.oischem$sampling.performed, useNA = "ifany") #
-
-table(insp.no.oischem$insp.type) # rien qui ressort
-
-
-### insp.category
-
-table(insp.no.oischem$insp.category) # 90 % Health soit un peu plus que dans le jeu insp.complet
-
-table(insp.complet$insp.category) # 80 % Health
-
-### reason.no.insp
-
-describe(insp.no.oischem$reason.no.insp) # 93,4 % NA
-
-describe(insp.complet$reason.no.insp) # 90.1 % NA
-
-### insp.scope
-
-table(insp.no.oischem$insp.scope)
-
-table(insp.complet$insp.scope) # rien qui ressort
-
-
-### strategic.program
-
-table(insp.no.oischem$strategic.program)
-
-insp.no.oischem$noise <- str_detect(insp.no.oischem$strategic.program, "Noise|NOISE")
-
-table(insp.no.oischem$noise) # seulement présent dans 2 495 enregistrements
-
-
-insp.no.oischem$noise <- str_detect(insp.no.oischem$sampling.performed, "Noise|NOISE")
-
-table(insp.no.oischem$noise) # seulement présent dans 2 495 enregistrements
-
-  
-# Retirons les variables inutiles 
-
-## oischem
-
-oischem$combi	<-	NULL
-
-oischem$el	<-	NULL
-
-
-## inps.complet
-
-insp.complet$el	<-	NULL
-
-
+## ---- label=fcheminsp3b, include=FALSE--------------------------------------------
 # Fusion
 
 oischem_complet <- merge(oischem, insp.complet, by = "insp", all.x = TRUE) # même nombre d'enregistrement qu'oischem (158 947)
 
 
-# Validation des correspondances
 
-## rid
-
-oischem_complet$v1 <- oischem_complet$rid.x == oischem_complet$rid.y
-
-table(oischem_complet$v1) # 100 % true 
-
-
-## open.conf.date
-
-oischem_complet$v2 <- oischem_complet$open.conf.date.x == oischem_complet$open.conf.date.y
-
-table(oischem_complet$v2) # 100 % true 
-
-## site.naics
-oischem_complet$v3 <- oischem_complet$site.naics.x == oischem_complet$site.naics.y
-
-table(oischem_complet$v3) # 100 % true 
-
+## ---- label=fcheminsp3d, include=FALSE--------------------------------------------
 ## insp.type
 
 oischem_complet$insp.type.x <- if_else(oischem_complet$insp.type.x == "Accident", "A",
@@ -1711,31 +969,11 @@ oischem_complet$insp.type.x <- if_else(oischem_complet$insp.type.x == "Accident"
                        if_else(oischem_complet$insp.type.x == "Fatality/Catastrophe", "M",
                        if_else(oischem_complet$insp.type.x == "Other--ATARs", "L2",                                
                        if_else(oischem_complet$insp.type.x == "Referral-Employer Reported", "C1",                               
-                                                              "!!!")))))))))))))) 
-
-table(oischem_complet$insp.type.x)
+                                                              "!!!"))))))))))))))
 
 
-oischem_complet$v4 <- oischem_complet$insp.type.x == oischem_complet$insp.type.y
 
-table(oischem_complet$v4) # faux dans 3 250 cas
-
-### pourquoi pas de correspondances
-
-v4 <- filter(oischem_complet, v4 == FALSE)
-
-insptype_faux <- as.data.frame(table(v4$insp.type.x, v4$insp.type.y, useNA = "always"))
-
-insptype_faux <- filter(insptype_faux, Freq > 0)
-
-
-## strategic.program
-
-oischem_complet$v5 <- oischem_complet$strategic.program.x == oischem_complet$strategic.program.y
-
-table(oischem_complet$v5) # 100 % true 
-
-
+## ---- label=fcheminsp3f, include=FALSE--------------------------------------------
 # Combiner une variable combinant les informations sur les données
 
 oischem_complet$id.dfno <- paste(oischem_complet$id.dfno.x, oischem_complet$id.dfno.y, sep = ";")
@@ -1746,15 +984,7 @@ oischem_complet$id.dfno.x <- NULL
 oischem_complet$id.dfno.y <- NULL
 
 
-# Retirer les variables rendues inutiles
-
-oischem_complet$v1 <- NULL
-oischem_complet$v2 <- NULL
-oischem_complet$v3 <- NULL
-oischem_complet$v4 <- NULL
-oischem_complet$v5 <- NULL
-
-
+## ---- label=fcheminsp3h, include=FALSE--------------------------------------------
 oischem_complet$strategic.program.y <- NULL
 oischem_complet$insp.type.y <- NULL
 oischem_complet$site.naics.y <- NULL
@@ -1769,21 +999,14 @@ oischem_complet <- oischem_complet %>% rename(rid = rid.x, open.conf.date = open
 
 
 
-## ---- label=n9, include=FALSE-----------------------------------------------------
-
+## ---- label=n9.a, include=FALSE---------------------------------------------------
 remove(insp)
 
 remove(oischem)
 
-remove(insptype_faux)
-
-remove(v4)
-
-remove(insp.no.oischem)
 
 
-
-## ---- label=imisclean1, include=FALSE---------------------------------------------
+## ---- label=imisclean1a, include=FALSE--------------------------------------------
 # nbr enregistrements imis 877 519
 
 #  retrait des mesures dans imis qui ne sont pas area ou personnel
@@ -1806,8 +1029,8 @@ imis <- filter(imis, !is.na(units)) # retrait du NA
 
 # les enregistrements sans substance
 
-describe(imis$subst) # aucun NA. double validé avec un tableau
 
+## ---- label=imisclean1c, include=FALSE--------------------------------------------
 # Retirer les substances autres
 
 imis$autre <- str_detect(imis$subst,"T110|2587|8110|8111|8120|8130|8280|8310|8320|8330|8350|8360|8390|8400|8430|8470|8650|8880|8891|8893|8895|8920|9591|9613|9614|9838|B418|C730|E100|E101|F006|G301|G302|I100|L130|L131|L294|M102|M103|M104|M110|M124|M125|M340|P100|P200|Q100|Q115|Q116|Q118|R100|R252|R274|R278|S102|S108|S325|S777|V219|WFBW|BWPB|I200|L295")
@@ -1824,10 +1047,8 @@ imis_subs$label <- label.subs.usData$label[match(imis_subs$Substance, label.subs
 
 imis_subs <- imis_subs %>% relocate(label, .after = Substance)
 
-## Nbr retiré
 
-sum(imis_subs$Freq) #208 322
-
+## ---- label=imisclean1e, include=FALSE--------------------------------------------
 # conserver seulement les agents chimiques d'OIS
 
 imis <- filter(imis, autre == FALSE)
@@ -1835,14 +1056,6 @@ imis <- filter(imis, autre == FALSE)
 # 877519-36924-1-208322 = 632272
 
 
-
-## ---- label=imisclean1b-----------------------------------------------------------
-
-flextable(imis_subs)%>%
-  set_caption(caption = "Tableau 4 : Agents retirés d'IMIS et leur fréquence dans les données brutes")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
@@ -1854,40 +1067,8 @@ remove(imis_subs)
 
 
 
-## ---- label=oisimis4--------------------------------------------------------------
-# créer un tableau de comparaison
 
-etype_ois <- as.data.frame(table(oischem_complet$exposure.type))
-etype_ois <- etype_ois %>% rename(e.type_ois = Var1, Freq_ois = Freq)
-
-etype_ois$etypeUSAdata <- if_else(etype_ois$e.type_ois == "Not Analyzed","A", 
-                     if_else(etype_ois$e.type_ois  == "Ceiling","C", 
-                     if_else(etype_ois$e.type_ois  == "Dose", "D", 
-                     if_else(etype_ois$e.type_ois  == "non-detect", "F", 
-                     if_else(etype_ois$e.type_ois  == "STEL", "L", 
-                     if_else(etype_ois$e.type_ois  == "PEAK", "P", 
-                     if_else(etype_ois$e.type_ois  == "Sound Level","S", 
-                     if_else(etype_ois$e.type_ois  == "TWA","T",
-                     if_else(etype_ois$e.type_ois  == "TWA-8","T", 
-                     if_else(etype_ois$e.type_ois  == "Not valid", "V",  
-                     if_else(etype_ois$e.type_ois  == "Action Level", "Z",           
-                             "!!!")))))))))))
-
-etype_imis <- as.data.frame(table(imis$e.type))
-
-etype_imis <-etype_imis %>% rename(e.type_imis = Var1, Freq_imis = Freq)
-
-etype_imis$etypeUSAdata <- etype_imis$e.type_imis
-
-
-etypeUSAdata <- merge(etype_imis, etype_ois, by = "etypeUSAdata", all = TRUE)
-
-etypeUSAdata <-etypeUSAdata[-1,]
-
-
-# 147637
-describe(oischem_complet$exposure.type) # 9 NA
-
+## ---- label=oisimis4b-------------------------------------------------------------
 oischem_complet$e.type <- if_else(oischem_complet$exposure.type == "Not Analyzed","A", 
                      if_else(oischem_complet$exposure.type  == "Ceiling","C", 
                      if_else(oischem_complet$exposure.type  == "Dose", "D", 
@@ -1901,52 +1082,26 @@ oischem_complet$e.type <- if_else(oischem_complet$exposure.type == "Not Analyzed
                      if_else(oischem_complet$exposure.type  == "Action Level", "Z",           
                              "!!!")))))))))))
 
-e.type <- as.data.frame(table(oischem_complet$e.type, oischem_complet$exposure.type))
 
-e.type <- filter(e.type, Freq > 0)
-
+## ---- label=oisimis4d-------------------------------------------------------------
 oischem_complet$exposure.type <- NULL
 
 # 147637
 
-flextable(etypeUSAdata)%>%
-  set_caption(caption = "Tableau 6 :Valeurs des e.levels pour OIS et IMIS")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
-## ---- label=oisimis5--------------------------------------------------------------
-
-remove(e.type)
 
 
-
-## ---- label=oisimis7, include=FALSE-----------------------------------------------
-# 147637
-oischem_complet$l <- str_length(oischem_complet$site.naics)
-
-table(oischem_complet$l, useNA = "always") # 3 NA
-
+## ---- label=oisimis7b, include=FALSE----------------------------------------------
 ## combler les 3 NA
 
 oischem_complet$naics <- if_else(is.na(oischem_complet$site.naics), oischem_complet$primary.naics, oischem_complet$site.naics)
 
 oischem_complet$primary.naics <- NULL
 
-describe(oischem_complet$site.naics) # toujours 3 NA
 
-## Est-ce que l'on peut attribuer des codes NAICS à partir de la même compatnie aux 3 NA ?
-
-na.naics <- filter(oischem_complet, is.na(site.naics))
-
-oischem_complet$t <- str_detect(oischem_complet$estab.name, "USDOL OSHA - TOLEDO|US DOL OSHA - Parsippany AO") # 491 avec l'un des deux noms
-
-oischem_complet$t2 <- str_detect(oischem_complet$site.address, "1575 Long View Ave.Mansfield, OH 44906|250 Hamburg Tpke,, BUTLER,NJ,07405 UNITED STATES OF AMERICA,MORRIS") # les site.adresses des NA
-
-na.naics.cie <- filter(oischem_complet, t == TRUE & t2 == TRUE) # seulement les trois enregistrements
-
+## ---- label=oisimis7d, include=FALSE----------------------------------------------
 # retrait des NA
 
 oischem_complet <- filter(oischem_complet, !is.na(site.naics))
@@ -1954,11 +1109,6 @@ oischem_complet <- filter(oischem_complet, !is.na(site.naics))
 # 147634
 
 
-## ---------------------------------------------------------------------------------
-remove(na.naics)
-remove(na.naics.cie)
-oischem_complet$t2 <- NULL
-oischem_complet$l <- NULL
 
 
 ## ----label=oisimis8---------------------------------------------------------------
@@ -1970,9 +1120,7 @@ oischem_complet$s.type <- if_else(oischem_complet$sample.type == "Area", "A",
 oischem_complet$sample.type <- NULL
 
 
-## ---- label=oisimis9--------------------------------------------------------------
-
-
+## ---- label=oisimis9a-------------------------------------------------------------
 oischem_complet$units <- if_else(oischem_complet$exposure.units == "picocuries per liter", "C",
                     if_else(oischem_complet$exposure.units == "decibel", "B", 
                     if_else(oischem_complet$exposure.units == "milligrams per deciliter", "D", 
@@ -1989,6 +1137,7 @@ oischem_complet$units <- if_else(oischem_complet$exposure.units == "picocuries p
                     if_else(oischem_complet$exposure.units == "microgram per liter", "X3",
                     "!!!"))))))))))))))
 
+## ---- label=oisimis9bunitsUSAdata-------------------------------------------------
 units_ois <- as.data.frame(table(oischem_complet$exposure.units, oischem_complet$units))
 
 units_ois <- filter(units_ois, Freq > 0)
@@ -2020,7 +1169,6 @@ unitsUSAdata$source_description_imis <- if_else(unitsUSAdata$units_imis == "%", 
                        if_else(unitsUSAdata$units_imis == "Y", "Chemical Exposure Health Data - Dataset Field Definitions^1^", 
         "")))))))))))
 
-
 flextable(unitsUSAdata)%>%
   set_caption(caption = "Tableau 8 : Agents retirés d'IMIS et leur fréquence dans les données brutes")%>%
   theme_booktabs()%>%
@@ -2030,86 +1178,33 @@ flextable(unitsUSAdata)%>%
 
 
 
-## ---- label=n11, include=FALSE----------------------------------------------------
-remove(units_ois)
-remove(units.imis)
 
 
-## ---- label=oisimis_subst, include=FALSE------------------------------------------
-# OIS
 
-## valider motif
-
-oischem_complet$t1 <- str_count(oischem_complet$substance, "^....-") # compte le nombre de fois où il y a le motif
-
-table(oischem_complet$t1) # pas de double occurrence avec ce motif. 
-
+## ---- label=oisimis_subst1b, include=FALSE----------------------------------------
 ## Extraire le motif
 
 oischem_complet$subst  <- str_extract(oischem_complet$substance, "^....-") 
 
-oischem_complet$subst  <- str_remove_all(oischem_complet$subst, "-") 
-
-## Valider
-
-subst <- as.data.frame(table(oischem_complet$subst, oischem_complet$substance)) 
-
-subst <- filter(subst, Freq > 0)
-
-sum(is.na(oischem_complet$substance))-sum(is.na(oischem_complet$subst))  # aucun nouveau NA
+oischem_complet$subst  <- str_remove_all(oischem_complet$subst, "-")
 
 
+## ---- label=oisimis_subst1d, include=FALSE----------------------------------------
 oischem_complet$subst2  <- oischem_complet$subst
 
 
-# IMIS
-
-## est ce que les codes imis ont toujours 4 éléments
-
-imis$t.nb.subs <- str_count(imis$subst,".")
-
-table(imis$t.nb.subs) # il y a 1949 enregistrements avec code 2 caractères et 43 820 avec 3 caractères
-
-t.imis.subst <- filter(imis, t.nb.subs < 4 )
-
-t.imis.subst <- as.data.frame(table(t.imis.subst$subst))
 
 
-t.imis.subst$code.option <- c("0230, 1230, P230, 2230", "0261, 2610, 2611, 2612, 2616, R261","0320, 2320, 8320, E320","0360, 1360, 2360, 8360, T360","0040 + 39 autres options","0430, 1430, 2430, 8430","0440, 1440, 2440","0490, 1490, 2490","0491","0685, 2685, 9685","0686","0720, 2720, 1720","0731" )
 
 
-t.imis.subst<- t.imis.subst %>% rename(code.imis = Var1)
-
-
-## ---- label=oisimis_subst2a-------------------------------------------------------
-#présenter les résultats
-
-flextable(t.imis.subst)%>%
-  set_caption(caption = "Tableau 9 : Substances n'ayant pas un code à 4 chiffres dans IMIS")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
-
-
-## ---- label=oisimis_subst3, include=FALSE-----------------------------------------
-
+## ---- label=oisimis_subst3a, include=FALSE----------------------------------------
 imis$subst2 <- str_pad(imis$subst, 4, side = "left", pad = "0")
 
-# count
-
-imis$t <- str_count(imis$subst2, ".")
-
-table(imis$t)
 
 
 
 
-## ---- label=n12, include=FALSE----------------------------------------------------
-remove(t.imis.subst)
-remove(subst)
-
-
-## ---- label=oisimis_combi, include=FALSE------------------------------------------
+## ---- label=oisimis_combi.a, include=FALSE----------------------------------------
 #OIS
 
 ## nettoyer substance pour enlever le code
@@ -2123,111 +1218,27 @@ oischem_complet$substance2  <- str_remove_all(oischem_complet$substance, "^....-
 
 imis$substance2 <- label.subs.usData$label[match(imis$subst2, label.subs.usData$code)]
 
-imis.code.na <- filter(imis, is.na(imis$substance2)) # 402 enregistrement NA
-  
-imis.code.na <- as.data.frame(table(imis.code.na$subst2)) # 100 codes différent
 
 
 
 
-## ----label=oisimis_subst2b--------------------------------------------------------
-
-## Présenter
-
-imis.code.na <- rename(imis.code.na, code = Var1)
-
-ft.imis.code.na <- filter(imis.code.na, Freq >= 10)
-
-flextable(ft.imis.code.na)%>%
-  set_caption(caption = "Tableau 10 : Codes sans nom de substances et ayant une fréquence d'au moins 10 dans IMIS")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
 
-## ----label=n13, include=FALSE-----------------------------------------------------
-remove(imis.code.na)
-remove(ft.imis.code.na)
 
 
 
-## ---- label=oisimis_nr.exposed----------------------------------------------------
-summary(imis$nr.exposed)
-summary(oischem_complet$emp.cvrd)
 
 
-
-## ---- label=oisimis_ownership-----------------------------------------------------
-describe(oischem_complet$ownership.type)
-table(oischem_complet$ownership.type)
-
-
-
-## ---------------------------------------------------------------------------------
-describe(imis$s.nbr)
-describe(oischem_complet$exposure.assessment)
-describe(oischem_complet$exposure.record)
-
-label <- c("bd$variable", "nbr.valeur.unique", "nbr.enregistrement.bd/nbr.valeur.unique")
-
-s.nbr <- c("imis$s.nbr", n_distinct(imis$s.nbr), length(imis$s.nbr)/n_distinct(imis$s.nbr))
-
-exposure.assessment <- c("ois$e.assessment", n_distinct(oischem_complet$exposure.assessment), length(oischem_complet$exposure.assessment)/n_distinct(oischem_complet$exposure.assessment))
-
-exposure.record <- c("ois$e.record", n_distinct(oischem_complet$exposure.record), length(oischem_complet$exposure.record)/n_distinct(oischem_complet$exposure.record))
-
-association <- as.data.frame(rbind(s.nbr, exposure.assessment, exposure.record))
-
-names(association) <- label
-
-flextable(association)%>%
-  set_caption(caption = "Tableau x : exposure.assessment ou exposure.record vs s.nbr")%>%
-  theme_booktabs()%>% 
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)%>%
-  colformat_num(j = 2, digits = 3)
-
-fivenum(table(imis$s.nbr))
-
-fivenum(table(oischem_complet$exposure.assessment))
-
-fivenum(table(oischem_complet$exposure.record))
-
-mytable <- data.frame(table(oischem_complet$exposure.record))
-
-mytable <- filter(mytable, Freq == 4)
-
-t552 <- filter(oischem_complet, exposure.record == 552)
-
-
-table(oischem_complet$sample.sheet == oischem_complet$exposure.record)
-
-t <- oischem_complet[oischem_complet$sample.sheet != oischem_complet$exposure.record,]
-
-
-
-## ---- label=oisimis_prep, include=FALSE-------------------------------------------
-#  Uniformisation des textes
-
-## establishment
-
-### valider le format
-
-imis$t.esta <- str_detect(imis$establishment, "[:lower:]")
-
-table(imis$t.esta) # aucune minuscule
-
-### transformé le format d'OIS pour correspondre à IMIS
-
+## ---- label=oisimis_prep.b, include=FALSE-----------------------------------------
 oischem_complet$establishment <- str_to_upper(oischem_complet$estab.name) # Cette variable dans imis est 100 % en majuscule
 
 oischem_complet$estab.name <- NULL
 
-imis$t.esta <- NULL
 
 
+## ---- label=oisimis_prep.d, include=FALSE-----------------------------------------
 ## city
 
 ### transformer en majuscule. Création de city2 pour conserver les noms originaux avant les corrections
@@ -2313,74 +1324,39 @@ oischem_complet <- oischem_complet %>% rename(activity.nr = insp, e.level = expo
 
 
 
-## ---- label=fusionOISIMIS, include=FALSE------------------------------------------
-# vérifier les différences
 
-name.imis <- as.data.frame(names(imis))
-
-name.ois <- as.data.frame(names(oischem_complet))
-
-name.imis$na <- is.element(name.imis$`names(imis)`, name.ois$`names(oischem_complet)`)
-
-name.ois$na <- is.element(name.ois$`names(oischem_complet)`, name.imis$`names(imis)`)
-
+## ---- label=fusionOISIMIS.b, include=FALSE----------------------------------------
 dfusa <- as.data.frame(rbind(imis, oischem_complet))
 
-nrow(imis)+nrow(oischem_complet)==nrow(dfusa) # True et le nombre de variable est identique
-
-# write.xlsx(dfusa, file = "C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/data_intermediaire/dfusa.xlsx")
 
 
 
 
-## ----label=n14,  include=FALSE----------------------------------------------------
-remove(name.imis)
-remove(name.ois)
-
-
-
-## ----label=fusionOISIMIS2---------------------------------------------------------
+## ----label=fusionOISIMIS2.a-------------------------------------------------------
 # Ajout d'un identifiant IMIS ou OIS
 
 dfusa$t <- str_detect(dfusa$id.dfno, "ois")
 
 dfusa$iddf <- ifelse(dfusa$t == TRUE, "OIS", "IMIS")
 
-table(dfusa$iddf, useNA = "ifany") # résultat corresponds au nombre d'enregistrement de oischem et imis avant la fusion
-
-
-## ---- label=dfusa_activity.nr, include=FALSE--------------------------------------
-
-describe(dfusa$activity.nr)
 
 
 
-## ---- include=FALSE---------------------------------------------------------------
-describe(dfusa$state)
-
-table(dfusa$state, useNA = "always")
-
-
-## ---- label=dfusa_report.id, include=FALSE----------------------------------------
-describe(dfusa$report.id)
 
 
 
-## ---- label=dfusaestablishment, include=FALSE-------------------------------------
-describe(dfusa$establishment)
 
+
+
+## ---- label=dfusaestablishment.b, include=FALSE-----------------------------------
 dfusa$establishment <- str_squish(dfusa$establishment) # retire les espaces avant et après le texte et modifie les doubles espaces en une seule
 
-describe(dfusa$establishment) # le nettoyage précédant à retiré 10 valeurs uniques
 
+## ---- label=dfusaestablishment.d, include=FALSE-----------------------------------
 dfusa$establishment <- str_to_upper(dfusa$establishment)
 
 
-
-
-## ---- label=dfusa_city------------------------------------------------------------
-
-
+## ---- label=dfusa_city.a----------------------------------------------------------
 ## correction
 
 dfusa$city2 <- str_squish(dfusa$city2) # retire les espaces avant et après le texte et modifie les doubles espaces en une seule
@@ -2395,61 +1371,22 @@ dfusa$city2 <- str_replace(dfusa$city2, "^MT ", "MOUNT ")
 dfusa$city2 <- str_replace(dfusa$city2, "^MT. ", "MOUNT ")
 
 
-# s'assurer que tout est en majuscule
-
-dfusa$t <- str_detect(dfusa$city2, "[:lower:]")
-
-table(dfusa$t)
-
+## ---- label=dfusa_city.c----------------------------------------------------------
 # city, abréviation AFB et A F B est utilisé pour Air Force Base, parfois au long.
 
 dfusa$city2 <- str_replace(dfusa$city2, "A F B", "AFB")
 
 dfusa$city2 <- str_squish(dfusa$city2)
 
-describe(dfusa$city2)
 
 
 
 
-## ---- label=dfusa_state1, include=FALSE-------------------------------------------
-describe(dfusa$state.1)
-
-dfusa$t <- str_length(dfusa$state.1)
-
-
-state_dfusa <- as.data.frame(table(dfusa$state.1))
-
-state_dfusa <- rename(state_dfusa, code = Var1)
-
-# ouvrir une source pour les label des états
-
-state <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/data_intermediaire/state_imis_ois.xlsx")
-
-state_dfusa$label <- state$label[match(state_dfusa$code, state$id.imis)]
-
-
-state_dfusa <- state_dfusa %>% relocate(label, .after = code)
-
-
-## ---- label=dfusa_state1_flex-----------------------------------------------------
-flextable(state_dfusa)%>%
-  set_caption(caption = "Tableau 11 : Code and label for insp.scope")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
 
-## ---------------------------------------------------------------------------------
-remove(state)
-remove(state_dfusa)
-
-
-## ---- , label=dfusa_zip, include=FALSE--------------------------------------------
-
-
+## ---- , label=dfusa_zip.a, include=FALSE------------------------------------------
 dfusa$t <- str_length(dfusa$zip)
 
 zipcor <- filter(dfusa, t < 5)
@@ -2460,8 +1397,8 @@ zipusa <- read_xls("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/da
 
 zipcor$el <- is.element(zipcor$Var1, zipusa$zip)
 
-table(zipcor$el)
 
+## ---- , label=dfusa_zip.c, include=FALSE------------------------------------------
 zippb <- filter(zipcor, el == FALSE) # isoler les codes problématiques
 
 dfusa$zip3 <- str_pad(dfusa$zip, 5, side = "left", pad = "0")
@@ -2474,7 +1411,6 @@ dfusa$zip3 <- NULL
 
 dfusa$zip4 <- NULL
 
-describe(dfusa$zip)
 
 
 ## ---------------------------------------------------------------------------------
@@ -2483,88 +1419,18 @@ remove(zippb)
 remove(zipusa)
 
 
-## ---- label=dfusa_sic, include=FALSE----------------------------------------------
-# Count NA by group
-data_count <- dfusa %>%  
-  group_by(iddf) %>%
-  dplyr::summarize(count_na = sum(is.na(sic)))
-
-data_count # Print group counts
-
-
-# longueur des codes
-
-dfusa$t <- str_length(dfusa$sic)
-table(dfusa$t)
 
 
 
-## ---- label=dfusa_insptype, include=FALSE-----------------------------------------
-describe(dfusa$insp.type)
-
-insp.type <- as.data.frame(table(dfusa$insp.type, useNA = "ifany"))
-
-insp.type <-  rename(insp.type, code = Var1)
-
-insp.type$label <- if_else(insp.type$code == "A", " Accident",
-       if_else(insp.type$code == "B", " Complaint",
-       if_else(insp.type$code == "C", " Referral",
-       if_else(insp.type$code == "C1", " Referral-Employer Reported",
-       if_else(insp.type$code == "D", " Monitoring",
-       if_else(insp.type$code == "E", " Variance",
-       if_else(insp.type$code == "F", " Follow-Up",
-       if_else(insp.type$code == "G", " Unprogrammed Related",
-       if_else(insp.type$code == "H", " Program Planned",
-       if_else(insp.type$code == "I", " Programmed Related",
-       if_else(insp.type$code == "J", " Unprogrammed Other",
-       if_else(insp.type$code == "K", " Programmed Other",
-       if_else(insp.type$code == "L", " Other--Other",
-       if_else(insp.type$code == "L1", " Other--Data Initiative Non-Responder",
-       if_else(insp.type$code == "L2", " Other--ATARs",
-       if_else(insp.type$code == "M", " Fatality/Catastrophe",
-       if_else(insp.type$code == "X", " No Insp/Other",
-                                 "NA"))))))))))))))))) 
-
-insp.type <- insp.type %>% relocate(label, .after = code)
-
-
-## ---- label=dfusa_insptype_flex---------------------------------------------------
-flextable(insp.type)%>%
-  set_caption(caption = "tableau 12 : Code et label pour insp.type")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
-## ---- label=n15, include=FALSE----------------------------------------------------
-remove(insp.type)
-
-
-## ---- label=dfusa_subst, include=FALSE--------------------------------------------
-
-describe(dfusa$subst2)
-
-# longueur des codes
-
-dfusa$t <- str_length(dfusa$subst2)
-table(dfusa$t)
 
 
 
-## ---- label=dfusa_substance, include=FALSE----------------------------------------
-describe(dfusa$substance)
-
-describe(dfusa$substance2)
 
 
-# Count NA by group
-data_count <- dfusa %>%  
-  group_by(iddf) %>%
-  dplyr::summarize(count_na = sum(is.na(substance2)))
-
-data_count # Print group counts
-
+## ---- label=dfusa_substance.b, include=FALSE--------------------------------------
 # un peu d'uniformisation du texte
 
 dfusa$substance2 <- str_to_upper(dfusa$substance2)
@@ -2663,35 +1529,21 @@ dfusa$substance2 <- str_replace(dfusa$substance2, "SILICA .QUARTZ, NON-RESPIRABL
 
 
 
-## ---- label=dfusa_exps.freq, include=FALSE----------------------------------------
-
+## ---- label=dfusa_exps.freq.a, include=FALSE--------------------------------------
 dfusa$exps.freq <- str_squish(dfusa$exps.freq)
 
 dfusa$exps.freq <- str_to_upper(dfusa$exps.freq)
 
-describe(dfusa$exps.freq)
 
 
 
-## ---- label=dfusa_emp.cvrd, include=FALSE-----------------------------------------
-describe(dfusa$emp.cvrd)
 
 
 
-## ---- label=dfusa_pel-------------------------------------------------------------
-describe(dfusa$pel)
 
 
 
-## ---- label=dfusa_nrexposed-------------------------------------------------------
-describe(dfusa$nr.exposed)
-
-
-
-## ---- label=dfusa_units, include=FALSE--------------------------------------------
-describe(dfusa$units)
-
-
+## ---- label=dfusa_units.b, include=FALSE------------------------------------------
 dfusa$units.label <- if_else(dfusa$units ==  "C", "picocuries per liter",
                     if_else(dfusa$units == "B", "decibel",  
                     if_else(dfusa$units == "D", "milligrams per deciliter", 
@@ -2719,157 +1571,46 @@ dfusa$t <- dfusa$units.label == "blank observations" # il s'agit bien du case vi
 dfusa <- filter(dfusa, t!= TRUE)
 
 
-# Présent le résultat
-units <- as.data.frame(table(dfusa$units, dfusa$units.label, useNA = "ifany"))
-
-units <- units %>% rename(Code = Var1, Label = Var2)
-
-units <- filter(units, Freq > 0)
-
-
-## ---- label=dfusa_units_flex------------------------------------------------------
-flextable(units)%>%
-  set_caption(caption = "Tableau 13 : Code and label for units")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
-## ---- label=n16, include=FALSE----------------------------------------------------
-remove(units)
 
 
 
-## ---- label=dfusa_inspscope, include=FALSE----------------------------------------
-insp.scope <- as.data.frame(table(dfusa$insp.scope, useNA = "ifany"))
-
-insp.scope <- rename(insp.scope, code = Var1)
-
-
-insp.scope$label <- if_else(insp.scope$code == "A", "Comprehensive", 
-                    if_else(insp.scope$code == "D", "No Inspection", 
-                    if_else(insp.scope$code == "B", "Partial", 
-                    if_else(insp.scope$code == "C", "Records Only",  "!!!"))))
 
 
 
-insp.scope <- insp.scope %>% relocate(label, .after = code)
-
-
-## ---- label=dfusa_inspscope_flex--------------------------------------------------
-flextable(insp.scope)%>%
-  set_caption(caption = "Tableau 14 : Code and label for insp.scope")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
-## ---- label=n18, include=FALSE----------------------------------------------------
-remove(insp.scope)
-
-
-
-## ---- label=dfusa_adjpel, include=FALSE-------------------------------------------
-describe(dfusa$adj.pel)
-
-# Count NA by group
-data_count <- dfusa %>%  
-  group_by(iddf) %>%
-  dplyr::summarize(count_na = sum(is.na(adj.pel)))
-
-data_count # Print group counts
-
-table(dfusa$adj.pel, useNA = "always")
-
-
+## ---- label=dfusa_adjpel.b, include=FALSE-----------------------------------------
 dfusa$adj.pel <- NULL
 
 
 
-## ---- label=dfusa_jobtitle, include=FALSE-----------------------------------------
-
+## ---- label=dfusa_jobtitle.a, include=FALSE---------------------------------------
 dfusa$job.title <- str_squish(dfusa$job.title) # retire les espaces avant et après le texte et modifie les doubles espaces en une seule
 
 dfusa$job.title <- str_to_upper(dfusa$job.title)
 
-describe(dfusa$job.title)
-
-
-
-## ---- label=dfusa_naics, include=FALSE--------------------------------------------
-describe(dfusa$naics)
-
-# Count NA by group
-data_count <- dfusa %>%  
-  group_by(iddf) %>%
-  dplyr::summarize(count_na = sum(is.na(naics)))
-
-data_count # Print group counts
-
-
-# longueur des codes
-
-dfusa$t <- str_length(dfusa$naics)
-
-table(dfusa$t)
-
-
-
-## ---- label=dfusa_expodurationunits-----------------------------------------------
-describe(dfusa$expo.duration.units)
-
-# Count NA by group
-data_count <- dfusa %>%  
-  group_by(iddf) %>%
-  dplyr::summarize(count_na = sum(is.na(expo.duration.units)))
-
-data_count # Print group counts
-
-
-
-
-## ---- label=dfusa_union-----------------------------------------------------------
-describe(dfusa$union)
-
-table(dfusa$union, useNA = "ifany")
-
-
-## ---- label=dfusa_severity--------------------------------------------------------
-describe(dfusa$severity)
-
-
-
-## ---- label=dfusa_elevel----------------------------------------------------------
-
-describe(dfusa$e.level)
-
-# Count NA by group
-data_count <- dfusa %>%  
-  group_by(iddf) %>%
-  dplyr::summarize(count_na = sum(is.na(e.level)))
-
-data_count # Print group counts
 
 
 
 
 
-## ---------------------------------------------------------------------------------
-remove(data_count)
-
-
-## ---- label=dfusa_advnotice-------------------------------------------------------
-describe(dfusa$adv.notice)
 
 
 
-## ---- label=dfusa_etype,include=FALSE---------------------------------------------
-# 779906
 
-table(dfusa$e.type, useNA = "ifany") # il y a 9 enregistrements NA et une qui n'ont pas de valeur, mais qui ne sorte pas NA. On va forcer pour le NA
 
+
+
+
+
+
+
+
+## ---- label=dfusa_etype.b,include=FALSE-------------------------------------------
 dfusa$e.type <- if_else(dfusa$e.type== "A", "A",
                 if_else(dfusa$e.type == "C", "C",
                 if_else(dfusa$e.type == "D", "D", 
@@ -2885,73 +1626,30 @@ dfusa$e.type <- if_else(dfusa$e.type== "A", "A",
 dfusa$e.type[dfusa$e.type == "xxx"] <- NA # imis avait des cases vides, mais non NA. Une valeur NA a été forcé
 
 
-e.type <- as.data.frame(table(dfusa$e.type, useNA = "always"))
 
-e.type <- rename(e.type, code = Var1)
-
-e.type$label <- if_else(e.type$code== "A", "Not Analyzed",
-                if_else(e.type$code == "C", "Ceiling",
-                if_else(e.type$code == "D", "Dose", 
-                if_else(e.type$code == "F", "non-detect", 
-                if_else(e.type$code == "L", "STEL",  
-                if_else(e.type$code == "P", "PEAK",  
-                if_else(e.type$code == "S", "Sound Level", 
-                if_else(e.type$code == "T", "TWA",
-                if_else(e.type$code == "V", "Not valid",  
-                if_else(e.type$code == "Z", "Action Level",            
-                             "x"))))))))))
-
-e.type <- e.type %>% relocate(label, .after = code)
-
-
-## ---- label=dfusa_etype_flex------------------------------------------------------
-flextable(e.type)%>%
-  set_caption(caption = "Tableau 15 : Code and label for e.type")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
 ## ---------------------------------------------------------------------------------
 dfusa$t <- is.na(dfusa$e.type)
 
-table(dfusa$t)
 
+## ---------------------------------------------------------------------------------
 dfusa <- filter(dfusa, t == FALSE)
 # 779896
 
 
 
-## ---- label=n20-------------------------------------------------------------------
-remove(e.type)
-
-
-## ---- label=dfusa_exposureduration, include=FALSE---------------------------------
-describe(dfusa$exposure.duration)
 
 
 
-## ---- label=dfusa_occcode, include=FALSE------------------------------------------
-describe(dfusa$occ.code)
 
 
 
-## ---- label=dfusa_sdatea----------------------------------------------------------
-
-# Min et Max par DF
-data_count <- dfusa %>%  
-  group_by(iddf) %>%
-  dplyr::summarize(min = min(s.date), max(s.date))
-
-data_count # Print group counts
 
 
 
-## ---- label=dfusa_stype, include=FALSE--------------------------------------------
-
-table(dfusa$s.type, useNA = "ifany")
-
+## ---- label=dfusa_stype.b, include=FALSE------------------------------------------
 dfusa$t <- is.na(dfusa$s.type)
 
 dfusa <- filter(dfusa, t == FALSE)
@@ -2960,46 +1658,21 @@ dfusa <- filter(dfusa, t == FALSE)
 
 
 
-## ---- label=dfusa_exposure.record, include=FALSE----------------------------------
-
-describe(dfusa$exposure.record)
 
 
 
 ## ---------------------------------------------------------------------------------
-# dfusa 779 268
-
-# combinaison e.type = A "Not Analyzed" et e.level
-
-e.typeA.level <- filter(dfusa, e.type == "A")
-
-describe(e.typeA.level$e.level)
-
-
-# combinaison e.type = V "Not valid" et e.level
-
-e.typeV.level <- filter(dfusa, e.type == "V")
-
-describe(e.typeV.level$e.level)
-
 # Éliminer les e.type V et A
 
 dfusa$t <- str_detect(dfusa$e.type, "V|A")
 
-table(dfusa$t)
 
+## ---------------------------------------------------------------------------------
 dfusa <- dfusa[dfusa$t == FALSE, ]
 
 #774197-5071 = 774197
 
 
-
-## ---------------------------------------------------------------------------------
-# dfusa 774197
-
-# combinaison e.type = F "non-detect" et e.level
-
-describe(dfusa$e.level[dfusa$e.type =="F"])
 
 
 
@@ -3014,76 +1687,9 @@ dfusa$e.type.ois <- dfusa$e.type
 
 dfusa$e.type.ois[dfusa$iddf == "IMIS"] <- NA
 
-table(dfusa$e.type.ois, useNA = "always") # le nombre de NA correspond bien au nombre d'enregistrement d'IMIS
 
-# 774197
-
+## ---------------------------------------------------------------------------------
 dfusa$zero <- dfusa$e.level == 0
-
-# distribution des zéro en fonction de la source et du e.type
-
-fzero <- dfusa %>%  
-  group_by(iddf, e.type, zero) %>%
-  dplyr::summarize(Total = length(zero))
-
-# présenter les résultats
-
-## séparer les vrais et les faux dans deux colonnes
-
-fzero.t.imis <- filter(fzero, zero == TRUE & iddf == "IMIS")
-
-fzero.f.imis <- filter(fzero, zero == FALSE  & iddf == "IMIS")
-
-fzero.t.ois <- filter(fzero, zero == TRUE & iddf == "OIS")
-
-fzero.f.ois <- filter(fzero, zero == FALSE  & iddf == "OIS")
-
-## fusionner
-
-fzero2 <- merge(fzero.t.imis, fzero.f.imis, by = "e.type", all = TRUE)
-
-fzero2 <- fzero2 %>% rename(egal.zero = Total.x, pas.egal.zero = Total.y)
-
-fzero2$zero.x <- NULL
-
-fzero2$zero.y <- NULL
-
-fzero2$iddf.x <- NULL
-
-fzero2$iddf.y <- "IMIS"
-
-
-fzero3 <- merge(fzero.t.ois, fzero.f.ois, by = "e.type", all = TRUE)
-
-fzero3 <- fzero3 %>% rename(egal.zero = Total.x, pas.egal.zero = Total.y)
-
-fzero3$zero.x <- NULL
-
-fzero3$zero.y <- NULL
-
-fzero3$iddf.x <- NULL
-
-
-fzero <- rbind(fzero2, fzero3)
-
-fzero <- rename(fzero, iddf = iddf.y)
-
-fzero <- fzero %>% relocate(iddf, .after = e.type)
-
-fzero <- fzero[order(fzero$e.type),] # trier 
-
-myft <- flextable(fzero)
-
-myft <- border_remove(myft)
-
-myft%>%
-  set_caption(caption = "Distribution des e.level = 0 selon e.type")%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)%>%
-  add_header_row(values = c("", "Frequence des e.level"), colwidths = c(2, 2))%>%
-  hline_bottom(border = big_border, part = "body")%>%
-  hline_top(border = big_border, part = "head")%>%
-  hline_bottom(border = big_border, part = "head")
 
 
 
@@ -3094,119 +1700,31 @@ dfusa$e.type2 <- if_else(is.na(dfusa$e.level), dfusa$e.type,
                          if_else(dfusa$e.level == 0, "F", 
                           dfusa$e.type)) # doit passer par is.na avant, car sinon les e.level NA attribuent des NA aux e.type
 
-table(dfusa$e.type2, useNA = "always")
 
 
-
-## ---------------------------------------------------------------------------------
-remove(fzero)
-remove(fzero.f.imis)
-remove(fzero.t.imis)
-remove(fzero.f.ois)
-remove(fzero.t.ois)
-remove(fzero2)
-remove(fzero3)
-remove(e.typeA.level)
-remove(e.typeV.level)
-remove(myft)
 
 
 
 ## ---------------------------------------------------------------------------------
-# 774197
-
-# D'où proviennent les e.level NA
-
-elevel.na <- filter(dfusa, is.na(e.level))
-
-table(elevel.na$iddf)
-
 # Convertir les NA en zéro
 
 dfusa$e.level2 <- if_else(is.na(dfusa$e.level), 0, dfusa$e.level)
 
-describe(dfusa$e.level2)
 
+## ---------------------------------------------------------------------------------
 # Mettre la valeur F pour les valeurs de zéro
 
 dfusa$e.type2 <- if_else(dfusa$e.level2 == 0, "F", dfusa$e.type)
 
-table(dfusa$e.type2, useNA = "always")
 
 
 
-## ---------------------------------------------------------------------------------
-remove(elevel.na)
 
 
 
-## ---- include=FALSE---------------------------------------------------------------
-# 774197
-# présenter les combinaisons
-
-units_byDF <- as.data.frame(table(dfusa$iddf, dfusa$units))
-
-units_byDF <- filter(units_byDF, Freq > 0)
-
-units_byDF <- units_byDF %>% rename(Source = Var1, Unit = Var2)
-
-units_byDF <- units_byDF[order(units_byDF$Source),]
-
-units_byDF$Label <- if_else(units_byDF$Unit ==  "C", "picocuries per liter",
-                    if_else(units_byDF$Unit == "B", "decibel",  
-                    if_else(units_byDF$Unit == "D", "milligrams per deciliter", 
-                    if_else(units_byDF$Unit == "F1", "fibers",  
-                    if_else(units_byDF$Unit == "G", "million particles per cubic foot",  
-                    if_else(units_byDF$Unit == "L", "milligrams per liter",  
-                    if_else(units_byDF$Unit == "M", "milligrams per cubic meter",  
-                    if_else(units_byDF$Unit == "P", "parts per million",  
-                    if_else(units_byDF$Unit == "%", "percent",  
-                    if_else(units_byDF$Unit == "Y", "milligram",  
-                    if_else(units_byDF$Unit == "X", "micrograms",  
-                    if_else(units_byDF$Unit == "F", "fibers per cubic centimeter",  
-                    if_else(units_byDF$Unit == "X1", "micrograms per cubic meter", 
-                    if_else(units_byDF$Unit == "X3", "microgram per liter", 
-                    if_else(units_byDF$Unit == "A", "picocuries/l (radon) ?",
-                    if_else(units_byDF$Unit == "R", "micrograms",
-                    if_else(units_byDF$Unit == "S", "micrograms",
-                    if_else(units_byDF$Unit == "T", "micrograms",
-                    if_else(units_byDF$Unit == "U", "micrograms",
-                    if_else(units_byDF$Unit == "W", "micrograms",
-                    "blank observations"))))))))))))))))))))
-
-units_byDF <- units_byDF %>% relocate(Label, .after = Unit)
 
 
-## ---------------------------------------------------------------------------------
-flextable(units_byDF)%>%
-  set_caption(caption = "Tableau 16 : Unités présentes par origine des données")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
-
-## ---------------------------------------------------------------------------------
-# 774197
-
-#### IMIS : T, U, W, X, Y comparativement à M
-
-imis_TF <- dfusa[dfusa$iddf == "IMIS" 
-                      & is.element(dfusa$e.type, c("T", "F")) 
-                                   & is.element(dfusa$units, c("T", "U", "W", "X", "Y", "M")),]
-
-table(imis_TF$e.type2, imis_TF$units)
-
-
-## ---------------------------------------------------------------------------------
-# 774197
-
-#### OIS : T, U, W, X, Y comparativement à M
-
-ois_TF <- dfusa[dfusa$iddf == "OIS" 
-          & is.element(dfusa$e.type, c("T", "F")) 
-          & is.element(dfusa$units, c("T", "U", "W", "X", "Y", "M")),]
-
-table(ois_TF$e.type2, ois_TF$units)
 
 
 
@@ -3216,37 +1734,15 @@ dfusa$t <- str_detect(dfusa$units, "T|Y|X|W|U")
 
 dfusa$t2 <- dfusa$t == TRUE & dfusa$e.type2 != "F"
 
-table(dfusa$t2) # 1805 true
 
+## ---- include=FALSE---------------------------------------------------------------
 dfusa <- filter(dfusa, t2 == FALSE)
 
 #774197-1805 =772392
 
 
 
-## ---------------------------------------------------------------------------------
-# 772392
-#### fibre ois
 
-ois_TF <- dfusa[dfusa$iddf == "OIS" 
-                     & is.element(dfusa$units, c("F", "F1")),]
-
-table(ois_TF$e.type, ois_TF$units)
-
-
-
-ois_TF <- dfusa[dfusa$iddf == "OIS" 
-                     & is.element(dfusa$units, "F1"),]
-
-table(ois_TF$units, ois_TF$e.level)
-
-
-
-
-## ---------------------------------------------------------------------------------
-remove(ois_TF)
-remove(imis_TF)
-remove(units_byDF)
 
 
 
@@ -3256,10 +1752,6 @@ remove(units_byDF)
 dfusa$units2 <- dfusa$units
 
 dfusa$units2[dfusa$e.type2 == "F"] <- NA
-
-table(is.na(dfusa$units2), dfusa$e.type2)
-
-table(is.na(dfusa$units2), dfusa$e.level2==0)
 
 
 
@@ -3322,220 +1814,96 @@ units.subst$combi <- paste(units.subst$code.units, units.subst$substance2)
 
 dfusa$valid.unit.subst <- units.subst$decision[match(dfusa$combi, units.subst$combi)]
 
-retrait.unit.subst <- filter(dfusa, valid.unit.subst == "remove")
 
 
-## présenter les retraits
-
-retrait.unit.subst <- as.data.frame(table(retrait.unit.subst$units, retrait.unit.subst$substance2))
-
-retrait.unit.subst <- filter(retrait.unit.subst, Freq > 0)
-
-retrait.unit.subst <- retrait.unit.subst %>% rename(units = Var1, substance2 = Var2)
-
-# ajouter signification des unités
-
-retrait.unit.subst$label.units <- if_else(retrait.unit.subst$units ==  "C", "picocuries per liter",
-                    if_else(retrait.unit.subst$units == "B", "decibel",  
-                    if_else(retrait.unit.subst$units == "D", "milligrams per deciliter", 
-                    if_else(retrait.unit.subst$units == "F1", "fibers",  
-                    if_else(retrait.unit.subst$units == "G", "million particles per cubic foot",  
-                    if_else(retrait.unit.subst$units == "L", "milligrams per liter",  
-                    if_else(retrait.unit.subst$units == "M", "milligrams per cubic meter",  
-                    if_else(retrait.unit.subst$units == "P", "parts per million",  
-                    if_else(retrait.unit.subst$units == "%", "percent",  
-                    if_else(retrait.unit.subst$units == "Y", "milligram",  
-                    if_else(retrait.unit.subst$units == "X", "micrograms",  
-                    if_else(retrait.unit.subst$units == "F", "fibers per cubic centimeter",  
-                    if_else(retrait.unit.subst$units == "X1", "micrograms per cubic meter", 
-                    if_else(retrait.unit.subst$units == "X3", "microgram per liter", 
-                    if_else(retrait.unit.subst$units == "A", "picocuries/l (radon) ?",
-                    if_else(retrait.unit.subst$units == "R", "micrograms",
-                    if_else(retrait.unit.subst$units == "S", "micrograms",
-                    if_else(retrait.unit.subst$units == "T", "micrograms",
-                    if_else(retrait.unit.subst$units == "U", "micrograms",
-                    if_else(retrait.unit.subst$units == "W", "micrograms",
-                    "blank observations"))))))))))))))))))))
-
-
-retrait.unit.subst <- retrait.unit.subst %>% relocate(label.units, .after = units) 
-
-retrait.unit.subst <- retrait.unit.subst[order(retrait.unit.subst$Freq, decreasing = TRUE),]
-
-
-## ---- label=dfusa_unit_substb_flex------------------------------------------------
-
-flextable(retrait.unit.subst)%>%
-  set_caption(caption = "Tableau 17 : combinaisons unités et substance à retirer")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
 ## ---------------------------------------------------------------------------------
-# 772392
-sum(retrait.unit.subst$Freq) # 1058
-
-table(dfusa$valid.unit.subst, useNA = "always")
-
 dfusa$units.subst.na <- is.na(dfusa$valid.unit.subst)
 
-table(dfusa$units.subst.na, useNA = "always")
 
+## ---------------------------------------------------------------------------------
 dfusa <- filter(dfusa, valid.unit.subst != "remove" | is.na(valid.unit.subst))
 
 #772392-1058 = 771334
 
 
 
-## ---- label=n22-------------------------------------------------------------------
 
-remove(retrait.unit.subst)
+## ---- label=n22.b-----------------------------------------------------------------
 remove(units.subst)
 
 
-
-## ---- label=actionlevel, include=FALSE--------------------------------------------
+## ---- label=actionlevel.a, include=FALSE------------------------------------------
 # 771334
 
 # Identifier les mentions du e.type dans les noms des substances
 
 ## ACTION LEVEL Action Level
 
-dfusa$al <- str_detect(dfusa$substance2, "ACTION LEVEL") 
-
-action.level <- filter(dfusa, al == TRUE & e.type != "Z" & e.type != "F"& e.type != "V"& e.type != "A")
-
-action.level <- as.data.frame(table(action.level$e.type, action.level$substance2))
-
-action.level <- filter(action.level, Freq > 0)
-
-action.level <- action.level %>% rename(e.type = Var1, substance2 = Var2)
-
-sum(action.level$Freq)
+dfusa$al <- str_detect(dfusa$substance2, "ACTION LEVEL")
 
 
-## ---- label=actionlevel_flex------------------------------------------------------
-flextable(action.level)%>%
-  set_caption(caption = "Tableau 18 :Substances avec une mention action level mais avec un e.types différent")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 
 ## ---------------------------------------------------------------------------------
-
 # 771334 
 
 dfusa$t.al <- str_detect(dfusa$e.type,  "Z|F|V|A")
 
 dfusa$t.al2 <- dfusa$al == TRUE & dfusa$t.al == FALSE
 
-table(dfusa$t.al2, useNA = "ifany")
 
+## ---------------------------------------------------------------------------------
 dfusa <- filter(dfusa, t.al2 == FALSE | is.na(dfusa$al))
 
 #771334-2032-125 = 769302
 
 
 
-## ---- label=twa, include=FALSE----------------------------------------------------
+## ---- label=twa.a, include=FALSE--------------------------------------------------
 # 769302
 ## TWA
 
 dfusa$twa <- str_detect(dfusa$substance2, "TWA")
 
 
-twa <- filter(dfusa, twa == TRUE & e.type != "T" & e.type != "F"& e.type != "V"& e.type != "A")
-
-twa <- as.data.frame(table(twa$e.type, twa$substance2))
-
-twa <- filter(twa, Freq > 0)
-
-twa <- twa %>% rename(e.type = Var1, substance2 = Var2)
 
 
-## ---- label=twa_flex--------------------------------------------------------------
-flextable(twa)%>%
-  set_caption(caption = "Tableau 19 : Substance avec une mention TWA avec un e.type associé autre que TWA")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
 
 
 ## ---------------------------------------------------------------------------------
-
-# 769302
-sum(twa$Freq) # 28
-
 dfusa$twa2 <- str_detect(dfusa$e.type,  "F|V|T")
 
 dfusa$twa3 <- dfusa$twa == TRUE & dfusa$twa2 == FALSE
 
-table(dfusa$twa3, useNA = "ifany")
 
+## ---------------------------------------------------------------------------------
 dfusa <- filter(dfusa, twa3 == FALSE | is.na(dfusa$twa))
 
 # 769302-28 = 769274
 
 
 
-## ---- label=ceiling---------------------------------------------------------------
-# CEILING
-
-dfusa$ceiling <- str_detect(dfusa$substance2, "CEILING")
-
-ceiling <- filter(dfusa, ceiling == TRUE & e.type !="C"  & e.type != "F"& e.type != "V"& e.type != "A")
 
 
-
-
-## ---- label=n24-------------------------------------------------------------------
-
+## ---- label=n24.a-----------------------------------------------------------------
 dfusa$twa <- NULL
 dfusa$ceiling <- NULL
 dfusa$al <-  NULL
 dfusa$ceiling <- NULL
 
-remove(action.level)
-remove(ceiling)
-remove(twa)
+
+
+
+
 
 
 
 
 ## ---------------------------------------------------------------------------------
-
-substances.dfusa <- as.data.frame(table(dfusa$subst2, dfusa$substance2))
-
-substances.dfusa <- substances.dfusa %>% rename(code = Var1, label = Var2)
-
-substances.dfusa <- filter(substances.dfusa, Freq > 0)
-
-# write.xlsx(substances.dfusa, "C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/substances_dfusa.xlsx")
-
-
-
-## ---- label=dfusa_sdateb, include=FALSE-------------------------------------------
-describe(dfusa$s.date)
-
-imis.dfusa <- dfusa[dfusa$iddf == "IMIS",]
-
-describe(imis.dfusa$s.date)
-
-
-ois.dfusa <- dfusa[dfusa$iddf == "OIS",]
-
-describe(ois.dfusa$s.date)
-
-
-## ---------------------------------------------------------------------------------
-#769274
-
-table(dfusa$e.type)
-
 dfusa$t <- str_detect(dfusa$e.type, "D|Z")
 
 DZ <- filter(dfusa, t == TRUE)
@@ -3576,32 +1944,15 @@ dfusa$naics)
 
 dfusa$t <- duplicated2(dfusa$combi)
 
-table(dfusa$t)
 
+## ---------------------------------------------------------------------------------
 # Pourquoi a-t-il des doublons
 
 dfusa.doublon <- filter(dfusa, t == TRUE)
 
 
-## est-ce que les doublons sont entre imis et ois ?
 
-
-test <- as.data.frame(table(dfusa.doublon$iddf, dfusa.doublon$combi))
-
-test <- filter(test, Freq >0)
-
-## Si les données sont en double entre les deux jeux de données, ils vont sortir deux fois dans un tableau iddf et combi
-
-## testons
-
-test$dublicated <- duplicated2(test$Var2)
-
-table(test$dublicated)
-
-
-
-## ---- label=sauvegarde_final------------------------------------------------------
-
+## ---------------------------------------------------------------------------------
 # retrait des variables temporaires pour les analyses
 dfusa$valid.unit.subst <- NULL
 dfusa$combi <- NULL
@@ -3685,6 +2036,8 @@ dfusa <- dfusa[ ,c("activity.nr",
 "id.dfno"
 )]
 
+
+## ---- label=sauvegarde_final------------------------------------------------------
 # sauvegarde
 
 write.xlsx(dfusa, "C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/USAdata_clean.xlsx")
