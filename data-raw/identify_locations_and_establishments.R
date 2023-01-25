@@ -1,7 +1,7 @@
 ##################################### IMIS CLEANING #######################################
 
-# Input:  ./data-raw/USIS_data.RDS
-# Output: ./tmp/USIS_data.RDS
+# Input:  tmp/USIS_data.RDS
+# Output: tmp/USIS_data.RDS
 #
 # Processing:
 # 1. Cleaning of establishment names (and to a lesser extent, of cities and
@@ -31,7 +31,7 @@ library(qdap)
 library(stringdist)
 
 # Data to clean
-IMIS <- readRDS("./data-raw/USIS_data.RDS")
+IMIS <- readRDS("./tmp/USIS_data.RDS")
 
 # Change variable names for this script
 var_initial_names   <- c("establishment", "state.1", "city", "zip")
@@ -299,7 +299,5 @@ IMIS$COMPANY_INDEX <- CORRESP_INDEX[ID_for_match, 'INDEX']
 # Change variable names back
 colnames(IMIS)[var_indices] <- var_initial_names
 
-# Save the data frame in a specific folder
-tmp_dir = "./tmp/"
-dir.create(tmp_dir, showWarnings = FALSE)
-saveRDS(IMIS, paste0(tmp_dir, "USIS_data.RDS"))
+# Save the data frame
+saveRDS(IMIS, "./tmp/USIS_data.RDS")
