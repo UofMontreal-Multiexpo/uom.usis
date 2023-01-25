@@ -10,8 +10,9 @@
 
 # Files and folders relating to raw databases, CSV final datasets and testing
 # resources
-/data-raw/IMIS_data*
-/data-raw/OIS_data*
+/data-raw/prep_imis_ois_20230113/additional/*
+/data-raw/prep_imis_ois_20230113/IMIS/*
+/data-raw/prep_imis_ois_20230113/OIS/*
 /data/csv/*
 /tests/res/*
 
@@ -19,5 +20,8 @@
 /vignettes/USIS_database/USIS_relational_schema.pdf
 
 # Exceptions to keep folder structure (empty folders)
+!/data-raw/prep_imis_ois_20230113/additional/.gitkeep
+!/data-raw/prep_imis_ois_20230113/IMIS/.gitkeep
+!/data-raw/prep_imis_ois_20230113/OIS/.gitkeep
 !/data/csv/.gitkeep
 !/tests/res/.gitkeep
