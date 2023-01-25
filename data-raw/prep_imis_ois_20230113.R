@@ -1145,45 +1145,6 @@ oischem_complet$units <- if_else(oischem_complet$exposure.units == "picocuries p
                     if_else(oischem_complet$exposure.units == "microgram per liter", "X3",
                     "!!!"))))))))))))))
 
-## ---- label=oisimis9bunitsUSAdata-------------------------------------------------
-units_ois <- as.data.frame(table(oischem_complet$exposure.units, oischem_complet$units))
-
-units_ois <- filter(units_ois, Freq > 0)
-
-
-# tableau unité 
-
-units.imis <- units.imis %>% rename(units_imis = Var1, Freq_imis = Freq)
-
-units.imis$units_USAdata <- units.imis$units_imis
-
-units_ois <- units_ois %>% rename(units_ois = Var1, units_USAdata = Var2, Freq_ois = Freq)
-
-unitsUSAdata <- merge(units.imis, units_ois, by = "units_USAdata", all = TRUE )
-
-unitsUSAdata <- unitsUSAdata[-1,] # ligne à suprimer
-unitsUSAdata <- unitsUSAdata[-21,] # ligne à suprimer
-
-unitsUSAdata$source_description_imis <- if_else(unitsUSAdata$units_imis == "%", "Chemical Exposure Health Data - Dataset Field Definitions^1^",
-                       if_else(unitsUSAdata$units_imis == "B", "Seulement les substances 8110, 8111 et 8130",      
-                       if_else(unitsUSAdata$units_imis == "C", "IMIS data dictionary_tracy2020.xlsx^2^",
-                       if_else(unitsUSAdata$units_imis == "D", "IMIS data dictionary_tracy2020.xlsx^2^",
-                       if_else(unitsUSAdata$units_imis == "F", "Chemical Exposure Health Data - Dataset Field Definitions^1^",
-                       if_else(unitsUSAdata$units_imis == "G", "IMIS data dictionary_tracy2020.xlsx^2^",
-                       if_else(unitsUSAdata$units_imis == "L", "IMIS data dictionary_tracy2020.xlsx^2^",
-                       if_else(unitsUSAdata$units_imis == "M", "Chemical Exposure Health Data - Dataset Field Definitions^1^",
-                       if_else(unitsUSAdata$units_imis == "P", "Chemical Exposure Health Data - Dataset Field Definitions^1^",
-                       if_else(unitsUSAdata$units_imis == "X", "Chemical Exposure Health Data - Dataset Field Definitions^1^",
-                       if_else(unitsUSAdata$units_imis == "Y", "Chemical Exposure Health Data - Dataset Field Definitions^1^", 
-        "")))))))))))
-
-flextable(unitsUSAdata)%>%
-  set_caption(caption = "Tableau 8 : Agents retirés d'IMIS et leur fréquence dans les données brutes")%>%
-  theme_booktabs()%>%
-  align_text_col(align = "center", header = TRUE, footer = TRUE)%>%
-  autofit(add_w = 0.1, add_h =  0.1)
-
-
 
 
 
