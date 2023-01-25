@@ -67,11 +67,13 @@ source("./data-raw/identify_locations_and_establishments.R", local = new.env(), 
 source("./data-raw/utility_functions.R",    encoding = "UTF-8")
 source("./data-raw/processing_functions.R", encoding = "UTF-8")
 
+data_path = function(x) paste0("./data-raw/create_USIS_data/", x)
+
 # Loading data
 USIS_data = readRDS("./tmp/USIS_data.RDS")
 
 # Loading agency data
-agencies = xlsx::read.xlsx("./data-raw/OIS_RID_OFFICENAME FOIA.xlsx",
+agencies = xlsx::read.xlsx(data_path("OIS_RID_OFFICENAME FOIA.xlsx"),
                            sheetIndex = 1,
                            colIndex = c(2, 4),
                            colClasses = "character",
@@ -79,12 +81,12 @@ agencies = xlsx::read.xlsx("./data-raw/OIS_RID_OFFICENAME FOIA.xlsx",
                            stringsAsFactors = FALSE)
 
 # Loading activity and occupation reference tables
-SIC   = read.csv2("./data-raw/US_SIC_1987.csv", colClasses = "character")
-NAICS = read.csv("./data-raw/NAICS_2002.csv", colClasses = "character")
-OCC   = read.csv("./data-raw/OCC_1980.csv", colClasses = "character")
+SIC   = read.csv2(data_path("US_SIC_1987.csv"), colClasses = "character")
+NAICS = read.csv(data_path("NAICS_2002.csv"), colClasses = "character")
+OCC   = read.csv(data_path("OCC_1980.csv"), colClasses = "character")
 
 # Loading substance reference table
-USIS_substances = xlsx::read.xlsx("./data-raw/subst_usData_brute.xlsx",
+USIS_substances = xlsx::read.xlsx(data_path("subst_usData_brute.xlsx"),
                                   sheetIndex = 1,
                                   colIndex = c(1, 2),
                                   colClasses = "character",
@@ -93,7 +95,7 @@ USIS_substances = xlsx::read.xlsx("./data-raw/subst_usData_brute.xlsx",
 
 # Loading other reference tables
 load_reference_table = function(sheet, ...) {
-  xlsx::read.xlsx("./data-raw/reference_tables.xlsx",
+  xlsx::read.xlsx(data_path("reference_tables.xlsx"),
                   sheetIndex = sheet,
                   header = FALSE,
                   colClasses = "character",
