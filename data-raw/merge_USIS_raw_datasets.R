@@ -21,7 +21,7 @@ library(readxl)
 
 
 ## ---- label=datapath -------------------------------------------------------------
-data_path <- "./data-raw/prep_imis_ois_20230113/"
+data_path <- "./data-raw/merge_USIS_raw_datasets/"
 data_ois_path   <- function(x) paste0(data_path, "OIS/",        x)
 data_imis_path  <- function(x) paste0(data_path, "IMIS/",       x)
 data_other_path <- function(x) paste0(data_path, "additional/", x)

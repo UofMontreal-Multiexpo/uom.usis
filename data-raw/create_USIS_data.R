@@ -14,7 +14,7 @@
 ##  - utility_functions.R
 ##  - processing_functions.R
 ##  
-##  - prep_imis_ois_20230113.R, requiring:
+##  - merge_USIS_raw_datasets.R, requiring:
 ##    - city_ois_modif.xlsx
 ##    - dfusa_unitssubsts_verifie.xlsx
 ##    - subst_usData_brute.RDS
@@ -62,7 +62,7 @@
 ##  - tests/res/USIS_data.RDS
 ## 
 ## Temporary files:
-##  - tmp/USIS_data.RDS (output of prep_imis_ois_20230113.R
+##  - tmp/USIS_data.RDS (output of merge_USIS_raw_datasets.R
 ##                          and of identify_cities_and_establishments.R)
 ##  - tmp/USIS_data.csv
 ##  - tmp/USIS_measure_origins.csv
@@ -72,7 +72,7 @@
 #### Merge initial IMIS and OIS datasets ####
 
 # Run the file merging all initial IMIS and OIS datasets to create ./tmp/USIS_data.RDS
-source("./data-raw/prep_imis_ois_20230113.R", local = new.env(), encoding = "UTF-8")
+source("./data-raw/merge_USIS_raw_datasets.R", local = new.env(), encoding = "UTF-8")
 
 # Run the script adding identifiers to locations and establishments to update ./tmp/USIS_data.RDS
 source("./data-raw/identify_locations_and_establishments.R", local = new.env(), encoding = "UTF-8")
