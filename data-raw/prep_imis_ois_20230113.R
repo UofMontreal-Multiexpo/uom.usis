@@ -5,19 +5,19 @@ library(tidyverse)
 
 library(questionr) # pour describe()
 
-library(magrittr) # pour >%>
+# library(magrittr) # pour >%>
 
-library(flextable) # pour les tableaux
+# library(flextable) # pour les tableaux
 
-library(knitr)
+# library(knitr)
 
 library(openxlsx) # ouvrir et sauvegarder en xlsx
 
-library(lubridate) # manipuler les dates
+# library(lubridate) # manipuler les dates
 
 library(readxl)
 
-library(officer) # formatage flextable
+# library(officer) # formatage flextable
 
 
 ## ---- label=datapath -------------------------------------------------------------
