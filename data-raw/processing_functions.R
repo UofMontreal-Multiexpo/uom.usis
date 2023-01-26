@@ -106,7 +106,7 @@ format_and_correct = function(data, rename = TRUE, agencies = NULL) {
   }
   
   # Add 'ownership.type' values (all missing in OIS data extracted from the Web
-  # and in IMIS) for values of 'COMPANY_INDEX' existing in both IMIS and OIS
+  # and in IMIS) for values of 'COMPANY_INDEX' also existing in OIS
   company_type = sapply(unique(data[is_from_ois, "COMPANY_INDEX"]),
                         function(company) {
                           type = unique(data$ownership.type[is_from_ois & data$COMPANY_INDEX == company])
