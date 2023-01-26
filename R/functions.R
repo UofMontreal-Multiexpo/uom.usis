@@ -89,6 +89,10 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #'  `USIS_establishments`, etc.).
 #' 
 #' @details
+#' In the resulting object, variables named `number` from the datasets
+#'  `USIS_inspections` and `USIS_sheets` are named `inspection_number` and
+#'  `sheet_number`.
+#' 
 #' Additional variables created (regarding the datasets `USIS_inspections`,
 #'  `USIS_sheets` and `USIS_measures`) are the following.
 #' \describe{
@@ -139,6 +143,13 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #'  `establishment_id` is added after this column if argument `estab_names` is
 #'  `TRUE`.
 #' If so, the memory usage of the resulting object increases significantly.
+#' 
+#' Some variables are not included in the resulting object:
+#'  * `division` from `SIC`;
+#'  * `type` from `US_territories`;
+#'  * `schedule` from `USIS_inspections_types`; and
+#'  * `category_level_1`, `category_level_2`, `category_level_3` and
+#'    `category_level_4` from `OCC`.
 #' 
 #' @template function_not_exported
 #' 

@@ -25,6 +25,10 @@ the corresponding values from the other datasets (\code{OCC}, \code{USIS_agencie
 \code{USIS_establishments}, etc.).
 }
 \details{
+In the resulting object, variables named \code{number} from the datasets
+\code{USIS_inspections} and \code{USIS_sheets} are named \code{inspection_number} and
+\code{sheet_number}.
+
 Additional variables created (regarding the datasets \code{USIS_inspections},
 \code{USIS_sheets} and \code{USIS_measures}) are the following.
 \describe{
@@ -75,6 +79,15 @@ establishment names corresponding to establishment identifiers from
 \code{establishment_id} is added after this column if argument \code{estab_names} is
 \code{TRUE}.
 If so, the memory usage of the resulting object increases significantly.
+
+Some variables are not included in the resulting object:
+\itemize{
+\item \code{division} from \code{SIC};
+\item \code{type} from \code{US_territories};
+\item \code{schedule} from \code{USIS_inspections_types}; and
+\item \code{category_level_1}, \code{category_level_2}, \code{category_level_3} and
+\code{category_level_4} from \code{OCC}.
+}
 }
 \note{
 This function is not exported from the package.
