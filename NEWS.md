@@ -1,4 +1,6 @@
-# uom.usis 0.0.0.9000-0 (development version)
+# uom.usis 0.1.0-1 (2023-01-26)
+
+Initial stable release version.
 
 
 ---
