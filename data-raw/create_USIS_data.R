@@ -209,12 +209,12 @@ USIS_sheets      = USIS_sheets[, -which(colnames(USIS_sheets) %in% inspection_id
 
 
 # Rename columns
-colnames(USIS_agencies)            = c("id", "type")
-colnames(USIS_establishments)      = c("id", "type", "location_id")
-colnames(USIS_inspections)[c(1,2)] = c("id", "number")
-colnames(USIS_locations)[1]        = "id"
-colnames(USIS_sheets)[c(1,2)]      = c("id", "number")
-colnames(USIS_workplaces)[1]       = "id"
+colnames(USIS_agencies)               = c("id", "type")
+colnames(USIS_establishments)[c(1,2)] = c("id", "type")
+colnames(USIS_inspections)[c(1,2)]    = c("id", "number")
+colnames(USIS_locations)[1]           = "id"
+colnames(USIS_sheets)[c(1,2)]         = c("id", "number")
+colnames(USIS_workplaces)[1]          = "id"
 
 colnames(SIC)   = c("id", "name", "division")
 colnames(NAICS) = c("id", "name")
