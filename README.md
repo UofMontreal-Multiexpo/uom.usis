@@ -10,7 +10,7 @@ Make data about occupational exposure to chemicals available in an R package.
 
 Exposure data are from the **IMIS** database (Integrated Management Information System) and its successor the **OIS** database (OSHA Information System). Raw data used from these databases and CSV format of final datasets are available in this [Dropbox folder](https://www.dropbox.com/sh/09ygmyw7ds5myz3/AADtdE2LMbDphVwjPzbWNDbRa?dl=0).
 
-The [**OSHA**](https://www.osha.gov/) (USA's Occupational Safety and Health Administration) hosts the original IMIS and OIS data. The University of Montreal is **not** the owner of IMIS and OIS data.
+The **OSHA** (USA's Occupational Safety and Health Administration) hosts the original IMIS and OIS data. The University of Montreal is **not** the owner of IMIS and OIS data.
 
 
 ## Installation
