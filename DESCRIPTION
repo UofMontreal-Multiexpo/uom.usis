@@ -4,9 +4,10 @@ Title: United States Information Systems
 Version: 0.1.0.9000-1
 Date: 2023-01-26
 Authors@R: c(
-    person("Gauthier", "Magnin", email = "gauthier.magnin@gmail.com", role = c("aut", "ctr", "cre")),
+    person("Gauthier", "Magnin", email = "gauthier.magnin@gmail.com", role = c("aut", "ctr")),
     person("Isabelle", "Valois", email = "isabelle.valois.2@umontreal.ca", role = "aut"),
     person("Delphine", "Bosson-Rieutort", email = "delphine.bosson-rieutort@umontreal.ca", role = "aut"),
+    person("Jérôme", "Lavoué", email = "jerome.lavoue@umontreal.ca", role = "cre"),
     person("CHUM - Centre Hospitalier de l'Université de Montréal", role = c("cph", "fnd"))
   )
 Description: Data about occupational exposure to chemicals from the IMIS and OIS
