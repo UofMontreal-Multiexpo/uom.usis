@@ -22,7 +22,7 @@ A personal access token provides access to the GitHub API. To get one if you don
 * Go to <https://github.com/settings/tokens>.
 * Click on button "Generate new token".
 * Fill the "Note" field with something like "Token for private R packages".
-* Check the box "repo" (Full control of private repositories).
+* Check the box "repo" (full control of private repositories).
 * Click on button "Generate token".
 * Copy the given token.
 
@@ -59,9 +59,9 @@ These files can be accessed using `help(package = "uom.usis")` then clicking on 
 
 ## Authors
 
-* [**Gauthier Magnin**](https://fr.linkedin.com/in/gauthier-magnin) - R programmer analyst.
-* [**Isabelle Valois**](https://espum.umontreal.ca/lespum/departement-de-sante-environnementale-et-sante-au-travail/lequipe-du-departement/agents-et-professionnels-de-recherche/) - Research officer at University of Montreal.
-* [**Delphine Bosson-Rieutort**](https://espum.umontreal.ca/lespum/departement-de-gestion-devaluation-et-de-politique-de-sante/lequipe-du-departement/personnel-enseignant/professeur/in/in30464/sg/Delphine%20Bosson-Rieutort/) - Assistant professor at University of Montreal School of Public Health.
+* [Gauthier Magnin](https://fr.linkedin.com/in/gauthier-magnin) - R programmer analyst.
+* [Isabelle Valois](https://espum.umontreal.ca/lespum/departement-de-sante-environnementale-et-sante-au-travail/lequipe-du-departement/agents-et-professionnels-de-recherche/) - Research officer at University of Montreal.
+* [Delphine Bosson-Rieutort](https://espum.umontreal.ca/lespum/departement-de-gestion-devaluation-et-de-politique-de-sante/lequipe-du-departement/personnel-enseignant/professeur/in/in30464/sg/Delphine%20Bosson-Rieutort/) - Assistant professor at University of Montreal School of Public Health.
 
 
 ## Collaboration
