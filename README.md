@@ -39,7 +39,7 @@ remotes::install_github("UofMontreal-Multiexpo/uom.usis",
                         ref = "develop")
 ```
 
-To install a previous version, run the following instruction replacing `X.X.X-X` with the desired version number.
+To install a previous version, run the following instruction, replacing `X.X.X-X` with the desired version number.
 ```r
 remotes::install_github("UofMontreal-Multiexpo/uom.usis",
                         auth_token = "my_personal_access_token",
