@@ -1,8 +1,8 @@
 Package: uom.usis
 Type: Package
 Title: United States Information Systems
-Version: 0.1.0.9000-1
-Date: 2023-01-26
+Version: 0.1.1-1
+Date: 2023-03-10
 Authors@R: c(
     person("Gauthier", "Magnin", email = "gauthier.magnin@gmail.com", role = c("aut", "ctr")),
     person("Isabelle", "Valois", email = "isabelle.valois.2@umontreal.ca", role = "aut"),
