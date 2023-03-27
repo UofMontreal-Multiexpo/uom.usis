@@ -191,12 +191,13 @@ join_db = function(db, estab_names = FALSE) {
     inspection_id = inspection_ids,
     inspection_number = uom.usis::USIS_inspections[inspection_ids, "number"],
     uom.usis::USIS_inspections[inspection_ids, c("original_db", "inspection_type_id")],
-    inspection_type_name = uom.usis::USIS_inspection_types[
-      uom.usis::USIS_inspections[inspection_ids, "inspection_type_id"],
-      "name"
+    inspection_type_name = uom.usis::USIS_inspection_types[, "name"][
+      as.character(uom.usis::USIS_inspections[inspection_ids, "inspection_type_id"])
     ],
     scope_id = uom.usis::USIS_inspections[inspection_ids, "scope_id"],
-    scope_name = uom.usis::USIS_scopes[uom.usis::USIS_inspections[inspection_ids, "scope_id"]],
+    scope_name = uom.usis::USIS_scopes[
+      as.character(uom.usis::USIS_inspections[inspection_ids, "scope_id"])
+    ],
     uom.usis::USIS_inspections[inspection_ids, c("was_notified", "is_unionized",
                                                  "number_of_covered", "agency_id")],
     agency_type = uom.usis::USIS_agencies[uom.usis::USIS_inspections[inspection_ids, "agency_id"]],
@@ -207,7 +208,7 @@ join_db = function(db, estab_names = FALSE) {
     establishment_type = uom.usis::USIS_establishments[establishment_ids, "type"],
     location_id = location_ids,
     territory_id = territory_ids,
-    territory_name = uom.usis::US_territories[territory_ids, "name"],
+    territory_name = uom.usis::US_territories[, "name"][as.character(territory_ids)],
     uom.usis::USIS_locations[location_ids, c("city", "zip")],
     sic_id = uom.usis::USIS_workplaces[workplace_ids, "sic_id"],
     sic_name = uom.usis::SIC[match(uom.usis::USIS_workplaces[workplace_ids, "sic_id"],
@@ -229,17 +230,17 @@ join_db = function(db, estab_names = FALSE) {
     uom.usis::USIS_measures[measure_ids, c("occ_title", "job_title", "exposure_frequency",
                                            "sample_date", "sample_type_id")],
     sample_type_name = uom.usis::USIS_sample_types[
-      uom.usis::USIS_measures[measure_ids, "sample_type_id"]
+      as.character(uom.usis::USIS_measures[measure_ids, "sample_type_id"])
     ],
     uom.usis::USIS_measures[measure_ids, c("exposure_assessment", "substance_id")],
     substance_name = uom.usis::USIS_substances[uom.usis::USIS_measures[measure_ids, "substance_id"]],
     uom.usis::USIS_measures[measure_ids, c("is_detected", "exposure_level", "measure_unit_id")],
     measure_unit_name = uom.usis::USIS_measure_units[
-      uom.usis::USIS_measures[measure_ids, "measure_unit_id"]
+      as.character(uom.usis::USIS_measures[measure_ids, "measure_unit_id"])
     ],
     exposure_type_id = uom.usis::USIS_measures[measure_ids, "exposure_type_id"],
     exposure_type_name = uom.usis::USIS_exposure_types[
-      uom.usis::USIS_measures[measure_ids, "exposure_type_id"]
+      as.character(uom.usis::USIS_measures[measure_ids, "exposure_type_id"])
     ],
     uom.usis::USIS_measures[measure_ids, c("oel", "severity")]
   )
