@@ -452,7 +452,7 @@ get_origins = function(measure_id = NULL) {
     measure_id = as.integer(measure_id)
   }
   
-  # Adding lists in a data frame requieres that it already contains data
+  # Adding lists in a data frame requires that it already contains data
   origins = data.frame(tmp = rep(NA, length(measure_id)))
   rownames(origins) = measure_id
   
