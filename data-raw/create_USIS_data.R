@@ -16,7 +16,7 @@
 ##  
 ##  - merge_USIS_raw_datasets.R, requiring:
 ##    - city_ois_modif.xlsx
-##    - dfusa_unitssubsts_verifie.xlsx
+##    - dfusa_unitssubsts_verifieJL.xlsx
 ##    - subst_usData_brute.RDS
 ##    - zip_code_database.xls
 ##    - IMIS.merged.aug2017.RDS

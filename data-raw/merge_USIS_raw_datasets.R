@@ -396,11 +396,9 @@ label.subs.usData <- readRDS(data_other_path("subst_usData_brute.rds"))
 
 
 
-## ---- label=chemclean1a----------------------------------------------------------
-# identifier les substances NA
 
-table(is.na(oischem$substance)) # 16 075 TRUE
 
+## ---- label=chemclean1b----------------------------------------------------------
 # Identifier les enregistrements de substances autres
 
 autre <- str_detect(oischem$substance,"T110|2587|8110|8111|8120|8130|8280|8310|8320|8330|8350|8360|8390|8400|8430|8470|8650|8880|8891|8893|8895|8920|9591|9613|9614|9838|B418|C730|E100|E101|F006|G301|G302|I100|L130|L131|L294|M102|M103|M104|M110|M124|M125|M340|P100|P200|Q100|Q115|Q116|Q118|R100|R252|R274|R278|S102|S108|S325|S777|V219|WFBW|BWPB|I200|L295")
@@ -739,10 +737,12 @@ city.web$city1 <- if_else(city.web$dm == TRUE, str_remove(city.web$Var1, "^[:upp
 
 #### retirer les cas où il y des chiffres précédés de texte
 
-city.web$t2 <- str_count(city.web$city1, ".+[:digit:]") 
+city.web$t2 <- str_count(city.web$city1, ".+[:digit:]")
 
-table(city.web$t2)
 
+
+
+## ---- label=inspclean8d2c--------------------------------------------------------
 city.web$city1 <- str_remove(city.web$city1, ".+[:digit:]")
 
 #### majuscule espace majuscule
@@ -1217,18 +1217,6 @@ imis$substance2 <- label.subs.usData$label[match(imis$subst2, label.subs.usData$
 imis$subst <- NULL
 
 
-## ---- label=oisimis_prep.b-------------------------------------------------------
-#  Uniformisation des textes
-
-## establishment
-
-### valider le format
-
-t.esta <- str_detect(imis$establishment, "[:lower:]")
-
-table(t.esta) # aucune minuscule
-
-
 
 
 ## ---- label=oisimis_prep.d-------------------------------------------------------
@@ -1681,9 +1669,10 @@ nolabelbrute <- label.subs.usData$code[is.na(label.subs.usData$label)]
 
 nolabeldfusa <- dfusa$subst2[is.na(dfusa$substance2)]
 
-t <- is.element(nolabeldfusa, nolabelbrute)
-table(t) # même valeur
 
+
+
+## --------------------------------------------------------------------------------
 ## retrait 
 ### 772393-348=772045
 
@@ -1691,6 +1680,76 @@ nosubstance2 <- is.na(dfusa$substance2)
 
 dfusa <- dfusa[!nosubstance2,]
 
+
+
+## --------------------------------------------------------------------------------
+## une correction a été apporté sur substance2. Pour éviter de refaire l'analyse complète, je vais récupérer les décision et compléter les précédentes
+
+# combinaison à retirer
+
+## ouvrir la df vérifier précédemment
+
+units.subst <- read.xlsx(data_other_path("dfusa_unitssubsts_verifieJL.xlsx"))
+
+# créer une df avec subst
+
+units.subst2 <- dfusa[,c("units2", "subst2", "substance2")]
+
+units.subst2$combi.all <- paste0(units.subst2$units2, units.subst2$subst2, units.subst2$substance2)
+
+t <- data.frame(table(units.subst2$combi.all)) # avoir la fréquence
+
+t <- rename(t, combi.all = Var1)
+
+## retrait des doublons
+
+d <- duplicated(units.subst2$combi.all) 
+
+units.subst2 <- units.subst2[!d,]
+
+## ajout des fréquence
+
+units.subst2$Freq <- t$Freq[match(units.subst2$combi.all, t$combi.all)]
+
+
+
+
+## --------------------------------------------------------------------------------
+## ajouter les décisions de JL
+
+units.subst2$combi <- paste0(units.subst2$units2, units.subst2$substance2)
+
+units.subst$combi <- paste0(units.subst$code.units, units.subst$substance2)
+
+units.subst2$Decision <- units.subst$decision[match(units.subst2$combi, units.subst$combi)]
+
+## ajout des label units
+
+units.subst2$label.units <- if_else(units.subst2$units2 == "C", "picocuries per liter",
+                    if_else(units.subst2$units2 == "B", "decibel",  
+                    if_else(units.subst2$units2 == "D", "milligrams per deciliter", 
+                    if_else(units.subst2$units2 == "F1", "fibers",  
+                    if_else(units.subst2$units2 == "G", "million particles per cubic foot",  
+                    if_else(units.subst2$units2 == "L", "milligrams per liter",  
+                    if_else(units.subst2$units2 == "M", "milligrams per cubic meter",  
+                    if_else(units.subst2$units2 == "P", "parts per million",  
+                    if_else(units.subst2$units2 == "%", "percent",  
+                    if_else(units.subst2$units2 == "Y", "milligram",  
+                    if_else(units.subst2$units2 == "X", "micrograms",  
+                    if_else(units.subst2$units2 == "F", "fibers per cubic centimeter",  
+                    if_else(units.subst2$units2 == "X1", "micrograms per cubic meter", 
+                    if_else(units.subst2$units2 == "X3", "microgram per liter", 
+                    if_else(units.subst2$units2 == "A", "picocuries/l (radon) ?",
+                    if_else(units.subst2$units2 == "R", "micrograms",
+                    if_else(units.subst2$units2 == "S", "micrograms",
+                    if_else(units.subst2$units2 == "T", "micrograms",
+                    if_else(units.subst2$units2 == "U", "micrograms",
+                    if_else(units.subst2$units2 == "W", "micrograms",
+                    "blank observations"))))))))))))))))))))
+
+units.subst2 <- units.subst2 %>% relocate(label.units, .after = units2)
+
+units.subst2$Decision <- ifelse(is.na(units.subst2$units2),"ok", units.subst2$Decision)
 
 
 
@@ -1705,8 +1764,10 @@ units.subst2combi2 <- paste0(units.subst2$units2, units.subst2$subst2)
 
 valid.unit.subst <- units.subst2$Decision[match(dfusacombi2, units.subst2combi2)]
 
-table(valid.unit.subst, useNA = "ifany")
 
+
+
+## ---- label=dfusa_unit_substb3---------------------------------------------------
 remove.unit.subst <- valid.unit.subst == "remove"
 
 # retrait 
