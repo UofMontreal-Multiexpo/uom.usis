@@ -5,39 +5,49 @@ library(tidyverse)
 
 library(questionr) # pour describe()
 
-library(magrittr) # pour >%>
+# library(magrittr) # pour >%>
 
-library(flextable) # pour les tableaux
+# library(flextable) # pour les tableaux
 
-library(knitr)
+# library(knitr)
 
 library(openxlsx) # ouvrir et sauvegarder en xlsx
 
-library(lubridate) # manipuler les dates
+# library(lubridate) # manipuler les dates
 
 library(readxl)
 
-library(officer) # formatage flextable
+# library(officer) # formatage flextable
 
 
+
+
+## ---- label=datapath -------------------------------------------------------------
+data_path <- "./data-raw/merge_USIS_raw_datasets/"
+data_ois_path   <- function(x) paste0(data_path, "OIS/",        x)
+data_imis_path  <- function(x) paste0(data_path, "IMIS/",       x)
+data_other_path <- function(x) paste0(data_path, "additional/", x)
+
+data_tmp_path <- function(x) paste0("./tmp/", x)
+dir.create(data_tmp_path(""), showWarnings = FALSE)
 
 
 ## ---- label=datachem, echo=TRUE--------------------------------------------------
 
 
-oischem1011 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/OSHAOIS sampling records.20210817102056/Sampling - fed and state - 2010-2011 - chem for R.xlsx")
+oischem1011 <- read.xlsx(data_ois_path("Sampling - fed and state - 2010-2011 - chem for R.xlsx"))
 
-oischem1014 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/OSHAOIS sampling records.20210817102056/Sampling - fed and state - 2010-2014 - chem for R.xlsx")
+oischem1014 <- read.xlsx(data_ois_path("Sampling - fed and state - 2010-2014 - chem for R.xlsx"))
 
-oischem1213 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/OSHAOIS sampling records.20210817102056/Sampling - fed and state - 2012-2013 - chem for R.xlsx")
+oischem1213 <- read.xlsx(data_ois_path("Sampling - fed and state - 2012-2013 - chem for R.xlsx"))
 
-oischem1415 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/OSHAOIS sampling records.20210817102056/Sampling - fed and state - 2014-2015 - chem for R.xlsx")
+oischem1415 <- read.xlsx(data_ois_path("Sampling - fed and state - 2014-2015 - chem for R.xlsx"))
 
-oischem1617 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/OSHAOIS sampling records.20210817102056/Sampling - fed and state - 2016-2017 - chem for R.xlsx")
+oischem1617 <- read.xlsx(data_ois_path("Sampling - fed and state - 2016-2017 - chem for R.xlsx"))
 
-oischem1819 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/OSHAOIS sampling records.20210817102056/Sampling - fed and state - 2018-2019 - chem for R.xlsx")
+oischem1819 <- read.xlsx(data_ois_path("Sampling - fed and state - 2018-2019 - chem for R.xlsx"))
 
-oischem2021 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/OSHAOIS sampling records.20210817102056/Sampling - fed and state - 2020-2021 - chem for R.xlsx")
+oischem2021 <- read.xlsx(data_ois_path("Sampling - fed and state - 2020-2021 - chem for R.xlsx"))
 
 
 ## ---- label=datachem2------------------------------------------------------------
@@ -151,15 +161,15 @@ oischem$idno <- NULL
 ## ---- label=datainsp1, echo=TRUE-------------------------------------------------
 # Jeux de données sur l'inspection
 
-insp1 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/_OIS Fed and state SCAN Detail Y Redacted/2010-2011 OIS for R.xlsx")
+insp1 <- read.xlsx(data_ois_path("2010-2011 OIS for R.xlsx"))
 
-insp2 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/_OIS Fed and state SCAN Detail Y Redacted/2012-2013 OIS for R.xlsx")
+insp2 <- read.xlsx(data_ois_path("2012-2013 OIS for R.xlsx"))
 
-insp3 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/_OIS Fed and state SCAN Detail Y Redacted/2014-2015 OIS for R.xlsx")
+insp3 <- read.xlsx(data_ois_path("2014-2015 OIS for R.xlsx"))
 
-insp4 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/_OIS Fed and state SCAN Detail Y Redacted/2016-2017 OIS for R.xlsx")
+insp4 <- read.xlsx(data_ois_path("2016-2017 OIS for R.xlsx"))
 
-insp5 <- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/_OIS Fed and state SCAN Detail Y Redacted/2018-2019 OIS for R.xlsx")
+insp5 <- read.xlsx(data_ois_path("2018-2019 OIS for R.xlsx"))
 
 
 ## ---- label=datainsp2, echo=FALSE------------------------------------------------
@@ -355,7 +365,7 @@ remove(insp5)
 
 ## ----  label=dataimis, echo=TRUE-------------------------------------------------
 
-imis <- readRDS("C:/Users/i_val/Dropbox/SHARE OSHA data/IMIS/RawDataMerging/data/IMIS.merged.aug2017.rds")
+imis <- readRDS(data_imis_path("IMIS.merged.aug2017.rds"))
 
 
 ## ----  label=dataimis2-----------------------------------------------------------
@@ -380,7 +390,7 @@ imis$id.dfno <- paste(imis$iddf, imis$idno, sep = "_")
 ## --------------------------------------------------------------------------------
 ## ajouter les noms (utilisation le fichier généré par subst_usData_brute qui se trouve dans Dropbox/SHARE Multiexpo_data/IMIS/usa_data/)
 
-label.subs.usData <- readRDS("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/label_substance_brute/subst_usData_brute.rds")
+label.subs.usData <- readRDS(data_other_path("subst_usData_brute.rds"))
 
 
 
@@ -485,7 +495,7 @@ oischem <- filter(oischem, iddf != "oischem1014")
 
 ## Ouvrir le jeu qui résulte de la récupération effectué par JFS
 
-insp.web <- read_excel("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/OIS FOIA 2021/raw_data/Collecte_data_web_JFS/oischem_nodetail_JFS.xlsx")
+insp.web <- read_excel(data_ois_path("oischem_nodetail_JFS.xlsx"))
 
 ## ajouter les variables d'identification
 
@@ -654,7 +664,7 @@ city2 <- as.data.frame(table(city$site.address))
 
 ### Les noms de ville ont été isolé manuellement dans le fichier excel
 
-city.modif<- read.xlsx("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/data_intermediaire/city_ois_modif.xlsx")
+city.modif<- read.xlsx(data_other_path("city_ois_modif.xlsx"))
 
 ### faire correspondre Site.Adress pour marquer le nom isoler manuellement
 
@@ -1372,7 +1382,7 @@ zipcor <- dfusa[str_length(dfusa$zip) < 5, ]
 
 zipcor <- as.data.frame(table(zipcor$zip),)
 
-zipusa <- read_xls("C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/data_intermediaire/zip_code_database.xls")
+zipusa <- read_xls(data_other_path("zip_code_database.xls"))
 
 zipcor$el <- is.element(zipcor$Var1, zipusa$zip)
 
@@ -1822,6 +1832,6 @@ dfusa <- dfusa[ ,c("activity.nr",
 # write.xlsx(dfusa, "C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/USAdata_clean20230331.xlsx")
 
 
-write_rds(dfusa, "C:/Users/i_val/Dropbox/SHARE Multiexpo_data/IMIS/usa_data/USAdata_clean20230418.rds")
+saveRDS(dfusa, data_tmp_path("USIS_data.RDS"))
 
 
