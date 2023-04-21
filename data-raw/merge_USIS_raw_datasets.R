@@ -1771,7 +1771,7 @@ valid.unit.subst <- units.subst2$Decision[match(dfusacombi2, units.subst2combi2)
 remove.unit.subst <- valid.unit.subst == "remove"
 
 # retrait 
-## 772045-3225 = 768820
+## 772045-3226 = 768819
 dfusa <- dfusa[!remove.unit.subst, ]
 
 
@@ -1794,9 +1794,9 @@ dfusa <- dfusa[!remove.unit.subst, ]
 
 
 ## --------------------------------------------------------------------------------
-t <- str_detect(dfusa$e.type2, "D|Z")
+t <- is.element(dfusa$e.type2, c("D", "Z")) | is.element(dfusa$e.type.ois, c("D", "Z"))
 
-# 768820-3440-22 = 765358
+# 768819-3445-34 = 765340
 dfusa <- dfusa[!t,]
 
 
