@@ -162,9 +162,9 @@
 #' 
 #' @note
 #' Exposure type "F" for "Not Detected (N/D) or Not Found (N/F)" originally used
-#'  in IMIS data and listed in the document mentionned in 'Source' section was
-#'  not included in this dataset since this category does not express a type of
-#'  standard and is no longer used in OIS data.
+#'  in IMIS data and listed in the first document mentionned in 'Source' section
+#'  was not included in this dataset since this category does not express a type
+#'  of standard and is no longer used in OIS data.
 #'  See in [`USIS_measures`] the variable named `is_detected` used to define if
 #'  the sampled substance is actually detected.
 #' 
@@ -174,9 +174,14 @@
 #'  *Air Sampling Report (OSHA 91(S))*.
 #'  Policy and Procedures Manual no. C-91, 16 p.
 #'  
-#'  A version of this document can be found on the California Department of
+#'  Division of Occupational Safety and Health, 1994.
+#'  *Noise Survey Report (OSHA 92)*.
+#'  Policy and Procedures Manual no. C-92, 15 p.
+#'  
+#'  A version of these documents can be found on the California Department of
 #'  Industrial Relations website
-#'  [here](https://www.dir.ca.gov/DOSHPol/P&PC-91.pdf).
+#'  [here (91)](https://www.dir.ca.gov/DOSHPol/P&PC-91.pdf) and
+#'  [here (92)](https://www.dir.ca.gov/DOSHPol/P&PC-92.pdf).
 "USIS_exposure_types"
 
 

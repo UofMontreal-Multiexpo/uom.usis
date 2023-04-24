@@ -8,6 +8,11 @@
     - `measure_unit_name` values were incorrect for measures having the following `measure_unit_id` values: `D`, `F`, `G`, `L`, `M`, `P` and `R`.
     - `exposure_type_name` values were incorrect for measures having the following `exposure_type_id` values: `C`, `L`, `P` and `T`.
 
+## Documentation
+
+* A missing mention of a source has been added to the manuel of dataset `USIS_exposure_types`.
+
+
 
 # uom.usis 0.1.1-1 (2023-03-10)
 
