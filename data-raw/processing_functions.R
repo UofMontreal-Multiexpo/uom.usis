@@ -42,7 +42,8 @@ format_and_correct = function(data, rename = TRUE, agencies = NULL) {
   # A better way to deal with it would be to turn the value into NA.
   # But previous processing was to remove measures about detected substance 
   # having NA unit.
-  data = data[-which(!is.na(data$units) & data$units == "S" & data$e.type != "F"), ]
+  which_data_unit_s = which(!is.na(data$units) & data$units == "S" & data$e.type != "F")
+  if (length(which_data_unit_s) != 0) data = data[-which_data_unit_s, ]
   
   # Replace impossible values by NA
   data$emp.cvrd[data$emp.cvrd >= 1e+9] = NA
