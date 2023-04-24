@@ -18,10 +18,10 @@
 ## Fixes
 
 * Incorrect values were returned by functions `join_USIS`, `join_IMIS` and `join_OIS` in variables `inspection_type_name`, `sample_type_name`, `measure_unit_name` and `exposure_type_name`:
-    - `inspection_type_name` values were incorrect for measures having the following `inspection_type_id` values: `L2` and `M`.
-    - `sample_type_name` values were incorrect for measures having the following `sample_type_id` value: `P`.
-    - `measure_unit_name` values were incorrect for measures having the following `measure_unit_id` values: `D`, `F`, `G`, `L`, `M`, `P` and `R`.
-    - `exposure_type_name` values were incorrect for measures having the following `exposure_type_id` values: `C`, `L`, `P` and `T`.
+    - `inspection_type_name` values were incorrect for measures having the following `inspection_type_id` values: L2 and M.
+    - `sample_type_name` values were incorrect for measures having the following `sample_type_id` value: P.
+    - `measure_unit_name` values were incorrect for measures having the following `measure_unit_id` values: D, F, G, L, M, P and R.
+    - `exposure_type_name` values were incorrect for measures having the following `exposure_type_id` values: C, L, P and T.
 
 ## Documentation
 
