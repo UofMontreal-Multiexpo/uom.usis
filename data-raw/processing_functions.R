@@ -11,7 +11,7 @@
 #' @template function_not_exported
 #' 
 #' @param data Data to format and correct.
-#' @param rename Logical indicating whether to rename columns.
+#' @param rename Logical indicating whether to rename and reorder columns.
 #' @param agencies Two-column character matrix or data frame containing
 #'  identifiers and types of agencies conducting inspections.
 #' @return Data formatted and corrected.
@@ -119,7 +119,7 @@ format_and_correct = function(data, rename = TRUE, agencies = NULL) {
   data$ownership.type = unname(company_type[data$COMPANY_INDEX])
   
   # Convert data types
-  # (Variables 'adv.notice' and  'union' have been previously converted to logical)
+  # (Variables 'adv.notice' and 'union' have been previously converted to logical)
   new_types = c(activity.nr         = "integer",
                 e.duration.units    = "factor",
                 e.record            = "integer",
@@ -153,7 +153,8 @@ format_and_correct = function(data, rename = TRUE, agencies = NULL) {
   ## Renaming and reordering
   
   # Rename some columns
-  if (rename) {
+  if (!rename) return(data)
+  else {
     colnames(data) = c(
       "measure_id",
       "inspection_number",   # activity.nr
