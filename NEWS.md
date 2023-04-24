@@ -1,4 +1,4 @@
-# uom.usis 0.1.1.9000-1 (development version)
+# uom.usis 0.1.2-2 (2023-04-24)
 
 ## Data
 
