@@ -124,7 +124,7 @@
 #' 
 #' @template establishment_identifiers
 #' 
-#' @format Matrix of 80,029 rows and 2 columns:
+#' @format Matrix of 79,841 rows and 2 columns:
 #'  \describe{
 #'    \item{`establishment_id`}{Identifier of an establishment.}
 #'    \item{`establishment_name`}{Name of the establishment.}
@@ -144,7 +144,7 @@
 #' @template establishment_identifiers
 #' @template location_identifiers
 #' 
-#' @format Data frame of 77,519 rows (whose names are establishment identifiers)
+#' @format Data frame of 77,336 rows (whose names are establishment identifiers)
 #'  and 2 variables:
 #'  \describe{
 #'    \item{`type`}{Type of the establishment.}
@@ -222,7 +222,7 @@
 #' @template inspection_identifiers
 #' @template workplace_identifiers
 #' 
-#' @format Data frame of 94,446 rows (whose names are inspection identifiers)
+#' @format Data frame of 94,247 rows (whose names are inspection identifiers)
 #'  and 9 variables:
 #'  \describe{
 #'    \item{`number`}{Number of the inspection.}
@@ -254,7 +254,7 @@
 #' 
 #' @template location_identifiers
 #' 
-#' @format Data frame of 18,693 rows (whose names are location identifiers) and
+#' @format Data frame of 18,687 rows (whose names are location identifiers) and
 #'  3 variables:
 #'  \describe{
 #'    \item{`territory_id`}{Identifier of the U.S. territory corresponding to
@@ -302,7 +302,7 @@
 #'  completion of the variable `occ_id` (currently `NA` when `occ_title` is
 #'  not).
 #' 
-#' @format Data frame of 765,647 rows (whose names are measure identifiers) and
+#' @format Data frame of 765,339 rows (whose names are measure identifiers) and
 #'  16 variables:
 #'  \describe{
 #'    \item{`number_of_exposed`}{Number of employees exposed to the hazard.
@@ -376,7 +376,7 @@
 #' @template sheet_identifiers
 #' @template inspection_identifiers
 #' 
-#' @format Data frame of 339,755 rows (whose names are sheet identifiers) and 5
+#' @format Data frame of 339,016 rows (whose names are sheet identifiers) and 5
 #'  variables:
 #'  \describe{
 #'    \item{`number`}{Number of the sample sheet.}
@@ -400,7 +400,7 @@
 #' Substances sampled.
 #' Associate substance identifiers with substance names.
 #' 
-#' @format Named vector of 1,243 elements.
+#' @format Named vector of 1,244 elements.
 #' @source Data provided by the [OSHA](https://www.osha.gov/) and data from
 #'  other OSHA resources.
 #'  
@@ -444,7 +444,7 @@
 #'  not belonging to the one of 2002. This will lead to a modification of the
 #'  structures of the datasets `NAICS` and/or `USIS_workplaces`.
 #' 
-#' @format Matrix of 82,106 rows (whose names are workplace identifiers) and 3
+#' @format Matrix of 81,915 rows (whose names are workplace identifiers) and 3
 #'  columns:
 #'  \describe{
 #'    \item{`establishment_id`}{Identifier of the establishment.}

@@ -1,5 +1,20 @@
 # uom.usis 0.1.1.9000-1 (development version)
 
+## Data
+
+* A missing substance (ID 0473) has been added in the substance reference table.
+* An incorrect substance name (ID 0472) has been changed in the substance reference table.
+* All measures associated with the following measure units have been removed: % (percentage), D (milligrams per deciliter, blood), G (million particles per cubic foot), L (milligrams per liter, urine) and R (millirems).
+* Measures for which measure units were inconsistent with the sampled substances have been removed.
+* Measures associated with substances whose names contain the mention "Action Level" have been added.
+* Some measures having been added and others having been removed, the preceding changes result in the following differences in the total numbers.
+    - 308 fewer measures.
+    - 739 fewer sheets.
+    - 199 fewer inspections.
+    - 191 fewer workplaces.
+    - 183 fewer establishments.
+    - 6 fewer locations.
+
 ## Fixes
 
 * Incorrect values were returned by functions `join_USIS`, `join_IMIS` and `join_OIS` in variables `inspection_type_name`, `sample_type_name`, `measure_unit_name` and `exposure_type_name`:

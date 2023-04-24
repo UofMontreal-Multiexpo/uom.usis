@@ -5,7 +5,7 @@
 \alias{USIS_substances}
 \title{USIS substances}
 \format{
-Named vector of 1,243 elements.
+Named vector of 1,244 elements.
 }
 \source{
 Data provided by the \href{https://www.osha.gov/}{OSHA} and data from

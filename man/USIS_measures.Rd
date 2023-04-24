@@ -5,7 +5,7 @@
 \alias{USIS_measures}
 \title{USIS measures}
 \format{
-Data frame of 765,647 rows (whose names are measure identifiers) and
+Data frame of 765,339 rows (whose names are measure identifiers) and
 16 variables:
 \describe{
 \item{\code{number_of_exposed}}{Number of employees exposed to the hazard.

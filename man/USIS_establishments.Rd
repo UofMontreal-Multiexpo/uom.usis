@@ -5,7 +5,7 @@
 \alias{USIS_establishments}
 \title{USIS establishments}
 \format{
-Data frame of 77,519 rows (whose names are establishment identifiers)
+Data frame of 77,336 rows (whose names are establishment identifiers)
 and 2 variables:
 \describe{
 \item{\code{type}}{Type of the establishment.}
