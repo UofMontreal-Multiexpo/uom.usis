@@ -29,7 +29,7 @@
 
 ## Documentation
 
-* A missing mention of a source has been added to the manuel of dataset `USIS_exposure_types`.
+* A missing mention of a source has been added to the manual of dataset `USIS_exposure_types`.
 
 
 
