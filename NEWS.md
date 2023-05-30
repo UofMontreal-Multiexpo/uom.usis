@@ -1,5 +1,10 @@
 # uom.usis 0.1.2.9000-2 (development version)
 
+## Data
+
+* Measures associated with exposure levels lower than 0 have been removed (2 measures).
+* As a side effect, measure identifiers after ID 701100 have changed.
+
 
 
 # uom.usis 0.1.2-2 (2023-04-24)

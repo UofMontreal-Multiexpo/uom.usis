@@ -302,7 +302,7 @@
 #'  completion of the variable `occ_id` (currently `NA` when `occ_title` is
 #'  not).
 #' 
-#' @format Data frame of 765,339 rows (whose names are measure identifiers) and
+#' @format Data frame of 765,337 rows (whose names are measure identifiers) and
 #'  16 variables:
 #'  \describe{
 #'    \item{`number_of_exposed`}{Number of employees exposed to the hazard.
