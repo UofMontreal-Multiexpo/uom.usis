@@ -1,6 +1,7 @@
 # uom.usis 0.1.2.9000-3 (development version)
 
 `uom.usis` is now under the CC-BY License.
+Its GitHub repository is now publicly available.
 
 
 

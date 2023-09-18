@@ -15,34 +15,20 @@ The **OSHA** (USA's Occupational Safety and Health Administration) hosts the ori
 
 ## Installation
 
-The function `install_github` from the package `remotes` can be used to install this package. However, as this repository is private, you need a personal access token for this to work.
-
-A personal access token provides access to the GitHub API. To get one if you don't already have one:
-
-* Go to <https://github.com/settings/tokens>.
-* Click on button "Generate new token".
-* Fill the "Note" field with something like "Token for private R packages".
-* Check the box "repo" (full control of private repositories).
-* Click on button "Generate token".
-* Copy the given token.
-
-To install the latest version, run the following instruction using your token as the `auth_token` argument.
+To install the latest version, run the following instruction.
 ```r
-remotes::install_github("UofMontreal-Multiexpo/uom.usis",
-                        auth_token = "my_personal_access_token")
+remotes::install_github("UofMontreal-Multiexpo/uom.usis")
 ```
 
 To install the development version, use:
 ```r
 remotes::install_github("UofMontreal-Multiexpo/uom.usis",
-                        auth_token = "my_personal_access_token",
                         ref = "develop")
 ```
 
 To install a previous version, run the following instruction, replacing `X.X.X-X` with the desired version number.
 ```r
 remotes::install_github("UofMontreal-Multiexpo/uom.usis",
-                        auth_token = "my_personal_access_token",
                         ref = "vX.X.X-X")
 ```
 
