@@ -391,7 +391,7 @@ get_original_db = function(measure_id = NULL) {
 #' 
 #' @examples
 #' ## Get any establishment identifiers then find their names
-#' establishments = rownames(USIS_establishments)[396:399]
+#' establishments <- rownames(USIS_establishments)[396:399]
 #' get_establishment_names(establishments)
 #' 
 #' @export
