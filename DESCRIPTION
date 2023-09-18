@@ -8,7 +8,8 @@ Authors@R: c(
     person("Isabelle", "Valois", email = "isabelle.valois.2@umontreal.ca", role = "aut"),
     person("Delphine", "Bosson-Rieutort", email = "delphine.bosson-rieutort@umontreal.ca", role = "aut"),
     person("Jérôme", "Lavoué", email = "jerome.lavoue@umontreal.ca", role = "cre"),
-    person("CHUM - Centre Hospitalier de l'Université de Montréal", role = c("cph", "fnd"))
+    person("CHUM - Centre Hospitalier de l'Université de Montréal", role = c("cph", "fnd")),
+    person("OSHA - Occupational Safety and Health Administration", role = "dtc")
   )
 Description: Data about occupational exposure to chemicals from the IMIS and OIS
     databases. Raw data used from these databases and CSV format of final

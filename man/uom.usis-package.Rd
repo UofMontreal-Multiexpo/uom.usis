@@ -46,6 +46,7 @@ Authors:
 Other contributors:
 \itemize{
   \item CHUM - Centre Hospitalier de l'Université de Montréal [copyright holder, funder]
+  \item OSHA - Occupational Safety and Health Administration [data contributor]
 }
 
 }
