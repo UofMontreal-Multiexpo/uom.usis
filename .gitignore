@@ -19,6 +19,9 @@
 # Intermediate files to create documentation
 /vignettes/USIS_database/USIS_relational_schema.pdf
 
+# Temporary files and folders
+/tmp/
+
 # Exceptions to keep folder structure (empty folders)
 !/data-raw/merge_USIS_raw_datasets/additional/.gitkeep
 !/data-raw/merge_USIS_raw_datasets/IMIS/.gitkeep
