@@ -3,6 +3,10 @@
 `uom.usis` is now under the CC-BY License.
 Its GitHub repository is now publicly available.
 
+## Documentation
+
+* OSHA has been added to the package help page as data contributor.
+
 
 
 # uom.usis 0.1.2-3 (2023-05-30)
