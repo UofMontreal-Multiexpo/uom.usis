@@ -35,7 +35,12 @@ remotes::install_github("UofMontreal-Multiexpo/uom.usis",
 
 ## Documentation
 
-In addition to the manuals of the package, data and functions (accessible by the `help` function), the **inst/doc** directory contains:
+The package main page can be accessed using:
+```r
+help("uom.usis")
+```
+
+In addition to the manuals of the package, data and functions accessible by the `help` function, the `inst/doc` directory contains:
 
 * An organized list of the datasets and functions, in the file `list_of_help_pages.html`.
 * A description of the IMIS and OIS data, in the file `USIS_database.pdf`.
