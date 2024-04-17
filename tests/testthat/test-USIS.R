@@ -65,7 +65,7 @@ test_that("get_original_db extracts original database information of the given m
                expected)
 })
 
-test_that("get_original_db extracts original database information of all measures if no one is given", {
+test_that("get_original_db extracts original database information of all measures if none is given", {
   # Only compare the numbers of values
   # (the validation of extracted values is performed by the previous test)
   expect_length(get_original_db(), nrow(USIS_measures))
@@ -141,7 +141,7 @@ test_that("get_establishment_names extracts names of the given establishments", 
                    expected)
 })
 
-test_that("get_establishment_names extracts names of all establishments if no one is given", {
+test_that("get_establishment_names extracts names of all establishments if none is given", {
   # Note: this test assumes that there is more than on establishment in the database
   result = get_establishment_names()
   
