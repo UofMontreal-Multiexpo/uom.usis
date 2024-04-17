@@ -309,7 +309,9 @@ get_OIS_measures  = function() { get_measures(DB_OIS) }
 #'  Related inspections are identified through `USIS_measures$sheet_id` and
 #'  `USIS_sheets$inspection_id`.
 #' 
-#' @param db Name of the database from wich to get data.
+#' @template function_not_exported
+#' 
+#' @param db Name of the database from which to get data.
 #'  Character corresponding to `DB_IMIS`, `DB_OIS` or `DB_USIS`.
 #' @return Data frame, [`USIS_measures`] or subset of it.
 #' 

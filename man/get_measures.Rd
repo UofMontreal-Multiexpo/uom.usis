@@ -7,7 +7,7 @@
 get_measures(db)
 }
 \arguments{
-\item{db}{Name of the database from wich to get data.
+\item{db}{Name of the database from which to get data.
 Character corresponding to \code{DB_IMIS}, \code{DB_OIS} or \code{DB_USIS}.}
 }
 \value{
@@ -23,6 +23,9 @@ IMIS and OIS measures are distinguished using the variable \code{original_db}
 associated with the related inspections in the dataset \code{USIS_inspections}.
 Related inspections are identified through \code{USIS_measures$sheet_id} and
 \code{USIS_sheets$inspection_id}.
+}
+\note{
+This function is not exported from the package.
 }
 \examples{
 ## Get all USIS measurement data
