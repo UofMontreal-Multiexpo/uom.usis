@@ -4,9 +4,9 @@ Title: United States Information Systems
 Version: 1.0.0.9000-3
 Date: 2023-09-19
 Authors@R: c(
-    person("Gauthier", "Magnin", email = "gauthier.magnin@gmail.com", role = c("aut", "ctr")),
-    person("Isabelle", "Valois", email = "isabelle.valois.2@umontreal.ca", role = "aut"),
-    person("Delphine", "Bosson-Rieutort", email = "delphine.bosson-rieutort@umontreal.ca", role = "aut"),
+    person("Gauthier", "Magnin", role = c("aut", "ctr")),
+    person("Isabelle", "Valois", role = "aut"),
+    person("Delphine", "Bosson-Rieutort", role = "aut"),
     person("Jérôme", "Lavoué", email = "jerome.lavoue@umontreal.ca", role = "cre"),
     person("CHUM - Centre Hospitalier de l'Université de Montréal", role = c("cph", "fnd")),
     person("OSHA - Occupational Safety and Health Administration", role = "dtc")

@@ -38,9 +38,9 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Gauthier Magnin \email{gauthier.magnin@gmail.com} [contractor]
-  \item Isabelle Valois \email{isabelle.valois.2@umontreal.ca}
-  \item Delphine Bosson-Rieutort \email{delphine.bosson-rieutort@umontreal.ca}
+  \item Gauthier Magnin [contractor]
+  \item Isabelle Valois
+  \item Delphine Bosson-Rieutort
 }
 
 Other contributors:
