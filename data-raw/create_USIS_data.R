@@ -56,6 +56,8 @@
 ##  - USIS_substances.RData and .csv
 ##  - USIS_workplaces.RData and .csv
 ##  - US_territories.RData and .csv
+##  
+##  - R/sysdata.rda
 ## 
 ## Other output files, resource files for tests:
 ##  - tests/res/testing_resources.RDS
