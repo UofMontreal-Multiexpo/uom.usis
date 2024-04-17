@@ -104,6 +104,7 @@ text = substr(text, 2, nchar(text) - 1)
 links = substr_using_regex(variable_description$Comments, regex_link)
 links = substr(links, 2, nchar(links) - 1)
 
+# Create and display the table
 flextable(variable_description) %>%
   set_caption(caption = "Description of USIS main variables.") %>%
   # Use width() because set_table_properties(layout = "autofit") results in overflow
@@ -149,7 +150,7 @@ flextable(data.frame(ID   = names(USIS_scopes),
 
 ## Appendix C: Agency type and establishment type reference tables {#appendix-c}
 
-<!-- In columns, long table captions overflow the margins and off the page.
+<!-- Inside columns, long table captions overflow the margins and off the page.
      Therefore, table names have to be simple text instead of captions.
      But in that case, a linebreak and a change of the fontsize is needed to
      get the original style back. -->
@@ -197,7 +198,7 @@ flextable(data.frame(ID   = rownames(US_territories),
 
 
 <!-- Page break to prevent the link to appendix E from redirecting to the bottom
-     of the previous page whereas the title is in the next one -->
+     of the previous page whereas the title is on the next one -->
 \newpage
 
 ## Appendix E: Unit reference tables {#appendix-e}

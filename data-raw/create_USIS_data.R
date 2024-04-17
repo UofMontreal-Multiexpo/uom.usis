@@ -85,6 +85,7 @@ source("./data-raw/identify_locations_and_establishments.R", local = new.env(), 
 source("./data-raw/utility_functions.R",    encoding = "UTF-8")
 source("./data-raw/processing_functions.R", encoding = "UTF-8")
 
+# Function to create paths to raw data files
 data_path = function(x) paste0("./data-raw/create_USIS_data/", x)
 
 # Loading data

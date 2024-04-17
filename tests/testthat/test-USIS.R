@@ -101,7 +101,7 @@ test_that("get_establishment_names returns a named list if several IDs are given
 })
 
 test_that("get_establishment_names returns a named list if no IDs are given", {
-  # Note: this test assumes that there is more than on establishment in the database
+  # Note: this test assumes that there is more than one establishment in the database
   result = get_establishment_names()
   
   expect_type(result, "list")
