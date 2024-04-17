@@ -32,6 +32,7 @@ Suggests:
     questionr,
     readxl,
     rsvg,
+    stats,
     stringdist,
     testthat (>= 3.0.0),
     tidyverse,
