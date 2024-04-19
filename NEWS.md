@@ -1,5 +1,9 @@
 # uom.usis 1.0.0.9000-3 (development version)
 
+## Documentation
+
+* In the PDF file, relationship cardinalities have been corrected in figure 1.
+
 
 
 # uom.usis 1.0.0-3 (2023-09-19)
