@@ -2,7 +2,9 @@
 
 ## Documentation
 
-* In the PDF file, relationship cardinalities have been corrected in figure 1.
+* Corrections have been applied to the PDF file.
+    - Relationship cardinalities have been corrected in figure 1.
+    - Missing variable `inspection_number` has been added in table 1.
 
 
 

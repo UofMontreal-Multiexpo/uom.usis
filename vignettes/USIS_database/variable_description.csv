@@ -1,6 +1,7 @@
 "Variable","Definition","Type","Comments"
 "measure_id","Identifier of the measure.","Integer",
 "inspection_id","Identifier of the inspection.","Integer",
+"inspection_number","Number of the inspection.","Integer",
 "original_db","Original database of the data.","Enumeration","Can be either ""IMIS"" or ""OIS""."
 "inspection_type_id","Identifier of the inspection type.","Enumeration","See [appendix A](#appendix-a)."
 "scope_id","Identifier of the inspection scope.","Enumeration","See [appendix B](#appendix-b)."
