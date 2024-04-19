@@ -316,7 +316,8 @@ for (name in exported_datasets) {
   write.csv(get(name),
             file = paste0(csv_dir, name, ".csv"),
             na = missing_value,
-            row.names = FALSE)
+            row.names = FALSE,
+            fileEncoding = "UTF-8")
 }
 
 # Temporarily save as CSV the internal datasets
@@ -326,7 +327,8 @@ for (name in c(internal_datasets, "USIS_data")) {
   write.csv(get(name),
             file = paste0(tmp_dir, name, ".csv"),
             na = missing_value,
-            row.names = FALSE)
+            row.names = FALSE,
+            fileEncoding = "UTF-8")
 }
 
 
