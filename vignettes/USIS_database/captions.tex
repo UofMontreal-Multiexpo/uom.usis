@@ -1,0 +1,11 @@
+\usepackage{caption}
+% Using the 'caption' package allows captions to span the full width of
+% the page and be automatically left-aligned if they are more than
+% one-line long
+
+% Set back default vertical space between captions and figures
+\captionsetup[figure]{skip=13.5pt}
+
+% Increase the size of table captions to the size of the main text
+\DeclareCaptionFormat{standardformat}{\fontsize{10.8}{13}\selectfont#1#2#3}
+\captionsetup[table]{format=standardformat}

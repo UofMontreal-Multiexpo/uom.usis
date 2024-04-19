@@ -12,9 +12,11 @@ output:
         - ./USIS_database/columns.tex
         - ./USIS_database/landscape.tex
         - ./USIS_database/fontsize.tex
+        - ./USIS_database/captions.tex
         # columns.tex   allows to divide part of a page into several columns.
         # landscape.tex allows to create pages in landscape mode.
         # fontsize.tex  allows to define specific fontsize.
+        # captions.tex  allows to configure captions.
 linkcolor: red
 urlcolor: blue
 ---
