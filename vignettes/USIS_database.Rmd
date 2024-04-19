@@ -108,7 +108,7 @@ links = substr(links, 2, nchar(links) - 1)
 
 # Create and display the table
 flextable(variable_description) %>%
-  set_caption(caption = "Description of USIS main variables.") %>%
+  set_caption(caption = "Description of USIS main fields.") %>%
   # Use width() because set_table_properties(layout = "autofit") results in overflow
   width(1, unit = "cm", width = 3.36) %>%
   width(2, unit = "cm", width = 5.4 ) %>%

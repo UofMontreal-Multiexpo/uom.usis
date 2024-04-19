@@ -1,4 +1,4 @@
-"Variable","Definition","Type","Comments"
+"Field","Definition","Type","Comments"
 "measure_id","Identifier of the measure.","Integer",
 "inspection_id","Identifier of the inspection.","Integer",
 "inspection_number","Number of the inspection.","Integer",
