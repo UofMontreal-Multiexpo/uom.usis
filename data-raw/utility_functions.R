@@ -186,6 +186,10 @@ resave_with_best_compression = function(paths){
   # For each file
   for (p in paths) {
     
+    # Display current file
+    if (length(paths) != 1) cat("File:", p,"\n")
+    cat("File size according to compression method:\n")
+    
     # For each compression method, compress the data and get the file size
     sizes = sapply(methods, function(m) {
       tools::resaveRdaFiles(p, compress = m, compression_level = 9)
@@ -197,8 +201,6 @@ resave_with_best_compression = function(paths){
     best = methods[which.min(sizes)]
     
     # Display of results and optimal choice
-    if (length(paths) != 1) cat("File:", p,"\n")
-    cat("File sizes according to compression method:\n")
     print(sizes)
     cat("Use of '", best, "' compression method.\n", sep = "")
     if (p != paths[length(paths)]) cat("\n")
