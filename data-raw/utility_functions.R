@@ -113,7 +113,7 @@ strsplit_last = function(x, split, simplify = TRUE, ...) {
 #' @param table Data frame containing data to verify.
 #' @param keys Numbers of the columns containing the identifiers (i.e., forming
 #'  the unique keys).
-#' @param name Optional. Name to give to the data frame to use in the diagnostic
+#' @param name Optional. Name of the data frame to use in the diagnostic
 #'  message.
 #' 
 #' @author Gauthier Magnin
@@ -142,7 +142,7 @@ validate_keys = function(table, keys = 1, name = NULL) {
 #' 
 #' @template function_not_exported
 #' 
-#' @param x Data frame to turn into a vector.
+#' @param x Data frame or matrix to turn into a vector.
 #' @param names Number of the column of `x` to use as names.
 #' @param values Number of the column of `x` to use as values.
 #' @return Named vector.
