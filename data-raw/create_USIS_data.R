@@ -398,8 +398,8 @@ eval(parse(text = paste0("usethis::use_data(",
                          ", internal = TRUE, overwrite = TRUE)")))
 
 # Optimize compression
-resave_with_best_compression(paste0("./data/", exported_datasets, ".RData"))
-resave_with_best_compression(paste0("./R/sysdata.rda"))
+resave_with_best_compression(c(paste0("./data/", exported_datasets, ".RData"),
+                               "./R/sysdata.rda"))
 
 
 
