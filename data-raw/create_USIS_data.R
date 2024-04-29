@@ -248,7 +248,12 @@ id_columns[["USIS_measure_origins"]]     = c(1, 2)
 
 
 
-#### 3. Validation ####
+#### 3. Validation and formatting of the datasets ####
+
+##### 3.a. First validation #####
+
+cat("First validation...",
+    "(Certain invalidities may be corrected by the following formatting instructions.)\n")
 
 # Checking the validity of the supplementary tables
 for (name in supplementary_tables) {
@@ -258,8 +263,7 @@ for (name in supplementary_tables) {
 }
 
 
-
-#### 4. Formatting the datasets ####
+##### 3.b. Formatting the datasets #####
 
 # Remove NA keys from the supplementary tables
 for (name in supplementary_tables) {
@@ -295,8 +299,27 @@ for (name in supplementary_tables) {
 }
 
 
+##### 3.c Second validation #####
 
-#### 5. Export as CSV ####
+cat("Second validation... ")
+message("Any following invalid table message must be addressed.")
+
+# Checking the validity of the supplementary tables
+invalid = FALSE
+
+for (name in supplementary_tables) {
+  if(!validate_keys(get(name),
+                    keys = id_columns[[name]],
+                    name = substr(name, 6, nchar(name)))) {
+    invalid = TRUE
+  }
+}
+
+if (invalid) stop("Invalid supplementary tables.")
+
+
+
+#### 4. Export as CSV ####
 
 # CSV directory and temporary directory
 csv_dir = "./data/csv/"
@@ -333,7 +356,7 @@ for (name in c(internal_datasets, "USIS_data")) {
 
 
 
-#### 6. Simplify the tables ####
+#### 5. Simplify the tables ####
 
 # Distinguish tables having two columns from those having more than two
 is_vectorizable = sapply(dataset_names,
@@ -383,7 +406,7 @@ for (name in not_vectorizable_tables) {
 
 
 
-#### 7. Add prepared data to package ####
+#### 6. Add prepared data to package ####
 
 # Save exported data in data/
 for (name in exported_datasets) {

@@ -115,6 +115,7 @@ strsplit_last = function(x, split, simplify = TRUE, ...) {
 #'  the unique keys).
 #' @param name Optional. Name of the data frame to use in the diagnostic
 #'  message.
+#' @return `TRUE` or `FALSE` whether keys are valid.
 #' 
 #' @author Gauthier Magnin
 #' @keywords internal
@@ -122,16 +123,21 @@ strsplit_last = function(x, split, simplify = TRUE, ...) {
 validate_keys = function(table, keys = 1, name = NULL) {
   
   name = if (!is.null(name)) paste0(name, " ") else character(0)
+  valid = TRUE
   
   if (any(duplicated(table[keys]))) {
     message("Invalid ", name, "table. ",
             "Certain keys appear more than once.")
+    valid = FALSE
   }
   
   if (any(apply(table, 1, function(row) any(is.na(row[keys])) & any(!is.na(row[-keys]))))) {
     message("Invalid ", name, "table. ",
             "There is data associated with no key (i.e., the key or one of its part is NA).")
+    valid = FALSE
   }
+  
+  return(valid)
 }
 
 
