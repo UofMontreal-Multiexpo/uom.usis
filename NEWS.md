@@ -1,5 +1,9 @@
 # uom.usis 1.0.0.9000-3 (development version)
 
+## Data
+
+* In datasets `USIS_inspections` and `USIS_sheets`, variables previously named `number` are now named `inspection_number` and `sheet_number`.
+
 ## Documentation
 
 * Corrections have been applied to the PDF file.

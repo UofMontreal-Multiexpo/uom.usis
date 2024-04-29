@@ -225,7 +225,7 @@
 #' @format Data frame of 94,247 rows (whose names are inspection identifiers)
 #'  and 9 variables:
 #'  \describe{
-#'    \item{`number`}{Number of the inspection.}
+#'    \item{`inspection_number`}{Number of the inspection.}
 #'    \item{`original_db`}{Original database of the inspection data (IMIS or
 #'          OIS).}
 #'    \item{`inspection_type_id`}{Identifier of the inspection type.}
@@ -379,7 +379,7 @@
 #' @format Data frame of 339,016 rows (whose names are sheet identifiers) and 5
 #'  variables:
 #'  \describe{
-#'    \item{`number`}{Number of the sample sheet.}
+#'    \item{`sheet_number`}{Number of the sample sheet.}
 #'    \item{`exposure_duration`}{Duration of time the hazard has existed.
 #'          Only available for OIS data.}
 #'    \item{`duration_unit`}{Unit of the exposure duration.

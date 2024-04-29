@@ -89,10 +89,6 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #'  `USIS_establishments`, etc.).
 #' 
 #' @details
-#' In the resulting object, variables named `number` from the datasets
-#'  `USIS_inspections` and `USIS_sheets` are named `inspection_number` and
-#'  `sheet_number`.
-#' 
 #' Additional variables created (regarding the datasets `USIS_inspections`,
 #'  `USIS_sheets` and `USIS_measures`) are the following.
 #' \describe{
@@ -189,8 +185,8 @@ join_db = function(db, estab_names = FALSE) {
     
     # Inspection data
     inspection_id = inspection_ids,
-    inspection_number = uom.usis::USIS_inspections[inspection_ids, "number"],
-    uom.usis::USIS_inspections[inspection_ids, c("original_db", "inspection_type_id")],
+    uom.usis::USIS_inspections[inspection_ids,
+                               c("inspection_number", "original_db", "inspection_type_id")],
     inspection_type_name = uom.usis::USIS_inspection_types[, "name"][
       as.character(uom.usis::USIS_inspections[inspection_ids, "inspection_type_id"])
     ],
@@ -219,8 +215,8 @@ join_db = function(db, estab_names = FALSE) {
     
     # Sheet data
     sheet_id = sheet_ids,
-    sheet_number = uom.usis::USIS_sheets[sheet_ids, "number"],
-    uom.usis::USIS_sheets[sheet_ids, c("exposure_duration", "duration_unit", "record_id")],
+    uom.usis::USIS_sheets[sheet_ids,
+                          c("sheet_number", "exposure_duration", "duration_unit", "record_id")],
     
     # Measure data
     uom.usis::USIS_measures[measure_ids, c("number_of_exposed", "occ_id")],

@@ -25,10 +25,6 @@ the corresponding values from the other datasets (\code{OCC}, \code{USIS_agencie
 \code{USIS_establishments}, etc.).
 }
 \details{
-In the resulting object, variables named \code{number} from the datasets
-\code{USIS_inspections} and \code{USIS_sheets} are named \code{inspection_number} and
-\code{sheet_number}.
-
 Additional variables created (regarding the datasets \code{USIS_inspections},
 \code{USIS_sheets} and \code{USIS_measures}) are the following.
 \describe{

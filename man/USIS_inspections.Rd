@@ -8,7 +8,7 @@
 Data frame of 94,247 rows (whose names are inspection identifiers)
 and 9 variables:
 \describe{
-\item{\code{number}}{Number of the inspection.}
+\item{\code{inspection_number}}{Number of the inspection.}
 \item{\code{original_db}}{Original database of the inspection data (IMIS or
 OIS).}
 \item{\code{inspection_type_id}}{Identifier of the inspection type.}

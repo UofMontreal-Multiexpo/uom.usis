@@ -30,10 +30,6 @@ Functions \code{join_IMIS} and \code{join_OIS} consider only IMIS or OIS data ac
 to the variable \code{original_db} in \code{USIS_inspections}.
 }
 \details{
-In the resulting object, variables named \code{number} from the datasets
-\code{USIS_inspections} and \code{USIS_sheets} are named \code{inspection_number} and
-\code{sheet_number}.
-
 Additional variables created (regarding the datasets \code{USIS_inspections},
 \code{USIS_sheets} and \code{USIS_measures}) are the following.
 \describe{

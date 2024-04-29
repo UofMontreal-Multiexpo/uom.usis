@@ -8,7 +8,7 @@
 Data frame of 339,016 rows (whose names are sheet identifiers) and 5
 variables:
 \describe{
-\item{\code{number}}{Number of the sample sheet.}
+\item{\code{sheet_number}}{Number of the sample sheet.}
 \item{\code{exposure_duration}}{Duration of time the hazard has existed.
 Only available for OIS data.}
 \item{\code{duration_unit}}{Unit of the exposure duration.
