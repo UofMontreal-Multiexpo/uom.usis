@@ -6,6 +6,7 @@
 
 ## Documentation
 
+* The relationships between the numbers of characters of the class identifiers and the hierarchical structures of classifications SIC and NAICS are now mentioned in the help pages of datasets `SIC` and `NAICS`.
 * Corrections have been applied to the PDF file.
     - Relationship cardinalities have been corrected in figure 1.
     - Missing variable `inspection_number` has been added in table 1.

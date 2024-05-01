@@ -31,9 +31,24 @@ NAICS
 }
 \description{
 The version of 2002 of the North American Industry Classification System
-(NAICS). It is a hierarchical classification of 5 levels: sectors,
-subsectors, industry groups, NAICS industries and national industries.
-Only United States industries are considered. Other national industries
-(i.e., used in Canada and Mexico) are not.
+(NAICS). Only classes used in the United States are considered. Other
+classes (i.e., used in Canada and Mexico) are not. NAICS is a hierarchical
+classification of 5 levels:
+\enumerate{
+\item sectors (two-digit identifiers);
+\item subsectors (three-digit identifiers);
+\item industry groups (four-digit identifiers);
+\item NAICS industries (five-digit identifiers); and
+\item national industries (six-digit identifiers).
+}
+}
+\details{
+There are three sectors to consider carefully since they have special
+identifiers, grouping several two-digit identifiers:
+\itemize{
+\item 31-33: Manufacturing;
+\item 44-45: Retail Trade; and
+\item 48-49: Transportation and Warehousing.
+}
 }
 \keyword{datasets}

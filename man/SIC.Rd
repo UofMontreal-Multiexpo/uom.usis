@@ -30,8 +30,13 @@ Department of Labor \href{https://www.osha.gov/data/sic-manual}{here}.
 SIC
 }
 \description{
-The version of 1987 of the United States standard industrial classification
-(SIC). It is a hierarchical classification of 4 levels: divisions, major
-groups, industry groups and industries.
+The version of 1987 of the United States Standard Industrial Classification
+(SIC). It is a hierarchical classification of 4 levels:
+\enumerate{
+\item divisions (one-letter identifiers);
+\item major groups (two-digit identifiers);
+\item industry groups (three-digit identifiers); and
+\item industries (four-digit identifiers).
+}
 }
 \keyword{datasets}

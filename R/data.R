@@ -2,10 +2,21 @@
 #' North American Industry Classification System
 #' 
 #' The version of 2002 of the North American Industry Classification System
-#'  (NAICS). It is a hierarchical classification of 5 levels: sectors,
-#'  subsectors, industry groups, NAICS industries and national industries.
-#'  Only United States industries are considered. Other national industries
-#'  (i.e., used in Canada and Mexico) are not.
+#'  (NAICS). Only classes used in the United States are considered. Other
+#'  classes (i.e., used in Canada and Mexico) are not. NAICS is a hierarchical
+#'  classification of 5 levels:
+#'  1. sectors (two-digit identifiers);
+#'  2. subsectors (three-digit identifiers);
+#'  3. industry groups (four-digit identifiers);
+#'  4. NAICS industries (five-digit identifiers); and
+#'  5. national industries (six-digit identifiers).
+#' 
+#' @details
+#' There are three sectors to consider carefully since they have special
+#'  identifiers, grouping several two-digit identifiers:
+#'  * 31-33: Manufacturing;
+#'  * 44-45: Retail Trade; and
+#'  * 48-49: Transportation and Warehousing.
 #' 
 #' @format Named vector of 2,341 elements.
 #' @source Manual for the North American industry classification system of 2002
@@ -64,9 +75,12 @@
 
 #' U.S. Standard Industrial Classification
 #'
-#' The version of 1987 of the United States standard industrial classification
-#'  (SIC). It is a hierarchical classification of 4 levels: divisions, major
-#'  groups, industry groups and industries.
+#' The version of 1987 of the United States Standard Industrial Classification
+#'  (SIC). It is a hierarchical classification of 4 levels:
+#'  1. divisions (one-letter identifiers);
+#'  2. major groups (two-digit identifiers);
+#'  3. industry groups (three-digit identifiers); and
+#'  4. industries (four-digit identifiers).
 #'
 #' @format Matrix of 1,514 rows (whose names are activity identifiers) and 2
 #'  columns:
