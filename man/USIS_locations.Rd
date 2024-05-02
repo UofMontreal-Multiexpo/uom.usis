@@ -6,12 +6,12 @@
 \title{USIS locations}
 \format{
 Data frame of 18,687 rows (whose names are location identifiers) and
-3 variables:
+3 columns:
 \describe{
-\item{\code{territory_id}}{Identifier of the U.S. territory corresponding to
-the location.}
-\item{\code{city}}{City corresponding to the location.}
-\item{\code{zip}}{Postal code corresponding to the location.}
+\item{\code{territory_id}}{\emph{Factor}. Identifier of the U.S. territory
+corresponding to the location.}
+\item{\code{city}}{\emph{Character}. City corresponding to the location.}
+\item{\code{zip}}{\emph{Character}. Postal code corresponding to the location.}
 }
 }
 \source{

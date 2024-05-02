@@ -6,24 +6,25 @@
 \title{USIS inspections}
 \format{
 Data frame of 94,247 rows (whose names are inspection identifiers)
-and 9 variables:
+and 9 columns:
 \describe{
-\item{\code{inspection_number}}{Number of the inspection.}
-\item{\code{original_db}}{Original database of the inspection data (IMIS or
-OIS).}
-\item{\code{inspection_type_id}}{Identifier of the inspection type.}
-\item{\code{scope_id}}{Identifier of the inspection scope.}
-\item{\code{was_notified}}{\code{TRUE} or \code{FALSE} whether advance notice of the
-inspection was given to the establishment inspected.
+\item{\code{inspection_number}}{\emph{Integer}. Number of the inspection.}
+\item{\code{original_db}}{\emph{Factor}. Original database of the inspection data
+(IMIS or OIS).}
+\item{\code{inspection_type_id}}{\emph{Factor}. Identifier of the inspection type.}
+\item{\code{scope_id}}{\emph{Factor}. Identifier of the inspection scope.}
+\item{\code{was_notified}}{\emph{Logical}. \code{TRUE} or \code{FALSE} whether advance notice
+of the inspection was given to the establishment inspected.
 Only available for IMIS data.}
-\item{\code{is_unionized}}{\code{TRUE} or \code{FALSE} whether employees covered by
-inspection are affiliated with a union.}
-\item{\code{number_of_covered}}{Number of employees covered by the inspection.
+\item{\code{is_unionized}}{\emph{Logical}. \code{TRUE} or \code{FALSE} whether employees
+covered by inspection are affiliated with a union.}
+\item{\code{number_of_covered}}{\emph{Integer}. Number of employees covered by the
+inspection.
 Only available for OIS data.}
-\item{\code{agency_id}}{Identifier of the agency responsible for the
-inspection.}
-\item{\code{workplace_id}}{Identifier of the workplace where the inspection was
-conducted.}
+\item{\code{agency_id}}{\emph{Character}. Identifier of the agency responsible for
+the inspection.}
+\item{\code{workplace_id}}{\emph{Integer}. Identifier of the workplace where the
+inspection was conducted.}
 }
 }
 \source{

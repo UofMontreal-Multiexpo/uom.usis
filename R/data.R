@@ -18,7 +18,7 @@
 #'  * 44-45: Retail Trade; and
 #'  * 48-49: Transportation and Warehousing.
 #' 
-#' @format Named vector of 2,341 elements.
+#' @format Named character vector of 2,341 elements.
 #' @source Manual for the North American industry classification system of 2002
 #'  used in the United States, published by the National Technical Information
 #'  Service.
@@ -46,8 +46,8 @@
 #'  socioeconomic status. Some of these occupation categories are recursively
 #'  subdivided into several sub-categories.
 #' 
-#' @format Matrix of 506 rows (whose names are occupation identifiers) and 5
-#'  columns:
+#' @format Character matrix of 506 rows (whose names are occupation identifiers)
+#'  and 5 columns:
 #'  \describe{
 #'    \item{`name`}{Name of the occupation.}
 #'    \item{`category_level_1`}{Occupation category, level 1.}
@@ -82,8 +82,8 @@
 #'  3. industry groups (three-digit identifiers); and
 #'  4. industries (four-digit identifiers).
 #'
-#' @format Matrix of 1,514 rows (whose names are activity identifiers) and 2
-#'  columns:
+#' @format Character matrix of 1,514 rows (whose names are activity identifiers)
+#'  and 2 columns:
 #'  \describe{
 #'    \item{`name`}{Name of the activity.}
 #'    \item{`division`}{Division to which the activity is attached.}
@@ -108,8 +108,8 @@
 #' States and other inhabited territories of the United States.
 #' Associate territory identifiers with territory names and types.
 #' 
-#' @format Matrix of 56 rows (whose names are territory identifiers) and 2
-#'  columns:
+#' @format Character matrix of 56 rows (whose names are territory identifiers)
+#'  and 2 columns:
 #'  \describe{
 #'    \item{`name`}{Name of the territory.}
 #'    \item{`type`}{Type of the territory.}
@@ -127,7 +127,7 @@
 #' Agencies responsible for conducting inspections.
 #' Associate agency identifiers with agency types.
 #' 
-#' @format Named factor of 263 elements.
+#' @format Named factor of 263 elements with 2 factor levels.
 #' @source Data provided by the [OSHA](https://www.osha.gov/).
 "USIS_agencies"
 
@@ -138,7 +138,7 @@
 #' 
 #' @template establishment_identifiers
 #' 
-#' @format Matrix of 79,841 rows and 2 columns:
+#' @format Character matrix of 79,841 rows and 2 columns:
 #'  \describe{
 #'    \item{`establishment_id`}{Identifier of an establishment.}
 #'    \item{`establishment_name`}{Name of the establishment.}
@@ -159,10 +159,11 @@
 #' @template location_identifiers
 #' 
 #' @format Data frame of 77,336 rows (whose names are establishment identifiers)
-#'  and 2 variables:
+#'  and 2 columns:
 #'  \describe{
-#'    \item{`type`}{Type of the establishment.}
-#'    \item{`location_id`}{Identifier of the location of the establishment.}
+#'    \item{`type`}{*Factor*. Type of the establishment.}
+#'    \item{`location_id`}{*Character*. Identifier of the location of the
+#'          establishment.}
 #'  }
 #' @source Data provided by the [OSHA](https://www.osha.gov/), except
 #'  establishment and location identifiers (see 'Details' section).
@@ -182,7 +183,7 @@
 #'  See in [`USIS_measures`] the variable named `is_detected` used to define if
 #'  the sampled substance is actually detected.
 #' 
-#' @format Named vector of 8 elements.
+#' @format Named character vector of 8 elements.
 #' @source
 #'  Division of Occupational Safety and Health, 1995.
 #'  *Air Sampling Report (OSHA 91(S))*.
@@ -213,8 +214,8 @@
 #' 
 #' Inspection types A and M may have been confused in some data.
 #' 
-#' @format Matrix of 16 rows (whose names are inspection type identifiers) and 2
-#'  columns:
+#' @format Character matrix of 16 rows (whose names are inspection type
+#'  identifiers) and 2 columns:
 #'  \describe{
 #'    \item{`name`}{Name of the inspection type.}
 #'    \item{`schedule`}{Schedule of the inspection type.}
@@ -237,24 +238,25 @@
 #' @template workplace_identifiers
 #' 
 #' @format Data frame of 94,247 rows (whose names are inspection identifiers)
-#'  and 9 variables:
+#'  and 9 columns:
 #'  \describe{
-#'    \item{`inspection_number`}{Number of the inspection.}
-#'    \item{`original_db`}{Original database of the inspection data (IMIS or
-#'          OIS).}
-#'    \item{`inspection_type_id`}{Identifier of the inspection type.}
-#'    \item{`scope_id`}{Identifier of the inspection scope.}
-#'    \item{`was_notified`}{`TRUE` or `FALSE` whether advance notice of the
-#'          inspection was given to the establishment inspected.
+#'    \item{`inspection_number`}{*Integer*. Number of the inspection.}
+#'    \item{`original_db`}{*Factor*. Original database of the inspection data
+#'          (IMIS or OIS).}
+#'    \item{`inspection_type_id`}{*Factor*. Identifier of the inspection type.}
+#'    \item{`scope_id`}{*Factor*. Identifier of the inspection scope.}
+#'    \item{`was_notified`}{*Logical*. `TRUE` or `FALSE` whether advance notice
+#'          of the inspection was given to the establishment inspected.
 #'          Only available for IMIS data.}
-#'    \item{`is_unionized`}{`TRUE` or `FALSE` whether employees covered by
-#'          inspection are affiliated with a union.}
-#'    \item{`number_of_covered`}{Number of employees covered by the inspection.
+#'    \item{`is_unionized`}{*Logical*. `TRUE` or `FALSE` whether employees
+#'          covered by inspection are affiliated with a union.}
+#'    \item{`number_of_covered`}{*Integer*. Number of employees covered by the
+#'          inspection.
 #'          Only available for OIS data.}
-#'    \item{`agency_id`}{Identifier of the agency responsible for the
-#'          inspection.}
-#'    \item{`workplace_id`}{Identifier of the workplace where the inspection was
-#'          conducted.}
+#'    \item{`agency_id`}{*Character*. Identifier of the agency responsible for
+#'          the inspection.}
+#'    \item{`workplace_id`}{*Integer*. Identifier of the workplace where the
+#'          inspection was conducted.}
 #'  }
 #' @source Data provided by the [OSHA](https://www.osha.gov/), except inspection
 #'  and workplace identifiers (see 'Details' section).
@@ -269,12 +271,12 @@
 #' @template location_identifiers
 #' 
 #' @format Data frame of 18,687 rows (whose names are location identifiers) and
-#'  3 variables:
+#'  3 columns:
 #'  \describe{
-#'    \item{`territory_id`}{Identifier of the U.S. territory corresponding to
-#'          the location.}
-#'    \item{`city`}{City corresponding to the location.}
-#'    \item{`zip`}{Postal code corresponding to the location.}
+#'    \item{`territory_id`}{*Factor*. Identifier of the U.S. territory
+#'          corresponding to the location.}
+#'    \item{`city`}{*Character*. City corresponding to the location.}
+#'    \item{`zip`}{*Character*. Postal code corresponding to the location.}
 #'  }
 #' @source Data provided by the [OSHA](https://www.osha.gov/), except location
 #'  identifiers (see 'Details' section).
@@ -286,7 +288,7 @@
 #' Units in which the measured exposure levels are expressed.
 #' Associate unit identifiers with unit names.
 #' 
-#' @format Named vector of 12 elements.
+#' @format Named character vector of 12 elements.
 #' @source
 #'  Division of Occupational Safety and Health, 1995.
 #'  *Screening Report (OSHA 98)*.
@@ -317,39 +319,43 @@
 #'  not).
 #' 
 #' @format Data frame of 765,337 rows (whose names are measure identifiers) and
-#'  16 variables:
+#'  16 columns:
 #'  \describe{
-#'    \item{`number_of_exposed`}{Number of employees exposed to the hazard.
+#'    \item{`number_of_exposed`}{*Integer*. Number of employees exposed to the
+#'          hazard.
 #'          Only available for IMIS data.}
-#'    \item{`occ_id`}{Identifier of the occupation of the employee sampled, or
-#'          of the employee the most at risk from exposure, according to the
-#'          U.S. census occupational classification system of 1980.
+#'    \item{`occ_id`}{*Character*. Identifier of the occupation of the employee
+#'          sampled, or of the employee the most at risk from exposure,
+#'          according to the U.S. census occupational classification system of
+#'          1980.
 #'          Only available for IMIS data.}
-#'    \item{`occ_title`}{Occupation title of the employee sampled, or of the
-#'          employee the most at risk from exposure, according to the U.S.
-#'          census occupational classification system.
+#'    \item{`occ_title`}{*Character*. Occupation title of the employee sampled,
+#'          or of the employee the most at risk from exposure, according to the
+#'          U.S. census occupational classification system.
 #'          Only available for OIS data.}
-#'    \item{`job_title`}{Descriptive job title of the employee being sampled, or
-#'          of the employee the most at risk from exposure.}
-#'    \item{`exposure_frequency`}{Frequency of exposure for all exposed
-#'          employees.}
-#'    \item{`sample_date`}{Sampling date.}
-#'    \item{`sample_type_id`}{Identifier of the type of sample taken.}
-#'    \item{`exposure_assessment`}{Identifier of an exposure assessment.
+#'    \item{`job_title`}{*Character*. Descriptive job title of the employee
+#'          being sampled, or of the employee the most at risk from exposure.}
+#'    \item{`exposure_frequency`}{*Character*. Frequency of exposure for all
+#'          exposed employees.}
+#'    \item{`sample_date`}{*Date*. Sampling date.}
+#'    \item{`sample_type_id`}{*Factor*. Identifier of the type of sample taken.}
+#'    \item{`exposure_assessment`}{*Integer*. Identifier of an exposure
+#'          assessment.
 #'          Only available for OIS data.}
-#'    \item{`substance_id`}{Identifier of the sampled substance.}
-#'    \item{`is_detected`}{`TRUE` or `FALSE` whether the sampled substance has
-#'          been detected.}
-#'    \item{`exposure_level`}{Concentration, level of exposure.}
-#'    \item{`measure_unit_id`}{Identifier of the unit of the measure in which
-#'          the exposure level and the OEL are expressed.}
-#'    \item{`exposure_type_id`}{Identifier of the type of exposure reported.}
-#'    \item{`oel`}{Occupational Exposure Limit corresponding to the type of
-#'          exposure and to the sampled substance.}
-#'    \item{`severity`}{The severity of exposure. It corresponds to the exposure
-#'          level with regard to the exposure limit.}
-#'    \item{`sheet_id`}{Identifier of the sample sheet to which the measure is
-#'          attached.}
+#'    \item{`substance_id`}{*Character*. Identifier of the sampled substance.}
+#'    \item{`is_detected`}{*Logical*. `TRUE` or `FALSE` whether the sampled
+#'          substance has been detected.}
+#'    \item{`exposure_level`}{*Numeric*. Concentration, level of exposure.}
+#'    \item{`measure_unit_id`}{*Factor*. Identifier of the unit of the measure
+#'          in which the exposure level and the OEL are expressed.}
+#'    \item{`exposure_type_id`}{*Factor*. Identifier of the type of exposure
+#'          reported.}
+#'    \item{`oel`}{*Numeric*. Occupational Exposure Limit corresponding to the
+#'          type of exposure and to the sampled substance.}
+#'    \item{`severity`}{*Numeric*. The severity of exposure. It corresponds to
+#'          the exposure level with regard to the exposure limit.}
+#'    \item{`sheet_id`}{*Integer*. Identifier of the sample sheet to which the
+#'          measure is attached.}
 #'  }
 #' @source Data provided by the [OSHA](https://www.osha.gov/), except measure
 #'  and sheet identifiers (see 'Details' section).
@@ -361,7 +367,7 @@
 #' Types of sample taken.
 #' Associate sample type identifiers with sample type names.
 #' 
-#' @format Named vector of 7 elements.
+#' @format Named character vector of 7 elements.
 #' @source
 #'  Division of Occupational Safety and Health, 1995.
 #'  *Air Sampling Report (OSHA 91(S))*.
@@ -378,7 +384,7 @@
 #' Coverages of inspection conducted.
 #' Associate scope identifiers with scope names.
 #' 
-#' @format Named vector of 4 elements.
+#' @format Named character vector of 4 elements.
 #' @source Data provided by the [OSHA](https://www.osha.gov/).
 "USIS_scopes"
 
@@ -391,18 +397,19 @@
 #' @template inspection_identifiers
 #' 
 #' @format Data frame of 339,016 rows (whose names are sheet identifiers) and 5
-#'  variables:
+#'  columns:
 #'  \describe{
-#'    \item{`sheet_number`}{Number of the sample sheet.}
-#'    \item{`exposure_duration`}{Duration of time the hazard has existed.
+#'    \item{`sheet_number`}{*Integer*. Number of the sample sheet.}
+#'    \item{`exposure_duration`}{*Numeric*. Duration of time the hazard has
+#'          existed.
 #'          Only available for OIS data.}
-#'    \item{`duration_unit`}{Unit of the exposure duration.
+#'    \item{`duration_unit`}{*Factor*. Unit of the exposure duration.
 #'          Only available for OIS data.}
-#'    \item{`record_id`}{Identifier of the related exposure record, identifying
-#'          the area or employee sampled.
+#'    \item{`record_id`}{*Integer*. Identifier of the related exposure record,
+#'          identifying the area or employee sampled.
 #'          Only available for OIS data.}
-#'    \item{`inspection_id`}{Identifier of the inspection to which the sample
-#'          sheet is attached.}
+#'    \item{`inspection_id`}{*Integer*. Identifier of the inspection to which
+#'          the sample sheet is attached.}
 #'  }
 #' @source Data provided by the [OSHA](https://www.osha.gov/), except sheet
 #'  and inspection identifiers (see 'Details' section).
@@ -414,7 +421,7 @@
 #' Substances sampled.
 #' Associate substance identifiers with substance names.
 #' 
-#' @format Named vector of 1,244 elements.
+#' @format Named character vector of 1,244 elements.
 #' @source Data provided by the [OSHA](https://www.osha.gov/) and data from
 #'  other OSHA resources.
 #'  
@@ -458,8 +465,8 @@
 #'  not belonging to the one of 2002. This will lead to a modification of the
 #'  structures of the datasets `NAICS` and/or `USIS_workplaces`.
 #' 
-#' @format Matrix of 81,915 rows (whose names are workplace identifiers) and 3
-#'  columns:
+#' @format Character matrix of 81,915 rows (whose names are workplace
+#'  identifiers) and 3 columns:
 #'  \describe{
 #'    \item{`establishment_id`}{Identifier of the establishment.}
 #'    \item{`sic_id`}{Identifier of the industry, according to the U.S. Standard

@@ -5,7 +5,7 @@
 \alias{NAICS}
 \title{North American Industry Classification System}
 \format{
-Named vector of 2,341 elements.
+Named character vector of 2,341 elements.
 }
 \source{
 Manual for the North American industry classification system of 2002

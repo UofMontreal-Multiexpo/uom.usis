@@ -6,10 +6,11 @@
 \title{USIS establishments}
 \format{
 Data frame of 77,336 rows (whose names are establishment identifiers)
-and 2 variables:
+and 2 columns:
 \describe{
-\item{\code{type}}{Type of the establishment.}
-\item{\code{location_id}}{Identifier of the location of the establishment.}
+\item{\code{type}}{\emph{Factor}. Type of the establishment.}
+\item{\code{location_id}}{\emph{Character}. Identifier of the location of the
+establishment.}
 }
 }
 \source{

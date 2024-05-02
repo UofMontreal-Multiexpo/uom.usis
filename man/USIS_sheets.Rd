@@ -6,18 +6,19 @@
 \title{USIS sheets}
 \format{
 Data frame of 339,016 rows (whose names are sheet identifiers) and 5
-variables:
+columns:
 \describe{
-\item{\code{sheet_number}}{Number of the sample sheet.}
-\item{\code{exposure_duration}}{Duration of time the hazard has existed.
+\item{\code{sheet_number}}{\emph{Integer}. Number of the sample sheet.}
+\item{\code{exposure_duration}}{\emph{Numeric}. Duration of time the hazard has
+existed.
 Only available for OIS data.}
-\item{\code{duration_unit}}{Unit of the exposure duration.
+\item{\code{duration_unit}}{\emph{Factor}. Unit of the exposure duration.
 Only available for OIS data.}
-\item{\code{record_id}}{Identifier of the related exposure record, identifying
-the area or employee sampled.
+\item{\code{record_id}}{\emph{Integer}. Identifier of the related exposure record,
+identifying the area or employee sampled.
 Only available for OIS data.}
-\item{\code{inspection_id}}{Identifier of the inspection to which the sample
-sheet is attached.}
+\item{\code{inspection_id}}{\emph{Integer}. Identifier of the inspection to which
+the sample sheet is attached.}
 }
 }
 \source{

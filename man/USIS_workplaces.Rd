@@ -5,8 +5,8 @@
 \alias{USIS_workplaces}
 \title{USIS workplaces}
 \format{
-Matrix of 81,915 rows (whose names are workplace identifiers) and 3
-columns:
+Character matrix of 81,915 rows (whose names are workplace
+identifiers) and 3 columns:
 \describe{
 \item{\code{establishment_id}}{Identifier of the establishment.}
 \item{\code{sic_id}}{Identifier of the industry, according to the U.S. Standard

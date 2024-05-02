@@ -5,7 +5,7 @@
 \alias{USIS_establishment_names}
 \title{USIS establishment names}
 \format{
-Matrix of 79,841 rows and 2 columns:
+Character matrix of 79,841 rows and 2 columns:
 \describe{
 \item{\code{establishment_id}}{Identifier of an establishment.}
 \item{\code{establishment_name}}{Name of the establishment.}

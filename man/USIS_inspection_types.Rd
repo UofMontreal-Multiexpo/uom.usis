@@ -5,8 +5,8 @@
 \alias{USIS_inspection_types}
 \title{USIS inspection types}
 \format{
-Matrix of 16 rows (whose names are inspection type identifiers) and 2
-columns:
+Character matrix of 16 rows (whose names are inspection type
+identifiers) and 2 columns:
 \describe{
 \item{\code{name}}{Name of the inspection type.}
 \item{\code{schedule}}{Schedule of the inspection type.}

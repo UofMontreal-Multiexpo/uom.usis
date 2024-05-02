@@ -5,7 +5,7 @@
 \alias{USIS_agencies}
 \title{USIS agencies}
 \format{
-Named factor of 263 elements.
+Named factor of 263 elements with 2 factor levels.
 }
 \source{
 Data provided by the \href{https://www.osha.gov/}{OSHA}.

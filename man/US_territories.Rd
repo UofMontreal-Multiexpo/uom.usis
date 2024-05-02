@@ -5,8 +5,8 @@
 \alias{US_territories}
 \title{U.S. territories}
 \format{
-Matrix of 56 rows (whose names are territory identifiers) and 2
-columns:
+Character matrix of 56 rows (whose names are territory identifiers)
+and 2 columns:
 \describe{
 \item{\code{name}}{Name of the territory.}
 \item{\code{type}}{Type of the territory.}

@@ -5,8 +5,8 @@
 \alias{OCC}
 \title{U.S. census occupational classification system}
 \format{
-Matrix of 506 rows (whose names are occupation identifiers) and 5
-columns:
+Character matrix of 506 rows (whose names are occupation identifiers)
+and 5 columns:
 \describe{
 \item{\code{name}}{Name of the occupation.}
 \item{\code{category_level_1}}{Occupation category, level 1.}

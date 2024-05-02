@@ -6,39 +6,43 @@
 \title{USIS measures}
 \format{
 Data frame of 765,337 rows (whose names are measure identifiers) and
-16 variables:
+16 columns:
 \describe{
-\item{\code{number_of_exposed}}{Number of employees exposed to the hazard.
+\item{\code{number_of_exposed}}{\emph{Integer}. Number of employees exposed to the
+hazard.
 Only available for IMIS data.}
-\item{\code{occ_id}}{Identifier of the occupation of the employee sampled, or
-of the employee the most at risk from exposure, according to the
-U.S. census occupational classification system of 1980.
+\item{\code{occ_id}}{\emph{Character}. Identifier of the occupation of the employee
+sampled, or of the employee the most at risk from exposure,
+according to the U.S. census occupational classification system of
+1980.
 Only available for IMIS data.}
-\item{\code{occ_title}}{Occupation title of the employee sampled, or of the
-employee the most at risk from exposure, according to the U.S.
-census occupational classification system.
+\item{\code{occ_title}}{\emph{Character}. Occupation title of the employee sampled,
+or of the employee the most at risk from exposure, according to the
+U.S. census occupational classification system.
 Only available for OIS data.}
-\item{\code{job_title}}{Descriptive job title of the employee being sampled, or
-of the employee the most at risk from exposure.}
-\item{\code{exposure_frequency}}{Frequency of exposure for all exposed
-employees.}
-\item{\code{sample_date}}{Sampling date.}
-\item{\code{sample_type_id}}{Identifier of the type of sample taken.}
-\item{\code{exposure_assessment}}{Identifier of an exposure assessment.
+\item{\code{job_title}}{\emph{Character}. Descriptive job title of the employee
+being sampled, or of the employee the most at risk from exposure.}
+\item{\code{exposure_frequency}}{\emph{Character}. Frequency of exposure for all
+exposed employees.}
+\item{\code{sample_date}}{\emph{Date}. Sampling date.}
+\item{\code{sample_type_id}}{\emph{Factor}. Identifier of the type of sample taken.}
+\item{\code{exposure_assessment}}{\emph{Integer}. Identifier of an exposure
+assessment.
 Only available for OIS data.}
-\item{\code{substance_id}}{Identifier of the sampled substance.}
-\item{\code{is_detected}}{\code{TRUE} or \code{FALSE} whether the sampled substance has
-been detected.}
-\item{\code{exposure_level}}{Concentration, level of exposure.}
-\item{\code{measure_unit_id}}{Identifier of the unit of the measure in which
-the exposure level and the OEL are expressed.}
-\item{\code{exposure_type_id}}{Identifier of the type of exposure reported.}
-\item{\code{oel}}{Occupational Exposure Limit corresponding to the type of
-exposure and to the sampled substance.}
-\item{\code{severity}}{The severity of exposure. It corresponds to the exposure
-level with regard to the exposure limit.}
-\item{\code{sheet_id}}{Identifier of the sample sheet to which the measure is
-attached.}
+\item{\code{substance_id}}{\emph{Character}. Identifier of the sampled substance.}
+\item{\code{is_detected}}{\emph{Logical}. \code{TRUE} or \code{FALSE} whether the sampled
+substance has been detected.}
+\item{\code{exposure_level}}{\emph{Numeric}. Concentration, level of exposure.}
+\item{\code{measure_unit_id}}{\emph{Factor}. Identifier of the unit of the measure
+in which the exposure level and the OEL are expressed.}
+\item{\code{exposure_type_id}}{\emph{Factor}. Identifier of the type of exposure
+reported.}
+\item{\code{oel}}{\emph{Numeric}. Occupational Exposure Limit corresponding to the
+type of exposure and to the sampled substance.}
+\item{\code{severity}}{\emph{Numeric}. The severity of exposure. It corresponds to
+the exposure level with regard to the exposure limit.}
+\item{\code{sheet_id}}{\emph{Integer}. Identifier of the sample sheet to which the
+measure is attached.}
 }
 }
 \source{

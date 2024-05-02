@@ -5,7 +5,7 @@
 \alias{USIS_sample_types}
 \title{USIS sample types}
 \format{
-Named vector of 7 elements.
+Named character vector of 7 elements.
 }
 \source{
 Division of Occupational Safety and Health, 1995.

@@ -5,7 +5,7 @@
 \alias{USIS_measure_units}
 \title{USIS measure units}
 \format{
-Named vector of 12 elements.
+Named character vector of 12 elements.
 }
 \source{
 Division of Occupational Safety and Health, 1995.

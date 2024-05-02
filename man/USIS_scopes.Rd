@@ -5,7 +5,7 @@
 \alias{USIS_scopes}
 \title{USIS scopes}
 \format{
-Named vector of 4 elements.
+Named character vector of 4 elements.
 }
 \source{
 Data provided by the \href{https://www.osha.gov/}{OSHA}.

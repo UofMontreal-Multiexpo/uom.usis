@@ -5,7 +5,7 @@
 \alias{USIS_exposure_types}
 \title{USIS exposure types}
 \format{
-Named vector of 8 elements.
+Named character vector of 8 elements.
 }
 \source{
 Division of Occupational Safety and Health, 1995.
