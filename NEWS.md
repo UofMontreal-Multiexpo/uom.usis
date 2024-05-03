@@ -8,6 +8,7 @@
 
 * The relationships between the numbers of characters of the class identifiers and the hierarchical structures of classifications SIC and NAICS are now mentioned in the help pages of datasets `SIC` and `NAICS`.
 * In dataset help pages, types or classes are now mentioned for all datasets and all columns of data frames (character, numeric, Date, etc.).
+* A small space (more specifically, a narrow non-breaking space) is now used instead of a comma as a digit group separator in numbers.
 * Corrections have been applied to the PDF file.
     - Relationship cardinalities have been corrected in figure 1.
     - Missing variable `inspection_number` has been added in table 1.

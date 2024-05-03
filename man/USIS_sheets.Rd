@@ -5,7 +5,7 @@
 \alias{USIS_sheets}
 \title{USIS sheets}
 \format{
-Data frame of 339,016 rows (whose names are sheet identifiers) and 5
+Data frame of 339 016 rows (whose names are sheet identifiers) and 5
 columns:
 \describe{
 \item{\code{sheet_number}}{\emph{Integer}. Number of the sample sheet.}

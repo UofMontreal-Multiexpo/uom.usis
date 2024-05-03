@@ -5,7 +5,7 @@
 \alias{NAICS}
 \title{North American Industry Classification System}
 \format{
-Named character vector of 2,341 elements.
+Named character vector of 2 341 elements.
 }
 \source{
 Manual for the North American industry classification system of 2002
@@ -15,7 +15,7 @@ Service.
 Executive Office of the President, Office of Management and Budget, 2002.
 \emph{North American Industry Classification System: United States, 2002}.
 Springfield, Virginia (United States): National Technical Information
-Service, 1,419 p. ISBN: 0-934213-86-0.
+Service, 1 419 p. ISBN: 0-934213-86-0.
 
 A version of this document (digitized by Google; original from Purdue
 University) is available on the HathiTrust Digital Library website

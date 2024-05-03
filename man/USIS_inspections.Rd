@@ -5,7 +5,7 @@
 \alias{USIS_inspections}
 \title{USIS inspections}
 \format{
-Data frame of 94,247 rows (whose names are inspection identifiers)
+Data frame of 94 247 rows (whose names are inspection identifiers)
 and 9 columns:
 \describe{
 \item{\code{inspection_number}}{\emph{Integer}. Number of the inspection.}

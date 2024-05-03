@@ -18,7 +18,7 @@
 #'  * 44-45: Retail Trade; and
 #'  * 48-49: Transportation and Warehousing.
 #' 
-#' @format Named character vector of 2,341 elements.
+#' @format Named character vector of 2 341 elements.
 #' @source Manual for the North American industry classification system of 2002
 #'  used in the United States, published by the National Technical Information
 #'  Service.
@@ -26,7 +26,7 @@
 #'  Executive Office of the President, Office of Management and Budget, 2002.
 #'  *North American Industry Classification System: United States, 2002*.
 #'  Springfield, Virginia (United States): National Technical Information
-#'  Service, 1,419 p. ISBN: 0-934213-86-0.
+#'  Service, 1 419 p. ISBN: 0-934213-86-0.
 #'  
 #'  A version of this document (digitized by Google; original from Purdue
 #'  University) is available on the HathiTrust Digital Library website
@@ -82,7 +82,7 @@
 #'  3. industry groups (three-digit identifiers); and
 #'  4. industries (four-digit identifiers).
 #'
-#' @format Character matrix of 1,514 rows (whose names are activity identifiers)
+#' @format Character matrix of 1 514 rows (whose names are activity identifiers)
 #'  and 2 columns:
 #'  \describe{
 #'    \item{`name`}{Name of the activity.}
@@ -138,7 +138,7 @@
 #' 
 #' @template establishment_identifiers
 #' 
-#' @format Character matrix of 79,841 rows and 2 columns:
+#' @format Character matrix of 79 841 rows and 2 columns:
 #'  \describe{
 #'    \item{`establishment_id`}{Identifier of an establishment.}
 #'    \item{`establishment_name`}{Name of the establishment.}
@@ -158,7 +158,7 @@
 #' @template establishment_identifiers
 #' @template location_identifiers
 #' 
-#' @format Data frame of 77,336 rows (whose names are establishment identifiers)
+#' @format Data frame of 77 336 rows (whose names are establishment identifiers)
 #'  and 2 columns:
 #'  \describe{
 #'    \item{`type`}{*Factor*. Type of the establishment.}
@@ -237,7 +237,7 @@
 #' @template inspection_identifiers
 #' @template workplace_identifiers
 #' 
-#' @format Data frame of 94,247 rows (whose names are inspection identifiers)
+#' @format Data frame of 94 247 rows (whose names are inspection identifiers)
 #'  and 9 columns:
 #'  \describe{
 #'    \item{`inspection_number`}{*Integer*. Number of the inspection.}
@@ -270,7 +270,7 @@
 #' 
 #' @template location_identifiers
 #' 
-#' @format Data frame of 18,687 rows (whose names are location identifiers) and
+#' @format Data frame of 18 687 rows (whose names are location identifiers) and
 #'  3 columns:
 #'  \describe{
 #'    \item{`territory_id`}{*Factor*. Identifier of the U.S. territory
@@ -318,7 +318,7 @@
 #'  completion of the variable `occ_id` (currently `NA` when `occ_title` is
 #'  not).
 #' 
-#' @format Data frame of 765,337 rows (whose names are measure identifiers) and
+#' @format Data frame of 765 337 rows (whose names are measure identifiers) and
 #'  16 columns:
 #'  \describe{
 #'    \item{`number_of_exposed`}{*Integer*. Number of employees exposed to the
@@ -396,7 +396,7 @@
 #' @template sheet_identifiers
 #' @template inspection_identifiers
 #' 
-#' @format Data frame of 339,016 rows (whose names are sheet identifiers) and 5
+#' @format Data frame of 339 016 rows (whose names are sheet identifiers) and 5
 #'  columns:
 #'  \describe{
 #'    \item{`sheet_number`}{*Integer*. Number of the sample sheet.}
@@ -421,7 +421,7 @@
 #' Substances sampled.
 #' Associate substance identifiers with substance names.
 #' 
-#' @format Named character vector of 1,244 elements.
+#' @format Named character vector of 1 244 elements.
 #' @source Data provided by the [OSHA](https://www.osha.gov/) and data from
 #'  other OSHA resources.
 #'  
@@ -465,7 +465,7 @@
 #'  not belonging to the one of 2002. This will lead to a modification of the
 #'  structures of the datasets `NAICS` and/or `USIS_workplaces`.
 #' 
-#' @format Character matrix of 81,915 rows (whose names are workplace
+#' @format Character matrix of 81 915 rows (whose names are workplace
 #'  identifiers) and 3 columns:
 #'  \describe{
 #'    \item{`establishment_id`}{Identifier of the establishment.}

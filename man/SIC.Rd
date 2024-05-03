@@ -5,7 +5,7 @@
 \alias{SIC}
 \title{U.S. Standard Industrial Classification}
 \format{
-Character matrix of 1,514 rows (whose names are activity identifiers)
+Character matrix of 1 514 rows (whose names are activity identifiers)
 and 2 columns:
 \describe{
 \item{\code{name}}{Name of the activity.}

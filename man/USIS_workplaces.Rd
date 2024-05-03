@@ -5,7 +5,7 @@
 \alias{USIS_workplaces}
 \title{USIS workplaces}
 \format{
-Character matrix of 81,915 rows (whose names are workplace
+Character matrix of 81 915 rows (whose names are workplace
 identifiers) and 3 columns:
 \describe{
 \item{\code{establishment_id}}{Identifier of the establishment.}

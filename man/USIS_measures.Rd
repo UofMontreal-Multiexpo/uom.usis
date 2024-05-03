@@ -5,7 +5,7 @@
 \alias{USIS_measures}
 \title{USIS measures}
 \format{
-Data frame of 765,337 rows (whose names are measure identifiers) and
+Data frame of 765 337 rows (whose names are measure identifiers) and
 16 columns:
 \describe{
 \item{\code{number_of_exposed}}{\emph{Integer}. Number of employees exposed to the
