@@ -30,6 +30,8 @@ Establishment identifiers were created by assigning the same one to close
 establishment names associated with the same location. Similarities between
 establishment names were computed algorithmically.
 
+Some establishments are not associated with any location.
+
 Location identifiers were created for all existing combinations of a
 territory, a city and a postal code.
 }

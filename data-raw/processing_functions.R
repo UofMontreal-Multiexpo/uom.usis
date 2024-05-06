@@ -122,6 +122,9 @@ format_and_correct = function(data, rename = TRUE, agencies = NULL) {
                         })
   data$ownership.type = unname(company_type[data$COMPANY_INDEX])
   
+  # Remove 'STATE_CITY_ZIP' values when they do not refer to an actual location
+  data$STATE_CITY_ZIP[data$STATE_CITY_ZIP == "NA-NA-NA"] = NA_character_
+  
   # Convert data types
   # (Variables 'adv.notice' and 'union' have been previously converted to logical)
   new_types = c(activity.nr         = "integer",

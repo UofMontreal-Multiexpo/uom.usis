@@ -34,6 +34,8 @@ establishment, a SIC class and a NAICS class.
 Establishment identifiers were created by assigning the same one to close
 establishment names associated with the same location. Similarities between
 establishment names were computed algorithmically.
+
+Some establishments are not associated with any location.
 }
 \note{
 Only the version of 2002 of the North American Industry Classification System

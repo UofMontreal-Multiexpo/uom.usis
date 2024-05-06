@@ -156,6 +156,7 @@
 #'  identifiers.
 #' 
 #' @template establishment_identifiers
+#' @template establishment_NA
 #' @template location_identifiers
 #' 
 #' @format Data frame of 77 336 rows (whose names are establishment identifiers)
@@ -270,7 +271,7 @@
 #' 
 #' @template location_identifiers
 #' 
-#' @format Data frame of 18 687 rows (whose names are location identifiers) and
+#' @format Data frame of 18 686 rows (whose names are location identifiers) and
 #'  3 columns:
 #'  \describe{
 #'    \item{`territory_id`}{*Factor*. Identifier of the U.S. territory
@@ -456,6 +457,7 @@
 #' 
 #' @template workplace_identifiers
 #' @template establishment_identifiers
+#' @template establishment_NA
 #' 
 #' @note
 #' Only the version of 2002 of the North American Industry Classification System

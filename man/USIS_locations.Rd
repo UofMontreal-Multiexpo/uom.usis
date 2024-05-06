@@ -5,7 +5,7 @@
 \alias{USIS_locations}
 \title{USIS locations}
 \format{
-Data frame of 18 687 rows (whose names are location identifiers) and
+Data frame of 18 686 rows (whose names are location identifiers) and
 3 columns:
 \describe{
 \item{\code{territory_id}}{\emph{Factor}. Identifier of the U.S. territory
