@@ -158,6 +158,7 @@
 #' @template establishment_identifiers
 #' @template establishment_NA
 #' @template location_identifiers
+#' @template location_NA
 #' 
 #' @format Data frame of 77 336 rows (whose names are establishment identifiers)
 #'  and 2 columns:
@@ -270,6 +271,7 @@
 #' Associate location identifiers with U.S. territories, cities and zip codes.
 #' 
 #' @template location_identifiers
+#' @template location_NA
 #' 
 #' @format Data frame of 18 686 rows (whose names are location identifiers) and
 #'  3 columns:
