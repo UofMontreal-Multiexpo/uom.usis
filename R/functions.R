@@ -29,7 +29,7 @@ DB_USIS = "USIS"
 #'  the corresponding values from the other datasets (`OCC`, `USIS_agencies`,
 #'  `USIS_establishments`, etc.).
 #' Functions `join_IMIS` and `join_OIS` consider only IMIS or OIS data according
-#'  to the variable `original_db` in `USIS_inspections`.
+#'  to the column `original_db` in `USIS_inspections`.
 #' 
 #' @inherit join_db details
 #' 
@@ -50,7 +50,7 @@ NULL
 #' ## Create the full USIS data frame
 #' USIS_data <- join_USIS()
 #' 
-#' ## Look at one variable (substance_name)
+#' ## Look at one column (substance_name)
 #' identical(
 #'   USIS_data$substance_name,
 #'   unname(
@@ -89,8 +89,8 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #'  `USIS_establishments`, etc.).
 #' 
 #' @details
-#' Additional variables created (regarding the datasets `USIS_inspections`,
-#'  `USIS_sheets` and `USIS_measures`) are the following.
+#' Regarding the datasets `USIS_inspections`, `USIS_sheets` and `USIS_measures`,
+#'  additional columns are the following.
 #' \describe{
 #'   \item{`inspection_type_name`}{Inspection types corresponding to
 #'         identifiers from `USIS_inspections$inspection_type_id`.}
@@ -140,7 +140,7 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #'  `TRUE`.
 #' If so, the memory usage of the resulting object increases significantly.
 #' 
-#' Some variables are not included in the resulting object:
+#' Certain data are not included in the resulting object:
 #'  * `division` from `SIC`;
 #'  * `type` from `US_territories`;
 #'  * `schedule` from `USIS_inspections_types`; and
@@ -300,7 +300,7 @@ get_OIS_measures  = function() { get_measures(DB_OIS) }
 #' Can also be used to get `USIS_measures`.
 #' 
 #' @details
-#' IMIS and OIS measures are distinguished using the variable `original_db`
+#' IMIS and OIS measures are distinguished using the column `original_db`
 #'  associated with the related inspections in the dataset `USIS_inspections`.
 #'  Related inspections are identified through `USIS_measures$sheet_id` and
 #'  `USIS_sheets$inspection_id`.

@@ -19,7 +19,7 @@ database corresponding to each given measure.
 Extract original database names of the given measures.
 }
 \details{
-IMIS and OIS measures are distinguished using the variable \code{original_db}
+IMIS and OIS measures are distinguished using the column \code{original_db}
 associated with the related inspections in the dataset \code{USIS_inspections}.
 Related inspections are identified through \code{USIS_measures$sheet_id} and
 \code{USIS_sheets$inspection_id}.

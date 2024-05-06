@@ -65,10 +65,9 @@ number and an inspection identifier.
 }
 \note{
 Further works will be to identify the versions of the U.S. census
-occupational classification systems used for data of the variable
-\code{occ_title} as well as the corresponding identifiers.
-This will lead to the removal of the variable \code{occ_title} and to the
-completion of the variable \code{occ_id} (currently \code{NA} when \code{occ_title} is
-not).
+occupational classification systems used for data in the column \code{occ_title}
+as well as the corresponding identifiers.
+This will lead to the removal of the column \code{occ_title} and to the
+completion of the column \code{occ_id} (currently \code{NA} when \code{occ_title} is not).
 }
 \keyword{datasets}

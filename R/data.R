@@ -182,8 +182,8 @@
 #'  in IMIS data and listed in the first document mentionned in 'Source' section
 #'  was not included in this dataset since this category does not express a type
 #'  of standard and is no longer used in OIS data.
-#'  See in [`USIS_measures`] the variable named `is_detected` used to define if
-#'  the sampled substance is actually detected.
+#'  See in [`USIS_measures`] the column `is_detected` used to define if the
+#'  sampled substance is actually detected.
 #' 
 #' @format Named character vector of 8 elements.
 #' @source
@@ -315,11 +315,10 @@
 #' 
 #' @note
 #' Further works will be to identify the versions of the U.S. census
-#'  occupational classification systems used for data of the variable
-#'  `occ_title` as well as the corresponding identifiers.
-#'  This will lead to the removal of the variable `occ_title` and to the
-#'  completion of the variable `occ_id` (currently `NA` when `occ_title` is
-#'  not).
+#'  occupational classification systems used for data in the column `occ_title`
+#'  as well as the corresponding identifiers.
+#'  This will lead to the removal of the column `occ_title` and to the
+#'  completion of the column `occ_id` (currently `NA` when `occ_title` is not).
 #' 
 #' @format Data frame of 765 337 rows (whose names are measure identifiers) and
 #'  16 columns:

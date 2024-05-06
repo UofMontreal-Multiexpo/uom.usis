@@ -33,7 +33,7 @@ Exposure type "F" for "Not Detected (N/D) or Not Found (N/F)" originally used
 in IMIS data and listed in the first document mentionned in 'Source' section
 was not included in this dataset since this category does not express a type
 of standard and is no longer used in OIS data.
-See in \code{\link{USIS_measures}} the variable named \code{is_detected} used to define if
-the sampled substance is actually detected.
+See in \code{\link{USIS_measures}} the column \code{is_detected} used to define if the
+sampled substance is actually detected.
 }
 \keyword{datasets}

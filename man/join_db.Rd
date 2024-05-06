@@ -25,8 +25,8 @@ the corresponding values from the other datasets (\code{OCC}, \code{USIS_agencie
 \code{USIS_establishments}, etc.).
 }
 \details{
-Additional variables created (regarding the datasets \code{USIS_inspections},
-\code{USIS_sheets} and \code{USIS_measures}) are the following.
+Regarding the datasets \code{USIS_inspections}, \code{USIS_sheets} and \code{USIS_measures},
+additional columns are the following.
 \describe{
 \item{\code{inspection_type_name}}{Inspection types corresponding to
 identifiers from \code{USIS_inspections$inspection_type_id}.}
@@ -76,7 +76,7 @@ establishment names corresponding to establishment identifiers from
 \code{TRUE}.
 If so, the memory usage of the resulting object increases significantly.
 
-Some variables are not included in the resulting object:
+Certain data are not included in the resulting object:
 \itemize{
 \item \code{division} from \code{SIC};
 \item \code{type} from \code{US_territories};

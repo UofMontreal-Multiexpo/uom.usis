@@ -27,11 +27,11 @@ according to sheet and inspection identifiers, and combine the result with
 the corresponding values from the other datasets (\code{OCC}, \code{USIS_agencies},
 \code{USIS_establishments}, etc.).
 Functions \code{join_IMIS} and \code{join_OIS} consider only IMIS or OIS data according
-to the variable \code{original_db} in \code{USIS_inspections}.
+to the column \code{original_db} in \code{USIS_inspections}.
 }
 \details{
-Additional variables created (regarding the datasets \code{USIS_inspections},
-\code{USIS_sheets} and \code{USIS_measures}) are the following.
+Regarding the datasets \code{USIS_inspections}, \code{USIS_sheets} and \code{USIS_measures},
+additional columns are the following.
 \describe{
 \item{\code{inspection_type_name}}{Inspection types corresponding to
 identifiers from \code{USIS_inspections$inspection_type_id}.}
@@ -81,7 +81,7 @@ establishment names corresponding to establishment identifiers from
 \code{TRUE}.
 If so, the memory usage of the resulting object increases significantly.
 
-Some variables are not included in the resulting object:
+Certain data are not included in the resulting object:
 \itemize{
 \item \code{division} from \code{SIC};
 \item \code{type} from \code{US_territories};
@@ -98,7 +98,7 @@ from one of these functions if you care about memory usage.
 ## Create the full USIS data frame
 USIS_data <- join_USIS()
 
-## Look at one variable (substance_name)
+## Look at one column (substance_name)
 identical(
   USIS_data$substance_name,
   unname(
