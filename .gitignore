@@ -8,11 +8,12 @@
 /doc/
 /Meta/
 
-# Files and folders relating to raw databases, CSV final datasets and testing
+# Files and folders relating to raw data, CSV final datasets and testing
 # resources
 /data-raw/merge_USIS_raw_datasets/additional/*
 /data-raw/merge_USIS_raw_datasets/IMIS/*
 /data-raw/merge_USIS_raw_datasets/OIS/*
+/data-raw/create_USIS_data/*
 /data/csv/*
 /tests/res/*
 
@@ -26,5 +27,6 @@
 !/data-raw/merge_USIS_raw_datasets/additional/.gitkeep
 !/data-raw/merge_USIS_raw_datasets/IMIS/.gitkeep
 !/data-raw/merge_USIS_raw_datasets/OIS/.gitkeep
+!/data-raw/create_USIS_data/.gitkeep
 !/data/csv/.gitkeep
 !/tests/res/.gitkeep

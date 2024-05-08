@@ -4,6 +4,7 @@
 
 * In datasets `USIS_inspections` and `USIS_sheets`, variables previously named `number` are now named `inspection_number` and `sheet_number`.
 * In dataset `USIS_locations`, the location identified NA-NA-NA and associated with no territory, no city and no zip has been removed. In dataset `USIS_establishments`, the location ID NA-NA-NA has been replaced by the value `NA`.
+* All raw data files are now available in the Dropbox folder (see the package main help page) instead of being split between it and the Github repository.
 
 ## Documentation
 
