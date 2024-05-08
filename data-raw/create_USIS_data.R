@@ -36,10 +36,10 @@
 ##  - identify_cities_and_establishments.R
 ## 
 ## Output files:
-##  - USIS_measures.RData and .csv
-##  - SIC.RData and .csv
 ##  - NAICS.RData and .csv
 ##  - OCC.RData and .csv
+##  - SIC.RData and .csv
+##  - US_territories.RData and .csv
 ##  - USIS_agencies.RData and .csv
 ##  - USIS_establishment_names.RData and .csv
 ##  - USIS_establishments.RData and .csv
@@ -47,7 +47,6 @@
 ##  - USIS_inspection_types.RData and .csv
 ##  - USIS_inspections.RData and .csv
 ##  - USIS_locations.RData and .csv
-##  - USIS_measure_origins.RData
 ##  - USIS_measure_units.RData and .csv
 ##  - USIS_measures.RData and .csv
 ##  - USIS_sample_types.RData and .csv
@@ -55,9 +54,8 @@
 ##  - USIS_sheets.RData and .csv
 ##  - USIS_substances.RData and .csv
 ##  - USIS_workplaces.RData and .csv
-##  - US_territories.RData and .csv
 ##  
-##  - R/sysdata.rda
+##  - R/sysdata.rda (containing dataset USIS_measure_origins)
 ## 
 ## Other output files, resource files for tests:
 ##  - tests/res/testing_resources.RDS
