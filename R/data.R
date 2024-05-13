@@ -96,7 +96,7 @@
 #'  States): National Technical Information Service, 705 p. ISBN: 9997807650.
 #'  
 #'  A version of this document can be found
-#'  [here](https://www.dropbox.com/s/qjheehrqfav3g9r/United\%20States\%20Standard\%20Industrial\%20Classification\%20-\%20Reference\%20document.pdf?dl=0).
+#'  [here](https://www.dropbox.com/s/qjheehrqfav3g9r/United%20States%20Standard%20Industrial%20Classification%20-%20Reference%20document.pdf?dl=0).
 #'  An interactive version is available on the official website of the
 #'  Occupational Safety and Health Administration of the United States
 #'  Department of Labor [here](https://www.osha.gov/data/sic-manual).

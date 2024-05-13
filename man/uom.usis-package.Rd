@@ -6,13 +6,7 @@
 \alias{uom.usis-package}
 \title{uom.usis: United States Information Systems}
 \description{
-Data about occupational exposure to chemicals from the IMIS and OIS
-    databases. Raw data used from these databases and CSV format of final
-    datasets are available in this
-    \href{https://www.dropbox.com/sh/09ygmyw7ds5myz3/AADtdE2LMbDphVwjPzbWNDbRa?dl=0}{Dropbox folder}.
-    The \href{https://www.osha.gov/}{OSHA} (USA's Occupational Safety and Health
-    Administration) hosts the original IMIS and OIS data. The University of
-    Montreal is not the owner of IMIS and OIS data.
+Data about occupational exposure to chemicals from the IMIS and OIS databases. Raw data used from these databases and CSV format of final datasets are available in this \href{https://www.dropbox.com/sh/09ygmyw7ds5myz3/AADtdE2LMbDphVwjPzbWNDbRa?dl=0}{Dropbox folder}. The \href{https://www.osha.gov/}{OSHA} (USA's Occupational Safety and Health Administration) hosts the original IMIS and OIS data. The University of Montreal is not the owner of IMIS and OIS data.
 }
 \details{
 For an organized list of datasets and functions, use
