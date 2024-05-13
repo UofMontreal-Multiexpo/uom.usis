@@ -3,13 +3,13 @@
 \docType{data}
 \name{US_territories}
 \alias{US_territories}
-\title{U.S. territories}
+\title{U.S. territorial divisions}
 \format{
-Character matrix of 56 rows (whose names are territory identifiers)
-and 2 columns:
+Character matrix of 56 rows (whose names are territorial division
+identifiers) and 2 columns:
 \describe{
-\item{\code{name}}{Name of the territory.}
-\item{\code{type}}{Type of the territory.}
+\item{\code{name}}{Name of the territorial division.}
+\item{\code{type}}{Type of the territorial division.}
 }
 }
 \source{
@@ -22,7 +22,7 @@ Available at
 US_territories
 }
 \description{
-States and other inhabited territories of the United States.
-Associate territory identifiers with territory names and types.
+Territorial divisions of the United States.
+Associate territorial division identifiers with names and types.
 }
 \keyword{datasets}

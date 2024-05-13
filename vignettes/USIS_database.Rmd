@@ -188,13 +188,13 @@ flextable(data.frame(Type = levels(USIS_establishments$type))) %>%
 <!-- Page break to prevent the appendix title from being at the bottom of a page -->
 \newpage
 
-## Appendix D: U.S. territory reference table {#appendix-d}
+## Appendix D: U.S. territorial division reference table {#appendix-d}
 
 ```{r}
 flextable(data.frame(ID   = rownames(US_territories),
                      Name = US_territories[, "name"],
                      Type = US_territories[, "type"])) %>%
-  set_caption(caption = "Identifiers, names and types of the inhabited U.S. territories.") %>%
+  set_caption(caption = "Identifiers, names and types of the U.S. territorial divisions.") %>%
   set_table_properties(layout = "autofit")
 ```
 

@@ -103,10 +103,10 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #'        `establishment_id`.}
 #'   \item{`location_id`}{Location identifiers corresponding to establishment
 #'         identifiers from `establishment_id`.}
-#'   \item{`territory_id`}{Territory identifiers corresponding to location
-#'         identifiers from `location_id`.}
-#'   \item{`territory_name`}{Territories corresponding to identifiers from
-#'         `territory_id`.}
+#'   \item{`territory_id`}{Identifiers of the U.S. territorial divisions
+#'         corresponding to location identifiers from `location_id`.}
+#'   \item{`territory_name`}{U.S. territorial divisions corresponding to
+#'         identifiers from `territory_id`.}
 #'   \item{`city`}{Cities corresponding to location identifiers from
 #'         `location_id`.}
 #'   \item{`zip`}{Postal codes corresponding to location identifiers from

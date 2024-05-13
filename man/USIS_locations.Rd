@@ -8,8 +8,8 @@
 Data frame of 18 686 rows (whose names are location identifiers) and
 3 columns:
 \describe{
-\item{\code{territory_id}}{\emph{Factor}. Identifier of the U.S. territory
-corresponding to the location.}
+\item{\code{territory_id}}{\emph{Factor}. Identifier of the U.S. territorial
+division corresponding to the location.}
 \item{\code{city}}{\emph{Character}. City corresponding to the location.}
 \item{\code{zip}}{\emph{Character}. Postal code corresponding to the location.}
 }
@@ -23,11 +23,12 @@ USIS_locations
 }
 \description{
 Locations of the establishments in which inspections were conducted.
-Associate location identifiers with U.S. territories, cities and zip codes.
+Associate location identifiers with U.S. territorial divisions, cities and
+zip codes.
 }
 \details{
 Location identifiers were created for all existing combinations of a
-territory, a city and a postal code.
+U.S. territorial division, a city and a postal code.
 
 Some locations are not associated with any city or with any postal code.
 }

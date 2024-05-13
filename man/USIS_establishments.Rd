@@ -33,7 +33,7 @@ establishment names were computed algorithmically.
 Some establishments are not associated with any location.
 
 Location identifiers were created for all existing combinations of a
-territory, a city and a postal code.
+U.S. territorial division, a city and a postal code.
 
 Some locations are not associated with any city or with any postal code.
 }

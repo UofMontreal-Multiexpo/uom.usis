@@ -48,7 +48,7 @@ The official version of 1980 of the U.S. census occupational classification syst
 
 The official version of 1987 of the U.S. Standard Industrial Classification: [SIC](../html/SIC.html)
 
-The states and other inhabited territories of the United States: [US_territories](../html/US_territories.html)
+The territorial divisions of the United States: [US_territories](../html/US_territories.html)
 
 
 

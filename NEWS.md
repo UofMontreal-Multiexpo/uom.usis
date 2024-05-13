@@ -4,6 +4,7 @@
 
 * In datasets `USIS_inspections` and `USIS_sheets`, columns previously named `number` are now named `inspection_number` and `sheet_number`.
 * In dataset `USIS_locations`, the location identified NA-NA-NA and associated with no territory, no city and no zip has been removed. In dataset `USIS_establishments`, the location ID NA-NA-NA has been replaced by the value `NA`.
+* In dataset `US_territories`, values "Other territory" in column `Type` have been replaced by "Territory".
 * All raw data files are now available in the Dropbox folder (see the package main help page) instead of being split between it and the Github repository.
 
 ## Documentation
@@ -11,6 +12,7 @@
 * The relationships between the numbers of characters of the class identifiers and the hierarchical structures of classifications SIC and NAICS are now mentioned in the help pages of datasets `SIC` and `NAICS`.
 * In dataset help pages, types or classes are now mentioned for all datasets and all columns of data frames (character, numeric, Date, etc.).
 * Dataset help pages now state that establishments can be associated with no locations and that locations can be associated with no cities or zip codes.
+* References to “U.S. territories” have been replaced by “U.S. territorial divisions”.
 * A small space (more specifically, a narrow non-breaking space) is now used instead of a comma as a digit group separator in numbers.
 * Corrections have been applied to the PDF file.
     - Relationship cardinalities have been corrected in figure 1.

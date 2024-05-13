@@ -44,10 +44,10 @@ workplace identifiers from \code{USIS_inspections$workplace_id}.}
 \code{establishment_id}.}
 \item{\code{location_id}}{Location identifiers corresponding to establishment
 identifiers from \code{establishment_id}.}
-\item{\code{territory_id}}{Territory identifiers corresponding to location
-identifiers from \code{location_id}.}
-\item{\code{territory_name}}{Territories corresponding to identifiers from
-\code{territory_id}.}
+\item{\code{territory_id}}{Identifiers of the U.S. territorial divisions
+corresponding to location identifiers from \code{location_id}.}
+\item{\code{territory_name}}{U.S. territorial divisions corresponding to
+identifiers from \code{territory_id}.}
 \item{\code{city}}{Cities corresponding to location identifiers from
 \code{location_id}.}
 \item{\code{zip}}{Postal codes corresponding to location identifiers from

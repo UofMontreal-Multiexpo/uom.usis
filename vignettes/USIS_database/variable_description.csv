@@ -14,7 +14,7 @@
 "establishment_id","Identifier of the establishment inspected.","String",
 "establishment_type","Type of the establishment inspected.","Enumeration","See [appendix C](#appendix-c)."
 "location_id","Identifier of the location of the establishment inspected.","String",
-"territory_id","Identifier of the U.S. territory corresponding to the location.","Enumeration","See [appendix D](#appendix-d)."
+"territory_id","Identifier of the U.S. territorial division corresponding to the location.","Enumeration","See [appendix D](#appendix-d)."
 "city","City corresponding to the location.","String",
 "zip","Postal code corresponding to the location.","String",
 "sic_id","Identifier of the industry, according to the U.S. Standard Industrial Classification of 1987.","String","• Only in IMIS data.

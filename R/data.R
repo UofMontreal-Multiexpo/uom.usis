@@ -103,16 +103,16 @@
 "SIC"
 
 
-#' U.S. territories
+#' U.S. territorial divisions
 #' 
-#' States and other inhabited territories of the United States.
-#' Associate territory identifiers with territory names and types.
+#' Territorial divisions of the United States.
+#' Associate territorial division identifiers with names and types.
 #' 
-#' @format Character matrix of 56 rows (whose names are territory identifiers)
-#'  and 2 columns:
+#' @format Character matrix of 56 rows (whose names are territorial division
+#'  identifiers) and 2 columns:
 #'  \describe{
-#'    \item{`name`}{Name of the territory.}
-#'    \item{`type`}{Type of the territory.}
+#'    \item{`name`}{Name of the territorial division.}
+#'    \item{`type`}{Type of the territorial division.}
 #'  }
 #' @source 
 #'  WIKIPEDIA. *List of states and territories of the United States* \[online\].
@@ -268,7 +268,8 @@
 #' USIS locations
 #' 
 #' Locations of the establishments in which inspections were conducted.
-#' Associate location identifiers with U.S. territories, cities and zip codes.
+#' Associate location identifiers with U.S. territorial divisions, cities and
+#'  zip codes.
 #' 
 #' @template location_identifiers
 #' @template location_NA
@@ -276,8 +277,8 @@
 #' @format Data frame of 18 686 rows (whose names are location identifiers) and
 #'  3 columns:
 #'  \describe{
-#'    \item{`territory_id`}{*Factor*. Identifier of the U.S. territory
-#'          corresponding to the location.}
+#'    \item{`territory_id`}{*Factor*. Identifier of the U.S. territorial
+#'          division corresponding to the location.}
 #'    \item{`city`}{*Character*. City corresponding to the location.}
 #'    \item{`zip`}{*Character*. Postal code corresponding to the location.}
 #'  }
