@@ -248,7 +248,7 @@ id_columns[["USIS_measure_origins"]]     = c(1, 2)
 
 #### 3. Validation and formatting of the datasets ####
 
-##### 3.a. First validation #####
+##### 3.1. First validation #####
 
 cat("First validation...",
     "(Certain invalidities may be corrected by the following formatting instructions.)\n")
@@ -261,7 +261,7 @@ for (name in supplementary_tables) {
 }
 
 
-##### 3.b. Formatting the datasets #####
+##### 3.2. Formatting the datasets #####
 
 # Remove NA keys from the supplementary tables
 for (name in supplementary_tables) {
@@ -297,7 +297,7 @@ for (name in supplementary_tables) {
 }
 
 
-##### 3.c Second validation #####
+##### 3.3. Second validation #####
 
 cat("Second validation... ")
 message("Any following invalid table message must be addressed.")
@@ -370,15 +370,15 @@ for (name in vectorizable_tables) {
 }
 
 # Use primary keys as rownames for tables having more than two columns
-# and remove the related column, if the key is formed by a single column
+# and remove the associated column, if the key is formed by a single column
 for (name in not_vectorizable_tables) {
   
   if (length(id_columns[[name]]) == 1) {
+    
     # rownames(x) <- as.character(x[[1]])
     # x <- x[, -1]
     eval(parse(text = paste0("rownames(", name, ") <- as.character(", name, "[[1]])")))
     eval(parse(text = paste0(name, " <- ", name, "[, -1]")))
-    
   }
   # else {
   #   # Paste columns composing the key and use the result as rownames
