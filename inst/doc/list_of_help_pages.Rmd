@@ -1,10 +1,10 @@
 ---
-title: "List of datasets and functions"
+title: "List of datasets and functions - uom.usis"
 author: "Gauthier Magnin"
 date: "Last update: `r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{List of datasets and functions}
+  %\VignetteIndexEntry{List of datasets and functions - uom.usis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
