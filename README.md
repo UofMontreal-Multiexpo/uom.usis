@@ -48,6 +48,11 @@ In addition to the manuals of the package, data and functions accessible by the 
 These files can be accessed using `help(package = "uom.usis")` then clicking on "User guides, package vignettes and other documentation".
 
 
+## Contact
+
+For any inquiries, you can send an email to Jérôme Lavoué at <jerome.lavoue@umontreal.ca>.
+
+
 ## Authors
 
 * [Gauthier Magnin](https://fr.linkedin.com/in/gauthier-magnin) - R programmer analyst.
