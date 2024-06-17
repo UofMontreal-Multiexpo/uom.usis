@@ -39,7 +39,9 @@ library(uom.usis)
 # Loading data
 variable_description = read.csv("./USIS_database/variable_description.csv",
                                 encoding = "UTF-8")
+```
 
+```{r functions, include=FALSE}
 #' Substrings using a regular expression
 #' 
 #' Extract substrings in a character vector using a regular expression.
@@ -79,7 +81,7 @@ United States Information Systems (USIS) consist of the aggregation of data from
 
 <!-- Plot the image on a new landscape page -->
 \blandscape
-```{r fig.cap="USIS database relational schema.", out.width="100%"}
+```{r schema, fig.cap="USIS database relational schema.", out.width="100%"}
 # The caption does not appear if option out.width is not given
 include_svg("USIS_database/USIS_relational_schema")
 ```
@@ -92,7 +94,7 @@ landscape(kable(data.frame(A = 1:5, B = 1:5), "latex"))
 ```
 -->
 
-```{r}
+```{r main-table}
 # Regular expressions defining hyperlinks
 regex_text = "\\[.*\\]"
 regex_link = "\\(.*\\)"
@@ -109,11 +111,13 @@ links = substr(links, 2, nchar(links) - 1)
 # Create and display the table
 flextable(variable_description) %>%
   set_caption(caption = "Description of USIS main fields.") %>%
+  
   # Use width() because set_table_properties(layout = "autofit") results in overflow
   width(1, unit = "cm", width = 3.36) %>%
   width(2, unit = "cm", width = 5.4 ) %>%
   width(3, unit = "cm", width = 2.15) %>%
   width(4, unit = "cm", width = 4.49) %>%
+  
   # Interpret hyperlinks
   compose(i = has_link, j = 4,
           value = as_paragraph(
@@ -129,7 +133,7 @@ flextable(variable_description) %>%
 
 ## Appendix A: Inspection type reference table {#appendix-a}
 
-```{r}
+```{r table-inspection-types}
 flextable(data.frame(ID       = rownames(USIS_inspection_types),
                      Name     = USIS_inspection_types[, "name"],
                      Schedule = USIS_inspection_types[, "schedule"])) %>%
@@ -142,7 +146,7 @@ Inspection types C1, L1 and L2 are sub-categories of types C and L only used in 
 
 ## Appendix B: Inspection scope reference table {#appendix-b}
 
-```{r}
+```{r table-inspection-scopes}
 flextable(data.frame(ID   = names(USIS_scopes),
                      Name = USIS_scopes)) %>%
   set_caption(caption = "Identifiers and names of the scopes of inspections.") %>%
@@ -162,7 +166,7 @@ flextable(data.frame(ID   = names(USIS_scopes),
 \ \linebreak
 
 Table 4: \standardfontsize Types of the agencies conducting inspections.
-```{r}
+```{r table-agency-types}
 flextable(data.frame(Type = levels(USIS_agencies))) %>%
   set_table_properties(layout = "autofit")
 ```
@@ -177,7 +181,7 @@ flextable(data.frame(Type = levels(USIS_agencies))) %>%
 \ \linebreak
 
 Table 5: \standardfontsize Types of the establishments inspected.
-```{r}
+```{r table-establishment-types}
 flextable(data.frame(Type = levels(USIS_establishments$type))) %>%
   set_table_properties(layout = "autofit")
 ```
@@ -190,7 +194,7 @@ flextable(data.frame(Type = levels(USIS_establishments$type))) %>%
 
 ## Appendix D: U.S. territorial division reference table {#appendix-d}
 
-```{r}
+```{r table-territories}
 flextable(data.frame(ID   = rownames(US_territories),
                      Name = US_territories[, "name"],
                      Type = US_territories[, "type"])) %>%
@@ -210,7 +214,7 @@ flextable(data.frame(ID   = rownames(US_territories),
 \ \linebreak
 
 Table 7: \standardfontsize Units of the exposure durations.
-```{r}
+```{r table-duration-units}
 flextable(data.frame(Unit = levels(USIS_sheets$duration_unit))) %>%
   set_table_properties(layout = "autofit")
 ```
@@ -225,7 +229,7 @@ flextable(data.frame(Unit = levels(USIS_sheets$duration_unit))) %>%
 \ \linebreak
 
 Table 8: \standardfontsize Identifiers and names of the units of measured exposure levels.
-```{r}
+```{r table-measure-units}
 flextable(data.frame(ID   = names(USIS_measure_units),
                      Name = USIS_measure_units)) %>%
   set_table_properties(layout = "autofit")
@@ -241,7 +245,7 @@ flextable(data.frame(ID   = names(USIS_measure_units),
 \ \linebreak
 
 Table 9: \standardfontsize Identifiers and names of the types of samples taken.
-```{r}
+```{r table-sample-types}
 flextable(data.frame(ID   = names(USIS_sample_types),
                      Name = USIS_sample_types)) %>%
   set_table_properties(layout = "autofit")
@@ -257,7 +261,7 @@ flextable(data.frame(ID   = names(USIS_sample_types),
 \ \linebreak
 
 Table 10: \standardfontsize Identifiers and names of the types of reported exposures.
-```{r}
+```{r table-exposure-types}
 flextable(data.frame(ID   = names(USIS_exposure_types),
                      Name = USIS_exposure_types)) %>%
   set_table_properties(layout = "autofit")
@@ -271,7 +275,7 @@ flextable(data.frame(ID   = names(USIS_exposure_types),
 
 ## Appendix G: Substance reference table {#appendix-g}
 
-```{r}
+```{r table-substances}
 flextable(data.frame(ID = names(USIS_substances),
                      Name = USIS_substances)) %>%
   set_caption(caption = "Identifiers and names of the sampled substances.") %>%
