@@ -37,8 +37,8 @@ library(magrittr)
 library(uom.usis)
 
 # Loading data
-variable_description = read.csv("./USIS_database/variable_description.csv",
-                                encoding = "UTF-8")
+field_description = read.csv("./USIS_database/field_description.csv",
+                             encoding = "UTF-8")
 ```
 
 ```{r functions, include=FALSE}
@@ -100,16 +100,16 @@ regex_text = "\\[.*\\]"
 regex_link = "\\(.*\\)"
 regex = paste0(regex_text, regex_link)
 
-# Find substrings to interpret as hyperlinks in the variable description table
-has_link = which(grepl(regex, variable_description$Comments))
-surroundings = strsplit(variable_description$Comments[has_link], regex)
-text = substr_using_regex(variable_description$Comments, regex_text)
+# Find substrings to interpret as hyperlinks in the field description table
+has_link = which(grepl(regex, field_description$Comments))
+surroundings = strsplit(field_description$Comments[has_link], regex)
+text = substr_using_regex(field_description$Comments, regex_text)
 text = substr(text, 2, nchar(text) - 1)
-links = substr_using_regex(variable_description$Comments, regex_link)
+links = substr_using_regex(field_description$Comments, regex_link)
 links = substr(links, 2, nchar(links) - 1)
 
 # Create and display the table
-flextable(variable_description) %>%
+flextable(field_description) %>%
   set_caption(caption = "Description of USIS main fields.") %>%
   
   # Use width() because set_table_properties(layout = "autofit") results in overflow
