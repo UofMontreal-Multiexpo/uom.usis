@@ -396,7 +396,7 @@ get_original_db = function(measure_id = NULL) {
 #' 
 get_establishment_names = function(estab_id = NULL, as_vector = TRUE) {
   
-  # Set identifiers if no one was given and associated rows in the establishment name reference table
+  # Set identifiers if none is given and associated rows in the establishment name reference table
   if (is.null(estab_id)) {
     estab_id = rownames(uom.usis::USIS_establishments)
     rows = TRUE
@@ -444,7 +444,7 @@ get_establishment_names = function(estab_id = NULL, as_vector = TRUE) {
 #' 
 get_origins = function(measure_id = NULL) {
   
-  # Set identifiers if no one was given
+  # Set identifiers if none is given
   if (is.null(measure_id)) {
     measure_id = as.integer(rownames(uom.usis::USIS_measures))
   } else {

@@ -142,7 +142,7 @@ test_that("get_establishment_names extracts names of the given establishments", 
 })
 
 test_that("get_establishment_names extracts names of all establishments if none is given", {
-  # Note: this test assumes that there is more than on establishment in the database
+  # Note: this test assumes that there is more than one establishment in the database
   result = get_establishment_names()
   
   # Only compare the numbers of values obtained and expected
