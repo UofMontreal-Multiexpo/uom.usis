@@ -29,8 +29,8 @@ schedules.
 }
 \details{
 Inspection type identifiers C1, L1 and L2 were created because their
-corresponding types are only used in OIS data and type identifiers does not
-exist in OIS data. These are sub-categories of types C and L.
+corresponding types are only used in OIS data and type identifiers were not
+used in the initial OIS data. These are sub-categories of types C and L.
 Such inspections may exist in IMIS data but are labeled C and L.
 
 Inspection types A and M may have been confused in some data.
