@@ -17,7 +17,7 @@ join_OIS(estab_names = FALSE)
 in the join.}
 }
 \value{
-A single data frame combining all tables from the package. Its row
+A single data frame combining all datasets from the package. Its row
 names are measure identifiers.
 }
 \description{

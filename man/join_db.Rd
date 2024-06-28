@@ -14,7 +14,7 @@ Character corresponding to \code{DB_IMIS}, \code{DB_OIS} or \code{DB_USIS}.}
 in the join.}
 }
 \value{
-A single data frame combining all tables from the package. Its row
+A single data frame combining all datasets from the package. Its row
 names are measure identifiers.
 }
 \description{

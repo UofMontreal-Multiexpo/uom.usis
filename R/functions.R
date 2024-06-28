@@ -153,7 +153,7 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #'  Character corresponding to `DB_IMIS`, `DB_OIS` or `DB_USIS`.
 #' @param estab_names `TRUE` or `FALSE` whether to include establishment names
 #'  in the join.
-#' @return A single data frame combining all tables from the package. Its row
+#' @return A single data frame combining all datasets from the package. Its row
 #'  names are measure identifiers.
 #' 
 #' @author Gauthier Magnin
