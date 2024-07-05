@@ -357,7 +357,7 @@ for (name in c(internal_datasets, "USIS_data")) {
 #### 5. Simplify the tables ####
 
 # Distinguish tables having two columns from those having more than two
-is_vectorizable = sapply(dataset_names,
+is_vectorizable = sapply(exported_datasets,
                          function(name) ncol(get(name)) == 2 && length(id_columns[[name]]) == 1)
 not_vectorizable_tables = names(which(!is_vectorizable))
 vectorizable_tables = names(which(is_vectorizable))
@@ -394,7 +394,7 @@ for (name in not_vectorizable_tables) {
 }
 
 # Turn data frames into matrices if all their columns have the same type
-for (name in not_vectorizable_tables) {
+for (name in c(not_vectorizable_tables, internal_datasets)) {
   if (length(unique(sapply(get(name), class))) == 1) {
     
     # x <- as.matrix(x)
@@ -455,6 +455,8 @@ amount_of_data = c(
   initial = prod(dim(USIS_data)),
   final   = sum(sapply(not_vectorizable_tables,
                        function(name) prod(dim(get(name)) + c(0, 1))),
+                sapply(internal_datasets,
+                       function(name) prod(dim(get(name)))),
                 sapply(vectorizable_tables,
                        function(name) length(get(name)) * 2))
 )
