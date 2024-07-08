@@ -436,7 +436,8 @@ weight_env["difference"] = weight_env["final"] - weight_env["initial"]
 
 weight_rd = c(
   initial = file.size("./tmp/USIS_data.RDS"),
-  final   = sum(file.size(list.files("./data/", full.names = TRUE, pattern = "*.RData")))
+  final   = sum(file.size(list.files("./data/", full.names = TRUE, pattern = "*.RData")),
+                file.size("./R/sysdata.rda"))
 )
 weight_rd["difference"] = weight_rd["final"] - weight_rd["initial"]
 
