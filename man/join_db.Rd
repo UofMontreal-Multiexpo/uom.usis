@@ -25,8 +25,8 @@ the corresponding values from the other datasets (\code{OCC}, \code{USIS_agencie
 \code{USIS_establishments}, etc.).
 }
 \details{
-Regarding the datasets \code{USIS_inspections}, \code{USIS_sheets} and \code{USIS_measures},
-additional columns are the following.
+Regarding the datasets \code{\link{USIS_inspections}}, \code{\link{USIS_sheets}} and
+\code{\link{USIS_measures}}, additional columns are the following.
 \describe{
 \item{\code{inspection_type_name}}{Inspection types corresponding to
 identifiers from \code{USIS_inspections$inspection_type_id}.}

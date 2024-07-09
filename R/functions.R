@@ -89,8 +89,8 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #'  `USIS_establishments`, etc.).
 #' 
 #' @details
-#' Regarding the datasets `USIS_inspections`, `USIS_sheets` and `USIS_measures`,
-#'  additional columns are the following.
+#' Regarding the datasets [`USIS_inspections`], [`USIS_sheets`] and
+#'  [`USIS_measures`], additional columns are the following.
 #' \describe{
 #'   \item{`inspection_type_name`}{Inspection types corresponding to
 #'         identifiers from `USIS_inspections$inspection_type_id`.}
