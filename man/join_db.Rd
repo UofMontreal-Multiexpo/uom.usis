@@ -71,18 +71,18 @@ from \code{USIS_measures$exposure_type_id}.}
 }
 
 An additional list column named \code{establishment_names} containing
-establishment names corresponding to establishment identifiers from
+establishment names corresponding to establishment identifiers from column
 \code{establishment_id} is added after this column if argument \code{estab_names} is
 \code{TRUE}.
 If so, the memory usage of the resulting object increases significantly.
 
 Certain data are not included in the resulting object:
 \itemize{
-\item \code{division} from \code{SIC};
-\item \code{type} from \code{US_territories};
-\item \code{schedule} from \code{USIS_inspections_types}; and
+\item \code{division} from dataset \code{SIC};
+\item \code{type} from dataset \code{US_territories};
+\item \code{schedule} from dataset \code{USIS_inspections_types}; and
 \item \code{category_level_1}, \code{category_level_2}, \code{category_level_3} and
-\code{category_level_4} from \code{OCC}.
+\code{category_level_4} from dataset \code{OCC}.
 }
 }
 \note{

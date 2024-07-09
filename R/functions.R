@@ -135,17 +135,17 @@ join_OIS  = function(estab_names = FALSE) { join_db(DB_OIS,  estab_names) }
 #' }
 #' 
 #' An additional list column named `establishment_names` containing
-#'  establishment names corresponding to establishment identifiers from
+#'  establishment names corresponding to establishment identifiers from column
 #'  `establishment_id` is added after this column if argument `estab_names` is
 #'  `TRUE`.
 #' If so, the memory usage of the resulting object increases significantly.
 #' 
 #' Certain data are not included in the resulting object:
-#'  * `division` from `SIC`;
-#'  * `type` from `US_territories`;
-#'  * `schedule` from `USIS_inspections_types`; and
+#'  * `division` from dataset `SIC`;
+#'  * `type` from dataset `US_territories`;
+#'  * `schedule` from dataset `USIS_inspections_types`; and
 #'  * `category_level_1`, `category_level_2`, `category_level_3` and
-#'    `category_level_4` from `OCC`.
+#'    `category_level_4` from dataset `OCC`.
 #' 
 #' @template function_not_exported
 #' 
