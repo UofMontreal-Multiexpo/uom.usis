@@ -12,7 +12,7 @@
 * The relationships between the numbers of characters of the class identifiers and the hierarchical structures of classifications SIC and NAICS are now mentioned in the help pages of datasets `SIC` and `NAICS`.
 * In dataset help pages, types or classes are now mentioned for all datasets and all columns of data frames (character, numeric, Date, etc.).
 * Dataset help pages now state that establishments can be associated with no locations and that locations can be associated with no cities or zip codes.
-* References to “U.S. territories” have been replaced by “U.S. territorial divisions”.
+* References to "U.S. territories" have been replaced by "U.S. territorial divisions".
 * A small space (more specifically, a narrow non-breaking space) is now used instead of a comma as a digit group separator in numbers.
 * The title of the vignette named "List of datasets and functions" now specifies the name of the package.
 * Corrections have been applied to the PDF file.
